@@ -53,7 +53,7 @@ const createNewProduct = (req, res) => {
     name = COALESCE($2, name),
     price = COALESCE($3,price),
     image = COALESCE($4,image),
-    description = COALESCE($5,description) WHERE id=$3 AND is_deleted = 0  RETURNING *;`;
+    description = COALESCE($5,description) WHERE id=$6 AND is_deleted = 0  RETURNING *;`;
     const data = [category || null, 
         name || null,
         price || null,
@@ -75,6 +75,7 @@ const createNewProduct = (req, res) => {
         }
       })
       .catch((err) => {
+        console.log(err.massage);
         res.status(500).json({
           success: false,
           massage: "Server Error",
