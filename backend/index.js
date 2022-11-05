@@ -9,7 +9,8 @@ app.use(express.json());
 
 //================= Anas ==================== //
 
-
+const RoleRouter = require("./Routes/role") 
+app.use("/roles",RoleRouter)
 
 
 
