@@ -24,6 +24,26 @@ const createNewProduct = (req, res) => {
       });
   };
 
+//create function getAllProduct
+  const getAllProduct = (req, res) => {
+    const query = `SELECT * FROM products  WHERE is_deleted=0 ORDER BY 1;`;
+    pool.query(query)
+      .then((result) => {
+        res.status(200).json({
+          success: true,
+          massage: "All the products",
+          result: result.rows,
+         
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "server error",
+          err: err,
+        });
+      });
+  };
 
 
 
@@ -43,8 +63,7 @@ const createNewProduct = (req, res) => {
 
 
 
-
-  
   module.exports={
-    createNewProduct
+    createNewProduct,
+    getAllProduct
   };
