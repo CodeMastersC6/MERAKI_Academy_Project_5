@@ -45,6 +45,43 @@ const createNewProduct = (req, res) => {
       });
   };
 
+  const updateProductById = (req, res) => {
+    const id = req.params.id;
+    let { category , name , price ,image,description } = req.body;
+  
+    const query = `UPDATE products SET category = COALESCE($1,category),
+    name = COALESCE($2, name),
+    price = COALESCE($3,price),
+    image = COALESCE($4,image),
+    description = COALESCE($5,description) WHERE id=$3 AND is_deleted = 0  RETURNING *;`;
+    const data = [category || null, 
+        name || null,
+        price || null,
+        image || null,
+        description || null, id];
+    pool.query(query, data)
+      .then((result) => {
+        if (result.rows.length === 0) {
+          return res.status(404).json({
+            success: false,
+            massage: `The products: ${id} is not found`,
+          });
+        } else {
+          res.status(200).json({
+            success: true,
+            massage: `Succeeded to updated products with id: ${id}`,
+            result: result.rows[0],
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "Server Error",
+          err: err,
+        });
+      });
+  };
 
 
 
@@ -65,5 +102,6 @@ const createNewProduct = (req, res) => {
 
   module.exports={
     createNewProduct,
-    getAllProduct
+    getAllProduct,
+    updateProductById
   };
