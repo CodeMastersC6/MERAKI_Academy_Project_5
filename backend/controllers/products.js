@@ -44,7 +44,7 @@ const createNewProduct = (req, res) => {
         });
       });
   };
-
+//create function updateProductById
   const updateProductById = (req, res) => {
     const id = req.params.id;
     let { category , name , price ,image,description } = req.body;
@@ -83,6 +83,7 @@ const createNewProduct = (req, res) => {
         });
       });
   };
+  //create function deleteProductById
   const deleteProductById = (req, res) => {
     const id = req.params.id;
     const query = `UPDATE products SET is_deleted=1 WHERE id=$1;`;
