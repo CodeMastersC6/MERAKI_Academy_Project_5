@@ -21,7 +21,7 @@ const register = async (req, res) => {
       encryptedPassword,
       role_id,
     ];
-    const query = `INSERT INTO users (firstName, lastName, Location, mobile, email, password, role_id) VALUES ($1,$2,$3,$4,$5,$6,$7)`;
+    const query = `INSERT INTO users (firstName, lastName, Location, mobile, email, password, role_id) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`;
     
     pool
       .query(query, data)
