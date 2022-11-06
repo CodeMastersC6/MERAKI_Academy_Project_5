@@ -38,8 +38,8 @@ app.use("/product", productRouter);
 
 
 //================= Abdullah ==================== //
-
-
+const cartRouter = require("./routes/cart");
+app.use("/cart", cartRouter);
 
 
 
