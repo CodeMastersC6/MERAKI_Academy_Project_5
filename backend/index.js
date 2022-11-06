@@ -22,6 +22,8 @@ app.use("/roles",RoleRouter)
 
 
 //================= Asfour ==================== //
+const productRouter = require("./routes/products");
+app.use("/product", productRouter);
 
 
 
