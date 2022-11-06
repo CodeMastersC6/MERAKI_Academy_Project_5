@@ -4,7 +4,7 @@ const createNewRole = (req, res) => {
   const { role } = req.body;
   const data = [role];
 
-  const query = `INSERT INTO roles (role) VALUES ($1)`;
+  const query = `INSERT INTO roles (role) VALUES ($1) RETURNING *`;
   pool.query(query, data)
     .then((result) => {
       res.status(201).json({

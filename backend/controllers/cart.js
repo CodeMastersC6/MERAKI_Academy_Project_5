@@ -1,6 +1,6 @@
 const {pool} = require("../models/db");
 const getAllCarts = (req, res) => {
-  const query = `SELECT * FROM carts  WHERE is_deleted=0 ORDER BY 1;`;
+  const query = `SELECT * FROM cart INNER JOIN products ON products.id=cart.product_id INNER JOIN users ON users.id=cart.user_id WHERE cart.is_deleted=0;`;
   pool
     .query(query)
     .then((result) => {
@@ -8,7 +8,7 @@ const getAllCarts = (req, res) => {
         success: true,
         massage: "All the Carts",
         result: result.rows,
-        userId: req.token.userId,
+        // userId: req.token.userId,    /* from token*/
       });
     })
     .catch((err) => {
@@ -21,8 +21,8 @@ const getAllCarts = (req, res) => {
 };
 
 const getCartsByUser = (req, res) => {
-  const user_id = req.query.userId;
-  const query = `SELECT * FROM carts WHERE user_id = $1 AND is_deleted=0;`;
+  const user_id = req.params.userId; /* from token */
+  const query =  `SELECT * FROM cart INNER JOIN products ON products.id=cart.product_id INNER JOIN users ON users.id=cart.user_id WHERE cart.user_id = $1 AND cart.is_deleted=0;`
   const data = [user_id];
 
   pool
@@ -52,8 +52,8 @@ const getCartsByUser = (req, res) => {
 
 const createNewCart = (req, res) => {
   const { product_id, notes,quantity,created_at } = req.body;
-  const user_id = req.token.userId;
-  // const {user_id} = req.body; for test only 
+  // const user_id = req.token.userId;
+  const {user_id} = req.body; /*for test only*/ 
 
   const query = `INSERT INTO cart (product_id, notes,quantity,created_at,user_id) VALUES ($1,$2,$3,$4,$5) RETURNING *;`;
   const data = [product_id, notes,quantity,created_at,user_id];
@@ -76,10 +76,10 @@ const createNewCart = (req, res) => {
 };
 
 const updateCartById = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id;  
   let { notes,quantity } = req.body;
 
-  const query = `UPDATE carts SET title = COALESCE($1,title), description = COALESCE($2, description) WHERE id=$3 AND is_deleted = 0  RETURNING *;`;
+  const query = `UPDATE cart SET notes = COALESCE($1,notes), quantity = COALESCE($2, quantity) WHERE id=$3 AND is_deleted = 0  RETURNING *;`;
   const data = [notes || null, quantity || null, id];
   pool
     .query(query, data)
@@ -109,7 +109,7 @@ const updateCartById = (req, res) => {
 
 const deleteCartById = (req, res) => {
   const id = req.params.id;
-  const query = `UPDATE carts SET is_deleted=1 WHERE id=$1;`;
+  const query = `UPDATE cart SET is_deleted=1 WHERE id=$1 RETURNING *;`;
   const data = [id];
   pool
     .query(query, data)

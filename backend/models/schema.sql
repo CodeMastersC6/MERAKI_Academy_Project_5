@@ -30,7 +30,7 @@ id SERIAL ,
   mobile INT,
   role_id INT,
   is_deleted SMALLINT DEFAULT 0,
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW(),
   FOREIGN KEY (role_id) REFERENCES roles(id),
   PRIMARY KEY (id)
   );
@@ -43,7 +43,7 @@ id SERIAL ,
   image TEXT,
   description TEXT,
   is_deleted SMALLINT DEFAULT 0,
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW(),
   PRIMARY KEY (id)
   );
 
@@ -54,7 +54,7 @@ product_id INT,
   notes VARCHAR(255),
   quantity INT,
   is_deleted SMALLINT DEFAULT 0,
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW(),
   PRIMARY KEY (id), 
   FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (product_id) REFERENCES products(id)
