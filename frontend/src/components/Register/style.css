@@ -1,0 +1,11 @@
+.Form{
+    display: grid;
+    justify-content: center;
+    position: relative;
+    top: 200px;
+}
+.input_register{
+    width: 200px;
+    height: 20px;
+    margin-top: 10px;
+}
