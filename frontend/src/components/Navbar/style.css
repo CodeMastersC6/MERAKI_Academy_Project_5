@@ -1,0 +1,58 @@
+.NavBar {
+
+}
+
+.Navbar_Link{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 120px;
+  position:sticky;
+}
+
+.Link {
+  margin-right: 40px;
+
+}
+
+.logout {
+  background-color: white;
+  text-decoration: underline;
+  color: purple;
+  width: fit-content;
+  font-size: 18px;
+  font-family: "Segoe UI";
+}
+
+.black_header{
+  height: 80px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+align-items: center;}
+
+
+.logo{
+  height: 65px;
+  width: 110px;
+}
+
+.searchBar{
+  height: 35px;
+  width: 300px;
+  border-radius: 15px;
+  border: 1px solid rgb(212, 212, 212);
+}
+
+.search_Button{
+  height: 35px;
+  width: 40px;
+
+background-color: black;
+color: white;
+border-radius: 50px;
+}

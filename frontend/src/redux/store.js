@@ -5,8 +5,8 @@ import productReducer from "./reducer/product"
 export default configureStore({
   reducer: {
 
-    /*Anas*/
-auth:authReducer,
+    /*Anas line 8*/
+// auth:authReducer,
 
 
 
@@ -16,7 +16,7 @@ auth:authReducer,
 
 
 
-/*Asfour*/
+/*Asfour line 19 */
 
 
 
@@ -28,7 +28,7 @@ auth:authReducer,
 
 
 
-/*Abdullah*/
+/*Abdullah line 31*/
 
 
 
