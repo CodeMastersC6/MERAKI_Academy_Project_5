@@ -1,109 +1,51 @@
-import React, { useContext, useState } from "react";
-import "./style.css";
-import axios from "axios";
+import React from "react";
+import {BsWhatsapp} from 'react-icons/bs'
+import {AiFillFacebook} from 'react-icons/ai'
+import {AiOutlineTwitter} from 'react-icons/ai'
+import {FaSnapchat} from 'react-icons/fa'
+import {AiFillInstagram} from 'react-icons/ai'
+import {FaCcVisa} from 'react-icons/fa'
+import {SiMastercard} from 'react-icons/si'
+import {SlPaypal} from 'react-icons/sl'
+import{CiDeliveryTruck} from 'react-icons/ci'
+import{BsCashCoin} from 'react-icons/bs'
+import{HiOutlineStatusOnline} from 'react-icons/hi'
+import "./style.css"
+const Footer = () => {
+    return (
+        <React.Fragment>
+        <div className="about_register">
+            <p><img className="about_register1" src="https://cdn-icons-png.flaticon.com/512/2833/2833318.png"></img><span className="span_about">Free Delivery</span></p>
+            <p ><img className="about_register1" src="https://m.economictimes.com/thumb/msid-83058184,width-1200,height-900,resizemode-4,imgsize-47252/cod-istock.jpg"></img><span className="span_about">Cash On Delivery</span></p>
+            <p><img  className="about_register1"src="https://cdn-icons-png.flaticon.com/512/1304/1304032.png"></img><span className="span_about">Online Support</span></p>
+        </div>
+        <div className="about_register">
+            <p><img className="about_register1" src="https://cdn-icons-png.flaticon.com/512/2833/2833318.png"></img><span className="span_about">Lorem Ipsum, You Need To Be Amet EmbarrassingPassage Of Lorem Ipsum, You Need To Be Amet Embarrassin</span></p>
+            <p ><img className="about_register1" src="https://m.economictimes.com/thumb/msid-83058184,width-1200,height-900,resizemode-4,imgsize-47252/cod-istock.jpg"></img><span className="span_about">38 block street arean licard
+hamonia road sydney, australia</span></p>
+            <p><img  className="about_register1"src="https://cdn-icons-png.flaticon.com/512/1304/1304032.png"></img><span className="span_about">(+800) 1234 5678 90
+support@veginafood.com</span></p>
+        </div>
+      <footer className="footer">
+    <p className="copyright">
 
-
-
-// =================================================================
-
-const Register = () => {
-//   const { isLoggedIn } = useContext(AuthContext);
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [Location, setLocation] = useState("");
-  const [mobile, setMobile] = useState(0);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const role_id = 1;
-  //create state message to show err in request on client side
-  const [message, setMessage] = useState("");
-  ////create state message to show result in request on client side
-  const [message1, setMessage1] = useState("");
-  //create state "status" to show message or message1
-  const [status, setStatus] = useState(false);
-
-  // =================================================================
-
-  const addNewUser =  () => {
-    
-       axios.post("http://localhost:5000/register", {
-        firstName,
-        lastName,
-        Location,
-        mobile,
-        email,
-        password,
-        role_id,
-      })
-      .then((result)=>{
-        console.log(result)
-        setMessage1(result.data.massage)
-        setStatus(false)
-      })
-      .catch((err)=>{
-        setStatus(true)
-        setMessage(err.response.data.massage)
-        console.log(message)
-        console.log(err)
-      })
-      
-  };
-
-  // =================================================================
-
-  return (
-    <>
-      <div className="Form">
-      <p className="Title">Register</p>
-            <form >
-              <br />
-              <input className="input_register"
-                type="text"
-                placeholder="First Name"
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              <br />
-              <input className="input_register"
-                type="text"
-                placeholder="Last Name"
-                onChange={(e) => setLastName(e.target.value)}
-              />
-              <br />
-              <input className="input_register"
-                type="test"
-                placeholder="locaion"
-                onChange={(e) => setLocation(e.target.value)}
-              />
-              <br />
-              <input className="input_register"
-                type="number"
-                placeholder="mobile"
-                onChange={(e) => setMobile(e.target.value)}
-              />
-              <br />
-              <input className="input_register"
-                type="email"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <br />
-              <input className="input_register"
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <br />
-              <p>
-             { status ? message:message1}
-
-              </p>
-              <button onClick={addNewUser}>Register</button>
-              <br />
-            </form>
-      </div>
-    </>
+    Copyright @ 2022 spacingtech all rights reserved
+    </p>
+    <div className="facebook_icons">
+        <BsWhatsapp></BsWhatsapp>
+        <AiFillFacebook></AiFillFacebook>
+        <AiOutlineTwitter></AiOutlineTwitter>
+        <FaSnapchat></FaSnapchat>
+        <AiFillInstagram></AiFillInstagram>
+    </div>
+    <div className="master_card">
+<FaCcVisa></FaCcVisa>
+<SiMastercard></SiMastercard>
+<SlPaypal></SlPaypal>
+</div>
+     
+  </footer>
+  </React.Fragment>
   );
 };
-
-export default Register;
+export default Footer;
