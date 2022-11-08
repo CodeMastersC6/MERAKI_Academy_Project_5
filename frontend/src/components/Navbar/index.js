@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./style.css";
 // import { setLogout } from "../../redux/reducer/auth";
 // import { AuthContext } from "../../contexts/authContext";
@@ -11,6 +12,23 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const [isLoggedIn,setIsLoggedIn] = useState(true);
   const [user, setUser] = useState("Ahmad");
+
+
+  // const getProductsBySearch = () => {
+
+  //   axios
+  //     .get(
+  //       `http://localhost:5000/product`,
+  //             )
+  //     .then((result) => {
+  //       setMessage("Success");
+  //       setProducts(result.data.result);
+  //     })
+  //     .catch((err) => {
+  //       setMessage(err.response.data.message);
+  //     });
+  // };
+
 
 
   // const { logout, setLogout } = useContext(true);
