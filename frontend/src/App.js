@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
-//====== Anas=========//
+// ====== Anas=========//
 
 
 
@@ -25,6 +25,8 @@ import { Route, Routes } from "react-router-dom";
 
 
 //====== Abdullah =========//
+import Navigation from "./components/Navbar";
+import Home from "./components/Home"
 
 
 
@@ -34,16 +36,14 @@ import { Route, Routes } from "react-router-dom";
 
 
 
-
-
-
+{/* //====== end =========// line 39*/}
 function App() {
   return (
 
   <div className="App">
-  {/* <Navigation /> */}
+  <Navigation />
   <Routes>
-  {/* //====== Anas=========// */}
+  {/* //====== Anas=========// line 46*/}
 
 
 
@@ -52,7 +52,7 @@ function App() {
 
 
 
-{/* //====== Asfour=========// */}
+{/* //====== Asfour=========// line 55 */}
 
 
 
@@ -61,15 +61,15 @@ function App() {
 
 
 
-{/* //====== Abdullah =========// */}
+{/* //====== Abdullah =========// line 64*/}
+<Route path={"/"} element={<Home />} />
 
 
 
 
 
 
-
-
+{/* //====== end =========// line 64*/}
   </Routes>
 
   </div>
