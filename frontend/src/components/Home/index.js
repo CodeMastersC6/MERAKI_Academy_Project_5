@@ -8,6 +8,7 @@ import axios from "axios";
 //===============================================================
 
 const Home = () => {
+
   const [message, setMessage] =useState("")
   // const { token, userId } = useContext(AuthContext);
   const [products, setProducts] = useState([
@@ -80,9 +81,11 @@ const Home = () => {
     getAllProducts();
    },[]);
 
+
   //===============================================================
 
   return (
+
     <>
       <div className="categorys">
       <div className="category" onClick={(e)=>{
@@ -123,6 +126,7 @@ const Home = () => {
       
       </div>
     </>
+
   );
 };
 

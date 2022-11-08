@@ -1,0 +1,21 @@
+.contact_left{
+
+    display: grid;
+    justify-content: center;
+}
+.Contact_right{
+    display: grid;
+    justify-content: end;
+}
+/* .contect_P{
+    width: 100px;
+} */
+.parent_contect{
+    display: grid;
+    justify-content: center;
+}
+.tow_contect{
+    display: grid;
+    grid-template-columns: repeat(2,600px);
+    justify-content: center;
+}

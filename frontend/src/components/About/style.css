@@ -1,0 +1,7 @@
+.about_main{
+    display: grid;
+    justify-content: center;
+}
+.p_first{
+    width: 200px;
+}

@@ -1,0 +1,10 @@
+.login_main{
+    display: grid;
+    justify-content: center;
+    justify-items: start;
+    row-gap: 10px;
+}
+.message_response{
+    overflow: hidden;
+    width: 150px;
+}

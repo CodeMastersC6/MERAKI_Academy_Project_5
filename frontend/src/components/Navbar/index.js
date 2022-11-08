@@ -13,6 +13,7 @@ const NavBar = () => {
   const [isLoggedIn,setIsLoggedIn] = useState(true);
   const [user, setUser] = useState("Ahmad");
 
+
   // const getProductsBySearch = () => {
 
   //   axios
@@ -27,6 +28,9 @@ const NavBar = () => {
   //       setMessage(err.response.data.message);
   //     });
   // };
+
+
+
   // const { logout, setLogout } = useContext(true);
   // const { isLoggedIn } = useSelector((state) => {
   //   return {
