@@ -112,27 +112,32 @@ const createNewProduct = (req, res) => {
         });
       });
   };
+  
+const getProductsByCategory = (req, res) => {
+  const category = req.params.category;
+  const data = [category];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const query = `SELECT * FROM products  WHERE is_deleted=0 AND category=$1 ORDER BY 1;`;
+  pool.query(query,data)
+    .then((result) => {
+      res.status(200).json({
+        success: true,
+        massage: "All the products",
+        result: result.rows,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    });
+};
   module.exports={
     createNewProduct,
     getAllProduct,
     updateProductById,
-    deleteProductById
+    deleteProductById,
+    getProductsByCategory
   };
