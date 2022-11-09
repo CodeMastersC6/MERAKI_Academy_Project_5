@@ -1,0 +1,68 @@
+.main_payment{
+    display: grid;
+    justify-content: center;
+    border-right: 2px solid black;
+    width: 800px;
+}
+
+.div_payment{
+    display: grid;
+    grid-template-columns: repeat(4,190px);
+    position: relative;
+    right: 160px;
+}
+.input_width{
+    width: 20px;
+    position: relative;
+    left: 150px;
+}
+.payment_div_detials{
+    display: grid;
+    grid-template-columns: repeat(2,220px);
+    
+    
+}
+
+.details_payment{
+    display: grid;
+    justify-content: start;
+    row-gap: 10px;
+    
+}
+.div_payment1{
+    display: grid;
+    justify-content: start;
+    row-gap: 10px;
+    grid-template-columns: repeat(2,200px);
+    position: relative;
+    right: 160px;
+
+}
+.input_width1{
+    width: 20px;
+    position: relative;
+    left: 150px;
+}
+.payment_go{
+    width: 80px;
+    float: right;
+}
+.details_card_one{
+    display: grid;
+    grid-template-columns: repeat(2,100px);
+    border-bottom: 2px solid black;
+
+
+}
+.left_details_card{
+    display: grid;
+    row-gap: 50px;
+    float: right;
+    position: relative;
+    bottom: 500px;
+    right: 300px;
+
+}
+.main_main_main{
+    font-size: 20px;
+}
