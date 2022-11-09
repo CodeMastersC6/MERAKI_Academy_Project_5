@@ -134,10 +134,61 @@ const getProductsByCategory = (req, res) => {
       });
     });
 };
+
+const getNameProduct = async  (req,res)=>{
+  const name = req.params.name
+  const query = `SELECT * FROM products WHERE name  ~* '${name}' `;
+  pool.query(query)
+  .then((result)=>{
+    if(result.rows.length ===0){
+      res.json("Not found product")
+    }else{
+      res.status(201).json({
+        succes:true,
+        products:result.rows
+       })
+    }
+  })
+  .catch((err)=>{
+    console.log(err)
+      res.status(400).json({
+        succes:false,
+        err:err
+      })
+  })
+
+}
+const getFiltrationProduct =(req,res)=>{
+  const from = req.params.from
+  const to = req.params.to
+  const values = [from,to]
+  const query= `select  *  from  Products WHERE Price >= $1 AND Price <= $2 `
+  pool.query(query,values)
+  .then((result)=>{
+    if(result.rows.length==0){
+      res.json("No product found at this price ")
+    }else{
+      res.status(201).json({
+        success:true,
+        products:result.rows
+
+      })
+    }
+    
+  })
+  .catch((err)=>{
+    res.status(400).json({
+      success:false,
+      err:err
+    })
+  })
+}
   module.exports={
     createNewProduct,
     getAllProduct,
     updateProductById,
     deleteProductById,
-    getProductsByCategory
+    getProductsByCategory,
+    getNameProduct,
+    getFiltrationProduct
   };
