@@ -6,7 +6,7 @@ export default configureStore({
   reducer: {
 
     /*Anas line 8*/
-// auth:authReducer,
+auth:authReducer,
 
 
 
@@ -29,6 +29,7 @@ export default configureStore({
 
 
 /*Abdullah line 31*/
+product:productReducer,
 
 
 
