@@ -1,50 +1,20 @@
-.footer {
-    background-color: rgb(27, 27, 27);
-    border-top:2px solid rgb(58, 54, 54);
-    position: relative;
-    width: 100%;
-    /* bottom: 0; */
-    top: 300px;
-    color: white;
-    font-size: 25px;
-    text-align: center;
+.Form{
     display: grid;
-    grid-template-columns:repeat(3,600px) ;
-    background-color:orange;
-    overflow: hidden;
-
-    
-   }
-   .master_card{
-    position: relative;
-    top: 25px;
-   
-   }
-   .facebook_icons{
-    position: relative;
-    top: 26px;
-   }
-   .about_register{
-    display: grid;
-    grid-template-columns: repeat(3,500px);
     justify-content: center;
-    justify-items: center;
-    border-bottom:2px solid rgb(138, 136, 136) ;
-   }
-   .icons_register{
-    width: 200px;
-   }
-   .about_register1{
-    width: 200px;
-    height: 200px;
-   }
-   .span_about{
     position: relative;
-    bottom: 70px;
-    left: 50px;
-    width: 50px;
-   }
-
-   
-   
-  
+    top: px;
+    
+}
+.input_register{
+    width: 200px;
+    height: 20px;
+    margin-top: 10px;
+}
+.but_create{
+    background-color: orange;
+    width: 200px;
+    height: 40px;
+}
+.but_create:hover{
+    cursor: pointer;
+}

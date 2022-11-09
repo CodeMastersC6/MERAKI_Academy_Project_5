@@ -12,13 +12,11 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("true");
   const [findMe, setFindMe] = useState("");
-  let user = "Ahmad";
-  let isLoggedIn = true;
 
-  const { userId, /*2isLoggedIn,*/ products } = useSelector((state) => {
+  const { userId, isLoggedIn, products } = useSelector((state) => {
     return {
       userId: state.auth.userId,
-      // isLoggedIn: state.auth.isLoggedIn,
+      isLoggedIn: state.auth.isLoggedIn,
       products: state.product.products,
     };
   });

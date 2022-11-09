@@ -10,10 +10,14 @@ import {SlPaypal} from 'react-icons/sl'
 import{CiDeliveryTruck} from 'react-icons/ci'
 import{BsCashCoin} from 'react-icons/bs'
 import{HiOutlineStatusOnline} from 'react-icons/hi'
+import { useNavigate } from "react-router-dom";
 import "./style.css"
 const Footer = () => {
+  const navigate =useNavigate()
+
     return (
         <React.Fragment>
+          
         <div className="about_register">
             <p><img className="about_register1" src="https://cdn-icons-png.flaticon.com/512/2833/2833318.png"></img><span className="span_about">Free Delivery</span></p>
             <p ><img className="about_register1" src="https://m.economictimes.com/thumb/msid-83058184,width-1200,height-900,resizemode-4,imgsize-47252/cod-istock.jpg"></img><span className="span_about">Cash On Delivery</span></p>
@@ -26,6 +30,8 @@ hamonia road sydney, australia</span></p>
             <p><img  className="about_register1"src="https://cdn-icons-png.flaticon.com/512/1304/1304032.png"></img><span className="span_about">(+800) 1234 5678 90
 support@veginafood.com</span></p>
         </div>
+
+
       <footer className="footer">
     <p className="copyright">
 
@@ -43,7 +49,6 @@ support@veginafood.com</span></p>
 <SiMastercard></SiMastercard>
 <SlPaypal></SlPaypal>
 </div>
-     
   </footer>
   </React.Fragment>
   );

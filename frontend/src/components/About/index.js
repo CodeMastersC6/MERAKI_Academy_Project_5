@@ -1,8 +1,11 @@
 import "./style.css"
-
+import Footer from "../Footer"
+import Navbar_b_token from "../Navbar_b_token/indes"
 const About = ()=>{
     return (
         <div>
+        <Navbar_b_token/>
+
         <div className="about_main">
             <h1>What We Do?</h1>
             <p className="p_first">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis. Sed quis iaculis felis.</p>
@@ -27,6 +30,7 @@ const About = ()=>{
 
 
 
+        <Footer/>
 
         </div>
     )

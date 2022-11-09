@@ -4,11 +4,12 @@ import React, { useContext, useState, useEffect } from "react";
 import {setLogin,setUserId} from "../../redux/reducer/auth"
 import "./style.css";
 import { useDispatch } from "react-redux";
-
-
+import Navbar_b_token from "../Navbar_b_token/indes";
+import Footer from "../Footer";
+import { useNavigate } from "react-router-dom";
 const Login = ()=>{
     const dispatch = useDispatch()
-
+    const navigate=useNavigate()
   
 
   const [email, setEmail] = useState("");
@@ -19,7 +20,6 @@ const Login = ()=>{
   //===============================================================
 
   const login =  () => {
-   
     axios.post("http://localhost:5000/login",{
         email,
         password
@@ -29,6 +29,7 @@ const Login = ()=>{
         dispatch(setLogin(result.data.token))
         dispatch(setUserId(result.data.userId))
         setStatus(false)
+        navigate("/home")
       
 
     })
@@ -39,6 +40,8 @@ const Login = ()=>{
     })
   };
     return (
+        <>
+        <Navbar_b_token/>
         <div className="login_main">
             <p>Login</p>
             <p>Please login below account detail</p>
@@ -53,6 +56,8 @@ const Login = ()=>{
             {status&&<p className="message_response">{message}</p>}
             <button onClick={login}>Sign in</button>
         </div>
+        <Footer/>
+        </>
     )
 }
 export default Login
