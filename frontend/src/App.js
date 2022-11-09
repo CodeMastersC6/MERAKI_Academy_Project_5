@@ -27,6 +27,11 @@ import { Route, Routes } from "react-router-dom";
 //====== Abdullah =========//
 import Navigation from "./components/Navbar";
 import Home from "./components/Home"
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Contact from "./components/Contact";
+import About from "./components/About";
+// import Payment from "./components/Payment";
 
 
 
@@ -44,25 +49,12 @@ function App() {
   <Navigation />
   <Routes>
   {/* //====== Anas=========// line 46*/}
-
-
-
-
-
-
-
-
-{/* //====== Asfour=========// line 55 */}
-
-
-
-
-
-
-
-
-{/* //====== Abdullah =========// line 64*/}
-<Route path={"/"} element={<Home />} />
+  <Route path={"/"} element={<Login />} />
+  <Route path={"/register"} element={<Register />} />
+  <Route path={"/about"} element={<About />} />
+  <Route path={"/contact"} element={<Contact />} />
+  {/* <Route path={"/payment"} element={<Payment />} /> */}
+<Route path={"/home"} element={<Home />} />
 
 
 

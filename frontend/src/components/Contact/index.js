@@ -3,11 +3,15 @@ import { useEffect,useState } from "react";
 import {ImAddressBook} from 'react-icons/im'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import {AiOutlineMail} from 'react-icons/ai'
+import Footer from "../Footer"
+import Navbar_b_token from "../Navbar_b_token/indes"
 const Contact = ()=>{
    
    
     return(
         <div>
+        <Navbar_b_token/>
+
             <div className="parent_contect">
          <h1>Contact Us</h1>
          <p>Got a question? We had love to hear from you. Send us a message and we will respond as soon as possible.</p>
@@ -49,6 +53,7 @@ const Contact = ()=>{
 
             </div>
             </div>
+            <Footer/>
 
         </div>
     )
