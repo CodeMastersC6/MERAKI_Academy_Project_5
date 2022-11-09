@@ -13,8 +13,8 @@ import { Route, Routes } from "react-router-dom";
 
 
 //====== Asfour=========//
-
-
+import ProductInfo from "./components/productInfo";
+import Cart from "./components/cart";
 
 
 
@@ -49,12 +49,18 @@ function App() {
   <Navigation />
   <Routes>
   {/* //====== Anas=========// line 46*/}
+
   <Route path={"/"} element={<Login />} />
   <Route path={"/register"} element={<Register />} />
   <Route path={"/about"} element={<About />} />
   <Route path={"/contact"} element={<Contact />} />
   {/* <Route path={"/payment"} element={<Payment />} /> */}
 <Route path={"/home"} element={<Home />} />
+
+
+
+
+
 
 
 

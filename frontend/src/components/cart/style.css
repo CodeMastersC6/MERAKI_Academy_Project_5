@@ -1,0 +1,107 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+    
+  }
+  .cartMain{
+    display: flex;
+    justify-content:center;
+    /* margin-top: 5%; */
+  
+
+}
+.CartMap{
+    display: grid;
+    justify-self:center;
+    gap: 1%;
+    background-color: rgb(220, 221, 221);
+}
+.MyCart{
+    font-size: 2.5rem;
+}
+.nameCart{
+    font-size: 1.5rem;
+}
+.imgCart{
+    /* height: 100%;
+    width: 120%; */
+}
+.ContinueShopping{
+    /* border-radius: 8%; */
+    border:0;
+    font-size: 120%;
+background-color: rgb(243, 150, 62);
+
+}
+.ContinueShopping:hover{
+background-color: rgb(7, 7, 7);
+color: rgb(249, 249, 249);
+}
+.ClearCart{
+    /* border-radius: 8%; */
+    border:0;
+    font-size: 120%;
+background-color: rgb(243, 150, 62);
+
+}
+.ClearCart:hover{
+background-color: rgb(7, 7, 7);
+color: rgb(249, 249, 249);
+}
+.SubtotalMain{
+    display: grid;
+    justify-self: start;
+    
+}
+.ProceedToCheckout{
+    /* border-radius: 8%; */
+    border:0;
+    font-size: 120%;
+background-color: rgb(243, 150, 62);
+
+}
+.ProceedToCheckout:hover{
+background-color: rgb(7, 7, 7);
+color: rgb(249, 249, 249);
+}
+.Subtotal{
+    font-size: 1.6rem;
+}
+.QuntityCart{
+    font: 1.5em sans-serif;
+   
+}
+.QuntityIncCart{
+    font-size: 100%;
+    /* height: 100%;
+    width: 20%; */
+    border:0;
+}
+.QuntityIncCart:hover{
+    background-color: rgb(243, 150, 62);
+    color: rgb(0, 0, 0);
+   
+}
+.QuntityDecCart{
+    font-size: 100%;
+    /* height: 100%;
+    width: 20%; */
+    border:0;
+}
+.QuntityDecCart:hover{
+    background-color: rgb(243, 150, 62);
+    color: rgb(0, 0, 0);
+   
+}
+.countCart{
+    font-size: 100%;
+    /* height: 100%;
+    width: 20%; */
+    border:0;
+}
+.a{
+    display: flex;
+    justify-content: center;
+}
