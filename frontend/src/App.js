@@ -13,8 +13,8 @@ import { Route, Routes } from "react-router-dom";
 
 
 //====== Asfour=========//
-
-
+import ProductInfo from "./components/productInfo";
+import Cart from "./components/cart";
 
 
 
@@ -54,6 +54,8 @@ function App() {
 
 {/* //====== Asfour=========// line 55 */}
 
+<Route path='/' element={<ProductInfo />}/>
+<Route path='/cart' element={<Cart/>}/>
 
 
 
