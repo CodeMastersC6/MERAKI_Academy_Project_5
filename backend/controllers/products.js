@@ -186,7 +186,7 @@ const getFiltrationProduct =(req,res)=>{
 const PaginationAllProduct = (req,res)=>{
   const id = req.params.id
   const values = [id]
-  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 3 ROWS ONLY`
+  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 9 ROWS ONLY`
   pool.query(query,values)
   .then((result)=>{
     if(result.rows.length==0){
