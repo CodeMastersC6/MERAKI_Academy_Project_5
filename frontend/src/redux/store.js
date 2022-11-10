@@ -18,7 +18,7 @@ auth:authReducer,
 
 /*Asfour line 19 */
 
-
+cart:cartReducer,
 
 
 
