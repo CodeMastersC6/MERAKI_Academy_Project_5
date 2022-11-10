@@ -40,7 +40,6 @@ const Register = () => {
       .then((result)=>{
         console.log(result)
         setMessage1(result.data.massage)
-        //  {localStorage.setItem("firstName",result.data.result.firstname)}
         setStatus(false)
       })
       .catch((err)=>{
@@ -84,15 +83,20 @@ const Register = () => {
               /> */}
               <select id="city" name="city">
     <option value="">Select City</option>
-    <option value="Al Jīzah">Al Jīzah</option>
-    <option value="Al Jubayhah">Al Jubayhah</option>
+    <option value="Maan">Maan</option>
+    <option value="alkarak">alkarak</option>
+    <option value="Al salt">Al salt</option>
     <option value="Amman">Amman</option>
-    <option value="Ḩayy al Bunayyāt">Ḩayy al Bunayyāt</option>
-    <option value="Ḩayy al Quwaysimah">Ḩayy al Quwaysimah</option>
-    <option value="Jāwā">Jāwā</option>
-    <option value="Saḩāb">Saḩāb</option>
-    <option value="Umm as Summāq">Umm as Summāq</option>
-    <option value="Wādī as Sīr">Wādī as Sīr</option>
+    <option value="Madaba">Madaba</option>
+    <option value="Jarash">Jarash</option>
+    <option value="Ajloun">Ajloun</option>
+    <option value="Al mafraq">Al mafraq</option>
+    <option value="Alzarqa">Alzarqa</option>
+    <option value="Irbid">Irbid</option>
+    <option value="Al Aqaba">Al Aqaba</option>
+    <option value="Altafila">Altafila</option>
+
+
 </select>
               <br />
               <label>mobile</label><br></br>

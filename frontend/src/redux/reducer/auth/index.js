@@ -7,17 +7,17 @@ const authSlice = createSlice({
     // why the value is null and not ''?
     token : null||localStorage.getItem("token"),
     userId : null||localStorage.getItem("userId"),
-    isLoggedIn :null
+    isLoggedIn : localStorage.getItem("token") ? true : false
   },
   reducers: {
     setLogin : (state, action) => {
         state.token = action.payload
-        state.isLoggedIn = localStorage.setItem("token",state.token)
+        localStorage.setItem("token",state.token)
         state.isLoggedIn = true
     },
     setUserId :(state,action)=>{
         state.userId = action.payload
-        state.userId = localStorage.setItem("userId",state.userId)
+        localStorage.setItem("userId",state.userId)
     },
     setLogout :(state,action)=>{
         state.token = null

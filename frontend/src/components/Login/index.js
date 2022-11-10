@@ -32,7 +32,7 @@ const Login = ()=>{
 
         setStatus(false)
         
-        navigate("/home")
+        // navigate("/home")
         console.log(result) 
          {localStorage.setItem("firstName",result.data.firstName)}
 
