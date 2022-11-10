@@ -32,6 +32,7 @@ import Register from "./components/Register";
 import Contact from "./components/Contact";
 import About from "./components/About";
 // import Payment from "./components/Payment";
+import Piganation from "./components/Piganation";
 
 
 
@@ -49,7 +50,7 @@ function App() {
   <Navigation />
   <Routes>
   {/* //====== Anas=========// line 46*/}
-
+  <Route path={"/piganation"} element={<Piganation></Piganation>}></Route>
   <Route path={"/"} element={<Login />} />
   <Route path={"/register"} element={<Register />} />
   <Route path={"/about"} element={<About />} />
