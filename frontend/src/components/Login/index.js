@@ -29,8 +29,13 @@ const Login = ()=>{
     .then((result)=>{
         dispatch(setLogin(result.data.token))
         dispatch(setUserId(result.data.userId))
+
         setStatus(false)
+        
         navigate("/home")
+        console.log(result) 
+         {localStorage.setItem("firstName",result.data.firstName)}
+
       
 
     })
@@ -51,7 +56,7 @@ const Login = ()=>{
                 setEmail(e.target.value)
             }}></input>
             <label>Password</label>
-            <input placeholder="password" onChange={(e)=>{
+            <input placeholder="password" type={"password"} onChange={(e)=>{
                 setPassword(e.target.value)
             }}></input>
             {status&&<p className="message_response">{message}</p>}
