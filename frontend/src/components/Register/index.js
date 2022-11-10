@@ -40,6 +40,7 @@ const Register = () => {
       .then((result)=>{
         console.log(result)
         setMessage1(result.data.massage)
+         {localStorage.setItem("firstName",result.data.result.firstname)}
         setStatus(false)
       })
       .catch((err)=>{
