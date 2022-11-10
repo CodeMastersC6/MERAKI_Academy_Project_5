@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { deleteCart, updateCart } from "../../redux/reducer/cart";
+
 
 const Cart = () => {
   const Navigate = useNavigate();
@@ -10,6 +12,8 @@ const Cart = () => {
   const [count, setCount] = useState(1);
   const [message, setMessage] = useState("");
   const [totPrice, setTotPrice] = useState(0);
+const [idCart,setIdCart]=useState("");
+
   const [cart, setCart] = useState([
     {
       name: "blueberry",
@@ -25,8 +29,41 @@ const Cart = () => {
         discription: "fresh blueberry",
       }
   ]);
- 
-  
+  //create function getAllCart
+  const getAllCart =()=> {
+    axios.get("http://localhost:5000/cart")
+    .then((result) => {
+        setMessage("Success");
+        setCart(result.data.result);
+      })
+      .catch((err) => {
+        setMessage(err.response.data.message);
+      });
+  };
+ // function UpdateCart
+  const UpdateCart=(id)=>{
+    const info={quantity}
+axios.put(`http://localhost:5000/cart/${id}`,info)
+.then((result)=>{
+  console.log(result.data);
+
+dispatch(updateCart({id,quantity}));
+setIdCart("");
+}).catch((err)=>{
+  console.log(err);
+})
+  };
+  //create function deleteCartByID
+  const deleteCartByID=(id)=>{
+    axios.delete(`http://localhost:5000/cart/${id}`)
+    .then((result)=>{
+      console.log(result.data);
+       dispatch(deleteCart(id));
+    
+    }).catch((err)=>{
+      console.log(err);
+    })
+    }
   //create function getCartsByUser
   const getCartsByUser = (user) => {
     axios
@@ -42,6 +79,7 @@ const Cart = () => {
 
   useEffect(() => {
     getCartsByUser();
+    getAllCart();
   }, []);
 
   // Function to  count
