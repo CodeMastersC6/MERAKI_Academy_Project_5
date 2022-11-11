@@ -56,6 +56,8 @@ function App() {
   <Route path={"/contact"} element={<Contact />} />
   {/* <Route path={"/payment"} element={<Payment />} /> */}
 <Route path={"/home"} element={<Home />} />
+<Route path={"/cart"} element={<Cart />} />
+<Route path={"/productInfo"} element={<ProductInfo />} />
 
 
 

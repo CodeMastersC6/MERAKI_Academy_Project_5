@@ -10,12 +10,15 @@ const ProductInfo=()=>{
 //  const dispatch=useDispatch();
 // const [product, setProduct] = useState("");
   const [products, setProducts] = useState(
-    [{name:"blueberry",
-  price:10,
-  image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbmf30Jwo1iy2u6Mc6WIEaB2JRoEY2CDSog&usqp=CAU",
-  discription:"fresh blueberry"
-  }]);
+    [
+  {name:"bread",
+  price:1,
+  image:"https://kitchen.sayidaty.net/uploads/small/3e/3ef61e347eed6cf7c8c081fd6aeb749e_w750_h750.jpg",
+  discription:"fresh bread"
+  },
+]);
   const [message, setMessage] = useState("");
+
 
       const[count,setCount]=useState(1);
 // const { products } = useSelector((state) => {
@@ -64,9 +67,11 @@ return(
     return(
         <div className="productInfoMap" key={i}>
 <p className="nameProduct">{elem.name}</p>
+<p className="AvailabilityMain">Availability: <p className="Availability"> In Stock✔️</p></p>
+
 <img className="imgProductinfo" src={elem.image}/>
-<p className="priceProduct">{elem.price} JD</p>
-<p className="priceDiscription">{elem.discription}</p>
+<p className="priceProduct">Price: {elem.price} JD</p>
+<p className="priceDiscription">Discription: {elem.discription}</p>
 <div className="Quntity">Quntity:
 <button className="QuntityInc" onClick={QuntityInc} >+</button>
 <button className="count" ><p>{count}</p></button> 
