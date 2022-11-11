@@ -18,12 +18,13 @@ const login = (req, res) => {
               userId: result.rows[0].id,
               firstName: result.rows[0].firstName,
               role: result.rows[0].role_id,
+
             };
             const options = { expiresIn: "1d" };
             const secret = process.env.SECRET||"Secury Secret";
             const token = jwt.sign(payload, secret, options);
             if (token) {
-              return res.status(200).json({ token, userId: result.rows[0].id });
+              return res.status(200).json({ token, userId: result.rows[0].id,firstName:result.rows[0].firstname,role:result.rows[0].role_id });
             } else {
               throw Error;
             }

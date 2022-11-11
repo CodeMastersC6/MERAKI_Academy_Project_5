@@ -40,7 +40,6 @@ const Register = () => {
       .then((result)=>{
         console.log(result)
         setMessage1(result.data.massage)
-         {localStorage.setItem("firstName",result.data.result.firstname)}
         setStatus(false)
       })
       .catch((err)=>{
@@ -77,11 +76,28 @@ const Register = () => {
               />
               <br />
               <label>your Location</label><br></br>
-              <input className="input_register"
+              {/* <input className="input_register"
                 type="test"
                 placeholder="locaion"
                 onChange={(e) => setLocation(e.target.value)}
-              />
+              /> */}
+              <select id="city" className="id1" name="city">
+    <option value="">Select City</option>
+    <option value="Maan">Maan</option>
+    <option value="alkarak">alkarak</option>
+    <option value="Al salt">Al salt</option>
+    <option value="Amman">Amman</option>
+    <option value="Madaba">Madaba</option>
+    <option value="Jarash">Jarash</option>
+    <option value="Ajloun">Ajloun</option>
+    <option value="Al mafraq">Al mafraq</option>
+    <option value="Alzarqa">Alzarqa</option>
+    <option value="Irbid">Irbid</option>
+    <option value="Al Aqaba">Al Aqaba</option>
+    <option value="Altafila">Altafila</option>
+
+
+</select>
               <br />
               <label>mobile</label><br></br>
               <input className="input_register"
@@ -112,7 +128,7 @@ const Register = () => {
               <br />
             </form>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
           </>
   );
 };

@@ -11,11 +11,11 @@ const Contact = ()=>{
     return(
         <div>
         <Navbar_b_token/>
-
+         <div className="parent_contect1">
             <div className="parent_contect">
          <h1>Contact Us</h1>
          <p>Got a question? We had love to hear from you. Send us a message and we will respond as soon as possible.</p>
-         <iframe
+         <iframe className="frame_image"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11384.405945034187!2d35.88703753772701!3d31.971634464435528!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b73a8d911dbeb%3A0x51861240a8b1b14b!2sBustanji%20Motors!5e0!3m2!1sar!2sjo!4v1665097705271!5m2!1sar!2sjo"
   
             ></iframe>
@@ -30,7 +30,7 @@ const Contact = ()=>{
                 <input placeholder="Enter your email address*"></input>
                 <label>Message</label>
                 <textarea placeholder="Your message here"></textarea>
-                <button>Submit</button>
+                <button className="submit_button">Submit</button>
             </div>
             <div className="Contact_right">
                 <h1>Get in Touch</h1>
@@ -53,7 +53,8 @@ const Contact = ()=>{
 
             </div>
             </div>
-            <Footer/>
+            </div>
+            {/* <Footer/> */}
 
         </div>
     )

@@ -1,9 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+ import React, { useContext, useState, useEffect } from "react";
+ import { useNavigate } from "react-router-dom";
+ import "./style.css";
+ import { useDispatch, useSelector } from "react-redux";
+ import axios from "axios";
 import { deleteCart, updateCart } from "../../redux/reducer/cart";
+
 
 const Cart = () => {
   const Navigate = useNavigate();
@@ -170,4 +171,5 @@ try{
   );
 };
 
-export default Cart;
+
+// export default Cart;

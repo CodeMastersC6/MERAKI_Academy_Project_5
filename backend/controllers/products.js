@@ -183,6 +183,31 @@ const getFiltrationProduct =(req,res)=>{
     })
   })
 }
+const PaginationAllProduct = (req,res)=>{
+  const id = req.params.id
+  const values = [id]
+  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 9 ROWS ONLY`
+  pool.query(query,values)
+  .then((result)=>{
+    if(result.rows.length==0){
+      res.json("No product")
+    }else{
+      res.status(201).json({
+        success:true,
+        products:result.rows
+
+      })
+    }
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.status(400).json({
+      success:false,
+      err:err
+    })
+  })
+
+}
   module.exports={
     createNewProduct,
     getAllProduct,
@@ -190,5 +215,6 @@ const getFiltrationProduct =(req,res)=>{
     deleteProductById,
     getProductsByCategory,
     getNameProduct,
-    getFiltrationProduct
+    getFiltrationProduct,
+    PaginationAllProduct,
   };

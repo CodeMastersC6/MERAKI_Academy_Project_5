@@ -24,12 +24,14 @@
 .nameCart{
     font-size: 1.5rem;
 }
+
 .imgCart{
     /* height: 100%;
     width: 120%; */
     width: 200px;
     height: 220px;
 }
+
 .ContinueShopping{
     /* border-radius: 8%; */
     border:0;

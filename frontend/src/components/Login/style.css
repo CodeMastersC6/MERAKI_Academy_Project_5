@@ -3,8 +3,47 @@
     justify-content: center;
     justify-items: start;
     row-gap: 10px;
+    position: relative;
+    top: 100px;
+    font-size: 20px;
+
+
 }
 .message_response{
     overflow: hidden;
-    width: 150px;
+    width: 100%;
+    margin-top: 10px;
 }
+.siginWithGoogle{
+    /* border: 2px solid orange; */
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+    box-shadow: -4px 5px #e9e9e8;
+}
+.siginWithGoogle:hover{
+    cursor: pointer;
+}
+.login_main input{
+    width: 100%;
+    height: 30px;
+
+}
+.login_main span{
+  position: relative;
+  bottom: 2px;
+}
+.login_main button{
+    background-color: orange;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+.login_main button:hover{
+    cursor: pointer;
+}
+
+

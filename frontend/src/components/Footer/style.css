@@ -17,14 +17,25 @@
 
     
    }
+   .copyright{
+    position: relative;
+    top: 35px;
+   }
    .master_card{
     position: relative;
-    top: 25px;
+    top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3,40px);
+    left: 200px;
+
    
    }
    .facebook_icons{
     position: relative;
-    top: 26px;
+    top: 35px;
+    display: grid;
+    grid-template-columns: repeat(6,40px);
+    left: 200px;
    }
    .about_register{
     display: grid;
@@ -32,7 +43,13 @@
     justify-content: center;
     justify-items: center;
     border-bottom:2px solid rgb(138, 136, 136) ;
+    position: relative;
+    top: 200px;
+    right: 30px;
    }
+   
+
+   
    .icons_register{
     width: 200px;
    }
@@ -40,9 +57,45 @@
     width: 200px;
     height: 200px;
    }
+   
    .span_about{
     position: relative;
     bottom: 70px;
     left: 50px;
     width: 50px;
+    font-size: 17px;
+    font-weight: bold;
+   }
+   .about_register2{
+    display: grid;
+    grid-template-columns: repeat(3,500px);
+    column-gap: 20px;
+    justify-content: center;
+    justify-items: center;
+    position: relative;
+    top: 320px;
+    left: 440px;
+    width: 900px;
+   
+   }
+   .about_register3{
+    width: 200px;
+    height: 200px;
+   }
+   .span_about1{
+    position: relative;
+    bottom: 70px;
+    left: 50px;
+    width: 50px;
+    font-size: 17px;
+    font-weight: bold;
+   }
+   .about_register4{
+    width: 50px;
+    height: 50px;
+   position: relative;
+   bottom: 50px;
+   left: 40px;
+
+
    }
