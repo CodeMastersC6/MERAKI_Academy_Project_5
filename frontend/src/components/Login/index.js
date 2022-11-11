@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import Navbar_b_token from "../Navbar_b_token/indes";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
+import { FcGoogle } from 'react-icons/fc';
 const Login = ()=>{
     const dispatch = useDispatch()
     const navigate=useNavigate()
@@ -59,10 +60,11 @@ const Login = ()=>{
             <input placeholder="password" type={"password"} onChange={(e)=>{
                 setPassword(e.target.value)
             }}></input>
+            <p className="siginWithGoogle"> <FcGoogle></FcGoogle>  <span>Sign In With Google</span></p>
             {status&&<p className="message_response">{message}</p>}
-            <button onClick={login}>Sign in</button>
+            <button  onClick={login}>Sign in</button>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
         </>
     )
 }
