@@ -23,11 +23,11 @@ const Footer = () => {
             <p ><img className="about_register1" src="https://m.economictimes.com/thumb/msid-83058184,width-1200,height-900,resizemode-4,imgsize-47252/cod-istock.jpg"></img><span className="span_about">Cash On Delivery</span></p>
             <p><img  className="about_register1"src="https://cdn-icons-png.flaticon.com/512/1304/1304032.png"></img><span className="span_about">Online Support</span></p>
         </div>
-        <div className="about_register">
-            <p><img className="about_register1" src="https://cdn-icons-png.flaticon.com/512/2833/2833318.png"></img><span className="span_about">Lorem Ipsum, You Need To Be Amet EmbarrassingPassage Of Lorem Ipsum, You Need To Be Amet Embarrassin</span></p>
-            <p ><img className="about_register1" src="https://m.economictimes.com/thumb/msid-83058184,width-1200,height-900,resizemode-4,imgsize-47252/cod-istock.jpg"></img><span className="span_about">38 block street arean licard
-hamonia road sydney, australia</span></p>
-            <p><img  className="about_register1"src="https://cdn-icons-png.flaticon.com/512/1304/1304032.png"></img><span className="span_about">(+800) 1234 5678 90
+        <div className="about_register2">
+            <p><img className="about_register4" src="https://cdn-icons-png.flaticon.com/512/135/135763.png"></img><span className="span_about1">Lorem Ipsum, You Need To Be Amet EmbarrassingPassage </span></p>
+            <p ><img className="about_register4" src="https://cdn-icons-png.flaticon.com/512/17/17736.png"></img><span className="span_about1">38 block street arean licard
+hamonia road sydney, Jordanian</span></p>
+            <p><img  className="about_register4"src="https://cdn0.iconfinder.com/data/icons/basic-uses-symbol-vol-1/100/Call_Phone_Cell_Ring_Pick_up-512.png"></img><span className="span_about1">(+800) 1234 5678 90
 support@veginafood.com</span></p>
         </div>
 

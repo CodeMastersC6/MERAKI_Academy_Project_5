@@ -33,6 +33,8 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 // import Payment from "./components/Payment";
 import Piganation from "./components/Piganation";
+import Payment from "./components/Payment";
+import Footer from "./components/Footer";
 
 
 
@@ -47,9 +49,10 @@ function App() {
   return (
 
   <div className="App">
-  <Navigation />
+  {/* <Navigation /> */}
   <Routes>
   {/* //====== Anas=========// line 46*/}
+  <Route path="/payment" element={<Payment></Payment>}></Route>
   <Route path={"/piganation"} element={<Piganation></Piganation>}></Route>
   <Route path={"/"} element={<Login />} />
   <Route path={"/register"} element={<Register />} />
@@ -70,7 +73,7 @@ function App() {
 
 {/* //====== end =========// line 64*/}
   </Routes>
-
+  <Footer></Footer>
   </div>
   )
 }

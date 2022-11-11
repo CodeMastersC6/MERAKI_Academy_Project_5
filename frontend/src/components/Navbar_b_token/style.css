@@ -18,7 +18,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
   }
   
   .topnav a:hover {
@@ -30,13 +30,17 @@ body {
     background-color: #04AA6D;
     color: white;
   }
+  .topnav a:hover {
+    cursor: pointer;
+  }
   .Black{
-    height: 50px;
+    height: 80px;
     background-color: #050000;
     color: white;
     text-align: center;
     position: relative;
     top: 0;
+    font-size: 30px;
     
   }
   .text_insideBlack{
@@ -52,7 +56,14 @@ body {
     height: 50px;
   }
   .img_main{
-    /* display: block; */
-     height: 300px; 
-    width: 100%; 
+  
+    width:100%;
+    object-fit:cover;
+    object-position:50% 50%;
+    height: 300px;
+  }
+  .p_logo{
+    display: inline;
+    font-size: 30px;
+
   }

@@ -81,7 +81,7 @@ const Register = () => {
                 placeholder="locaion"
                 onChange={(e) => setLocation(e.target.value)}
               /> */}
-              <select id="city" name="city">
+              <select id="city" className="id1" name="city">
     <option value="">Select City</option>
     <option value="Maan">Maan</option>
     <option value="alkarak">alkarak</option>
@@ -128,7 +128,7 @@ const Register = () => {
               <br />
             </form>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
           </>
   );
 };

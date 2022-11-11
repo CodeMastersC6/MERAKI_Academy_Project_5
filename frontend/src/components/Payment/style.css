@@ -44,8 +44,21 @@
     left: 150px;
 }
 .payment_go{
-    width: 80px;
-    float: right;
+    background-color: orange;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+.payment_go1{
+    background-color: orange;
+    position: relative;
+    font-size: 20px;
+}
+.payment_go ,.payment_go1:hover{
+    cursor: pointer;
 }
 .details_card_one{
     display: grid;
@@ -65,4 +78,14 @@
 }
 .main_main_main{
     font-size: 20px;
+    position: relative;
+    top: 100px;
+}
+.main_main_main input{
+    height: 30px;
+
+}
+.main_payment{
+    display: grid;
+    row-gap: 20px;
 }
