@@ -14,7 +14,7 @@ import { Route, Routes } from "react-router-dom";
 
 //====== Asfour=========//
 import ProductInfo from "./components/productInfo";
-import Cart from "./components/cart";
+import Cart from "./components/Cart";
 
 
 
@@ -60,7 +60,7 @@ function App() {
   <Route path={"/contact"} element={<Contact />} />
   {/* <Route path={"/payment"} element={<Payment />} /> */}
 <Route path={"/home"} element={<Home />} />
-<Route path={"/cart"} element={<Cart />} />
+<Route path={"/cart"} element={<Cart></Cart>} />
 <Route path={"/productInfo"} element={<ProductInfo />} />
 
 
@@ -75,6 +75,7 @@ function App() {
 
 {/* //====== end =========// line 64*/}
   </Routes>
+  <Cart></Cart>
   <Footer></Footer>
   </div>
   )
