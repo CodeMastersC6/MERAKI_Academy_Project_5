@@ -25,7 +25,6 @@ reducers:{
           if(cart.id===action.payload.id){
              
               cart.quantity=action.payload.quantity;
-              cart.id=action.payload.id;
 
           }
           return cart;

@@ -3,7 +3,7 @@
  import "./style.css";
  import { useDispatch, useSelector } from "react-redux";
  import axios from "axios";
-import { deleteCart, updateCart } from "../../redux/reducer/cart";
+import { deleteCart, updateCart,addCart } from "../../redux/reducer/cart";
 
 
 const Cart = () => {
@@ -13,27 +13,36 @@ const Cart = () => {
   const [message, setMessage] = useState("");
   const [totPrice, setTotPrice] = useState(0);
   const [idCart, setIdCart] = useState(false);
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
   // const [note, setNote] = useState("");
   // const [updateBox, setUpdateBox] = useState(false);
   
 
-  //create function getAllCart
-  const getAllCart = () => {
-    
-    axios
-      .get("http://localhost:5000/cart")
-      .then((result) => {
-        setMessage("Success");
-        setCart(result.data.result);
-        console.log(result);
-      })
-      .catch((err) => {
-        setMessage(err.response.data.message);
-        console.log(err);
-      });
+const { cart } = useSelector((state) => {
+  return {
+    cart: state.cart.cart,
   };
+});
+console.log(cart)
+  //create function getAllCart
+useEffect(()=>{
+  axios
+  .get("http://localhost:5000/cart")
+  .then((result) => {
+    setMessage("Success");
+    // setCart(result.data.result);
+    dispatch(addCart(result.data.result));
+    
+    console.log(result);
+  })
+  .catch((err) => {
+    setMessage(err.response.data.message);
+    console.log(err);
+  });
+},[])    
+    
+
   // const handleUpdate=(cart)=>{
   //   setUpdateBox(!updateBox)
 
@@ -43,19 +52,30 @@ const Cart = () => {
   // }
   // function UpdateCart
   const updateCartById =async (id) => {
-try{
-    console.log("idUpdate:", id);
-    const info = { quantity };
-   await axios.put(`http://localhost:5000/cart/${id}`, { quantity })
-      .then((result) => {
-        console.log(result.data);
 
-        dispatch(updateCart({ id, quantity }));
-        // setIdCart("");
-      })
-    }catch(err){
-        console.log(err);
-      };
+    axios.put(`http://localhost:5000/cart/${id}`,{
+      quantity,
+    })
+    .then((result)=>{
+      console.log(result)
+      dispatch(updateCart({ id, quantity }));
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+// try{
+//     console.log("idUpdate:", id);
+//     // const info = { quantity };
+//    await axios.put(`http://localhost:5000/cart/${id}`, { quantity })
+//       .then((result) => {
+//         console.log(result.data);
+
+//         dispatch(updateCart({ id, quantity }));
+//         // setIdCart("");
+//       })
+//     }catch(err){
+//         console.log(err);
+//       };
   };
   //create function deleteCartByID
   const deleteCartByID = (id) => {
@@ -77,19 +97,14 @@ try{
       .get(`http://localhost:5000/cart/${user}`)
       .then((result) => {
         setMessage("Success");
-        setCart(result.data.result);
+        // setCart(result.data.result);
       })
       .catch((err) => {
         setMessage(err.response.data.message);
       });
   };
 
-  useEffect(() => {
-    // getCartsByUser();
-    getAllCart();
-    updateCartById();
-    
-  }, []);
+ 
 
   // Function to  count
   // const QuntityInc = () => {
@@ -102,8 +117,9 @@ try{
   // };
   return (
     <div className="cartMain">
+      
       <div>
-        {cart.map((elem, i) => {
+        {cart&&cart.map((elem, i) => {
           return (
             <div className="CartMap" key={i}>
               <div className="a">
@@ -172,4 +188,4 @@ try{
 };
 
 
-// export default Cart;
+export default Cart;

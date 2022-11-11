@@ -79,23 +79,17 @@ const updateCartById = (req, res) => {
   const id = req.params.id;  
   let { notes,quantity } = req.body;
 
-  const query = `UPDATE cart SET notes = COALESCE($1,notes), quantity = COALESCE($2, quantity) WHERE id=$3 AND is_deleted = 0  RETURNING *;`;
+  const query = `UPDATE cart SET notes = COALESCE($1,notes), quantity = COALESCE($2, quantity) WHERE cart.id = $3 AND is_deleted = 0  RETURNING *;`;
   const data = [notes || null, quantity || null, id];
   pool
     .query(query, data)
     .then((result) => {
-      if (result.rows.length === 0) {
-        return res.status(404).json({
-          success: false,
-          massage: `The Cart: ${id} is not found`,
-        });
-      } else {
         res.status(200).json({
           success: true,
           massage: `Succeeded to updated Cart with id: ${id}`,
           result: result.rows[0],
         });
-      }
+     
     })
     .catch((err) => {
       res.status(500).json({
