@@ -6,6 +6,14 @@ import axios from "axios";
 
 
 const ProductInfo=()=>{
+
+  const { productId } = useSelector((state) => {
+    return {
+      productId: state.product.productId,
+ 
+    };
+  });
+console.log(productId)
  const Navigate=useNavigate();
 //  const dispatch=useDispatch();
 // const [product, setProduct] = useState("");
@@ -33,8 +41,8 @@ const ProductInfo=()=>{
 //   })
 
 //create function  getAllProductById
-const getAllProductById =(id)=> {
-    axios.get(`http://localhost:5000/product/${id}`)
+const getAllProductById =()=> {
+    axios.get(`http://localhost:5000/product/${productId}`)
     .then((result) => {
         setMessage("Success");
         setProducts(result.data.result);

@@ -79,7 +79,7 @@ console.log(token)
               </div>
            
               <div>
-                <button className="logout" onClick={dispatch(setLogout())}>Logout</button>
+                {/* <button className="logout" onClick={dispatch(setLogout())}>Logout</button> */}
               </div>
             </div>
           </>
