@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
 import { setProducts } from "../../redux/reducer/product";
-import { setUserId } from "../../redux/reducer/auth";
+import { setLogout, setUserId } from "../../redux/reducer/auth";
 import { useSelector, useDispatch } from "react-redux";
 
 //===============================================================
@@ -12,6 +12,8 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("true");
   const [findMe, setFindMe] = useState("");
+const userName= localStorage.getItem("firsName")
+// const isLoggedIn= true
 
   const { userId, isLoggedIn, products } = useSelector((state) => {
     return {
@@ -20,13 +22,15 @@ const NavBar = () => {
       products: state.product.products,
     };
   });
-
+  const token=localStorage.getItem("token")
+console.log(token)
   const getProductsBySearch = () => {
     axios
-      .get(`http://localhost:5000/product/search?search=${findMe}`)
+      .get(`http://localhost:5000/product/search/${findMe}`)
       .then((result) => {
+        console.log(result.data.products)
         setMessage("Success");
-        dispatch(setProducts(result.data.result));
+        dispatch(setProducts(result.data.products));
       })
       .catch((err) => {
         setMessage(err.response.data.message);
@@ -42,7 +46,7 @@ const NavBar = () => {
         {isLoggedIn ? (
           <>
             <div className="black_header">
-              <p>Welcome {userId}</p>{" "}
+              <p>Welcome {userName}</p>{" "}
             </div>
             <div className="Navbar_Link">
               <div className="link">
@@ -63,6 +67,7 @@ const NavBar = () => {
                 <button
                   className="search_Button"
                   onClick={() => {
+                    console.log(findMe)
                     getProductsBySearch();
                   }}
                 >
@@ -70,17 +75,11 @@ const NavBar = () => {
                 </button>
               </div>
               <div className="link">
-                <Link className="Link" to="">
                   Cart
-                </Link>
               </div>
-              <div className="link">
-                <Link className="Link" to="">
-                  Wish List
-                </Link>
-              </div>
+           
               <div>
-                <button className="logout">Logout</button>
+                {/* <button className="logout" onClick={dispatch(setLogout())}>Logout</button> */}
               </div>
             </div>
           </>

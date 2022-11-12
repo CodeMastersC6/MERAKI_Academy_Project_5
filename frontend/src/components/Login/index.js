@@ -14,7 +14,7 @@ import { current } from "@reduxjs/toolkit";
 
 const Login = ()=>{
     const dispatch = useDispatch()
-    const navigate=useNavigate()
+const navigate=useNavigate()
   
 
   const [email, setEmail] = useState("");
