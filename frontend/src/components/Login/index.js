@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 const Login = ()=>{
     const dispatch = useDispatch()
-    const navigate=useNavigate()
+const navigate=useNavigate()
   
 
   const [email, setEmail] = useState("");

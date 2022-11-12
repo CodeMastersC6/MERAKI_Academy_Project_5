@@ -1,48 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setProductId} from "../../redux/reducer/product";
 
 // import { AuthContext } from "../../contexts/authContext";
 //===============================================================
 
 const Home = () => {
-
+  const dispatch = useDispatch();
+const navigate= useNavigate()
   const [message, setMessage] =useState("")
   // const { token, userId } = useContext(AuthContext);
-  const [products, setProducts] = useState([
-    {
-      name: "Meat",
-      image:
-        "https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=",
-      price: 15,
-    },
-    {
-      name: "Meat",
-      image:
-        "https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=",
-      price: 15,
-    },
-    {
-      name: "Meat",
-      image:
-        "https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=",
-      price: 15,
-    },
-    {
-      name: "Meat",
-      image:
-        "https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=",
-      price: 15,
-    },
-    {
-      name: "Meat",
-      image:
-        "https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=",
-      price: 15,
-    },
-  ]);
+  const [products, setProducts] = useState([])
   const [category, setCategory] = useState([
       "Meat",
     "bread",
@@ -107,7 +79,9 @@ const Home = () => {
         <div className="filterbar"> Filterbar</div>
         <div className="products">
           {products?.map((product, index) => (
-            <div key={index} className="product">
+            <div key={index} className="product" onClick={()=>{
+              dispatch(setProductId(product.id));
+navigate("/productInfo")}}>
               <div>
                 <img className="product_image" src={product.image} />
               </div>
