@@ -14,7 +14,7 @@ const producthSlice = createSlice({
     
     },
     
-      setProductId: (state, action) => {
+  setProductId: (state, action) => {
         state.productId = action.payload;
       
       },
@@ -22,6 +22,6 @@ const producthSlice = createSlice({
   },
 });
 
-export const { setProducts,setProductId } = producthSlice.actions;
+export const { setProducts, setProductId } = producthSlice.actions;
 
 export default producthSlice.reducer;
