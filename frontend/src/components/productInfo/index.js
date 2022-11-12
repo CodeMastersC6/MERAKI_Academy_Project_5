@@ -15,20 +15,13 @@ const ProductInfo=()=>{
   });
 console.log(productId)
  const Navigate=useNavigate();
-//  const dispatch=useDispatch();
+  const dispatch=useDispatch();
 // const [product, setProduct] = useState("");
-  const [products, setProducts] = useState(
-    [
-  {name:"bread",
-  price:1,
-  image:"https://kitchen.sayidaty.net/uploads/small/3e/3ef61e347eed6cf7c8c081fd6aeb749e_w750_h750.jpg",
-  discription:"fresh bread"
-  },
-]);
-  const [message, setMessage] = useState("");
+  const [products, setProducts] = useState([]);
+  const [message, setMessage] = useState();
 
 
-      const[count,setCount]=useState(1);
+      //const[count,setCount]=useState(1);
 // const { products } = useSelector((state) => {
 //     return {
 //       products: state.products.products,
@@ -41,27 +34,23 @@ console.log(productId)
 //   })
 
 //create function  getAllProductById
+
 const getAllProductById =()=> {
     axios.get(`http://localhost:5000/product/${productId}`)
     .then((result) => {
         setMessage("Success");
-        setProducts(result.data.result);
+        dispatch(setProducts(result.data.result));
       })
       .catch((err) => {
-        setMessage(err.response.data.message);
+         setMessage(err.response.data.message);
       });
   };
  
   useEffect(() => {
     getAllProductById();
    },[]);
-// Function to  count
-const QuntityInc=()=>{
-    setCount(count+1);
-}
-const QuntityDec=()=>{
-  setCount(count-1);
-};
+
+
 return(
     <div className="productInfoMain">
 
@@ -71,7 +60,7 @@ return(
 <p className="priceDiscription"></p>
 <button className="addToCart">Add To Cart</button>
 <button className="BuyNow">Buy Now</button> */}
-<div>{products.map((elem,i)=>{
+<div>{products&&products.map((elem,i)=>{
     return(
         <div className="productInfoMap" key={i}>
 <p className="nameProduct">{elem.name}</p>
@@ -80,11 +69,11 @@ return(
 <img className="imgProductinfo" src={elem.image}/>
 <p className="priceProduct">Price: {elem.price} JD</p>
 <p className="priceDiscription">Discription: {elem.discription}</p>
-<div className="Quntity">Quntity:
+{/* <div className="Quntity">Quntity:
 <button className="QuntityInc" onClick={QuntityInc} >+</button>
 <button className="count" ><p>{count}</p></button> 
  <button className="QuntityDec" onClick={QuntityDec}>-</button>
-    </div>
+    </div> */}
 <button className="addToCart" onClick={""}>Add To Cart</button>
 <button className="BuyNow" onClick={ ((e)=>{
     Navigate("/cart")

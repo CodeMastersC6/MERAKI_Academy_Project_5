@@ -7,16 +7,21 @@
   }
   .cartMain{
     display: flex;
-    justify-content:center;
-    /* margin-top: 5%; */
-  
+    justify-content:space-evenly;
+    margin-top: 5%;
+
+ 
 
 }
 .CartMap{
     display: grid;
     justify-self:center;
-    gap: 1%;
+    
+
     background-color: rgb(220, 221, 221);
+border-radius: 2%;
+box-shadow: 3px 3px rgb(243, 150, 62);
+
 }
 .MyCart{
     font-size: 2.5rem;
@@ -33,10 +38,12 @@
 }
 
 .ContinueShopping{
-    /* border-radius: 8%; */
+   
     border:0;
     font-size: 120%;
 background-color: rgb(243, 150, 62);
+border-radius: 8%;
+box-shadow: 2px 2px #888888;
 
 }
 .ContinueShopping:hover{
@@ -44,7 +51,7 @@ background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
 }
 .ClearCart{
-    /* border-radius: 8%; */
+   
     border:0;
     font-size: 120%;
 background-color: rgb(243, 150, 62);
@@ -60,11 +67,12 @@ color: rgb(249, 249, 249);
     
 }
 .ProceedToCheckout{
-    /* border-radius: 8%; */
+   
     border:0;
     font-size: 120%;
 background-color: rgb(243, 150, 62);
-
+border-radius: 8%;
+box-shadow: 2px 2px #888888;
 }
 .ProceedToCheckout:hover{
 background-color: rgb(7, 7, 7);
@@ -108,4 +116,11 @@ color: rgb(249, 249, 249);
 .a{
     display: flex;
     justify-content: center;
+}
+.buttonCart{
+    display: flex;
+    justify-content: space-between;
+height: 10%;
+margin-top: 10%;
+
 }

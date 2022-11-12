@@ -8,6 +8,10 @@ import Navbar_b_token from "../Navbar_b_token/indes";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
+import { GoogleLogin } from 'react-google-login';
+import { useGoogleLogin } from 'react-google-login'
+import { current } from "@reduxjs/toolkit";
+
 const Login = ()=>{
     const dispatch = useDispatch()
 const navigate=useNavigate()
@@ -46,6 +50,13 @@ const navigate=useNavigate()
         setStatus(true)
     })
   };
+  const responseGoogle = (response) => {
+    console.log(response);
+   
+        console.log('Success',response.profileObj);
+    
+  }
+  
     return (
         <>
         <Navbar_b_token/>
@@ -60,7 +71,13 @@ const navigate=useNavigate()
             <input placeholder="password" type={"password"} onChange={(e)=>{
                 setPassword(e.target.value)
             }}></input>
-            <p className="siginWithGoogle"> <FcGoogle></FcGoogle>  <span>Sign In With Google</span></p>
+            <p className="siginWithGoogle"> <GoogleLogin
+  clientId="994328639474-ub85dkgodp4vrm5nvfaemiklfko5jpt9.apps.googleusercontent.com"
+  onSuccess={responseGoogle}
+  onFailure={responseGoogle}
+  cookiePolicy={'single_host_origin'}
+  isSignedIn={true}
+onClick={''}/>  <span>Sign In With Google</span></p>
             {status&&<p className="message_response">{message}</p>}
             <button  onClick={login}>Sign in</button>
         </div>

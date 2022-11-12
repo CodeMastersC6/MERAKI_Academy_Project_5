@@ -3,7 +3,7 @@
  import "./style.css";
  import { useDispatch, useSelector } from "react-redux";
  import axios from "axios";
-import { deleteCart, updateCart,addCart } from "../../redux/reducer/cart";
+import { deleteCart, updateCart,addCart,setCart } from "../../redux/reducer/cart";
 
 
 const Cart = () => {
@@ -13,7 +13,7 @@ const Cart = () => {
   const [message, setMessage] = useState("");
   const [totPrice, setTotPrice] = useState(0);
   const [idCart, setIdCart] = useState(false);
-  // const [cart, setCart] = useState([]);
+   //const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
   // const [note, setNote] = useState("");
   // const [updateBox, setUpdateBox] = useState(false);
@@ -22,6 +22,7 @@ const Cart = () => {
 const { cart } = useSelector((state) => {
   return {
     cart: state.cart.cart,
+    
   };
 });
 console.log(cart)
@@ -32,7 +33,7 @@ useEffect(()=>{
   .then((result) => {
     setMessage("Success");
     // setCart(result.data.result);
-    dispatch(addCart(result.data.result));
+    dispatch(setCart(result.data.result));
     
     console.log(result);
   })
@@ -53,7 +54,7 @@ useEffect(()=>{
   // function UpdateCart
   const updateCartById =async (id) => {
 
-    axios.put(`http://localhost:5000/cart/${id}`,{
+  await axios.put(`http://localhost:5000/cart/${id}`,{
       quantity,
     })
     .then((result)=>{
@@ -80,15 +81,14 @@ useEffect(()=>{
   //create function deleteCartByID
   const deleteCartByID = (id) => {
     console.log("id:", id);
-    axios
-      .delete(`http://localhost:5000/cart/${id}`)
+    axios.delete(`http://localhost:5000/cart/${id}`)
       .then((result) => {
-        //console.log(result.data);
+        console.log(result.data);
         dispatch(deleteCart(id));
       })
       .catch((err) => {
         console.log(err.message);
-        //console.log(err);
+        // console.log(err);
       });
   };
   //create function getCartsByUser
@@ -158,7 +158,28 @@ useEffect(()=>{
                 </button> */}
                 </div>
               </div>
-              <button
+             
+              <button className="ClearCart" onClick={deleteCartByID(elem.id)}>
+                Clear Cart
+              </button>
+              <div className="SubtotalMain">
+                <p className="Subtotal">Subtotal {elem.price}JD</p>
+             
+              </div>
+              {/* <div className="note">
+                <p>Special Instructions For Seller</p>
+                <textarea>Note</textarea>
+              </div> */}
+              
+            </div>
+            
+          );
+        })}
+        <div className="buttonCart">
+           <button className="ProceedToCheckout" onClick={""}>
+                  Proceed to checkout
+                </button>
+         <button
                 className="ContinueShopping"
                 onClick={(e) => {
                   Navigate("/home");
@@ -166,23 +187,9 @@ useEffect(()=>{
               >
                 Continue Shopping
               </button>
-              <button className="ClearCart" onClick={deleteCartByID(elem.id)}>
-                Clear Cart
-              </button>
-              <div className="SubtotalMain">
-                <p className="Subtotal">Subtotal {elem.price}JD</p>
-                <button className="ProceedToCheckout" onClick={""}>
-                  Proceed to checkout
-                </button>
               </div>
-              <div className="note">
-                <p>Special Instructions For Seller</p>
-                <textarea>Note</textarea>
-              </div>
-            </div>
-          );
-        })}
       </div>
+      
     </div>
   );
 };
