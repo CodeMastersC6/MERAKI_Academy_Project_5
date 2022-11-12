@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
 import { setProducts } from "../../redux/reducer/product";
 import { setLogout, setUserId } from "../../redux/reducer/auth";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 //===============================================================
 
 const NavBar = () => {
@@ -13,24 +13,24 @@ const NavBar = () => {
   const [message, setMessage] = useState("true");
   const [findMe, setFindMe] = useState("");
 const userName= localStorage.getItem("firsName")
-// const isLoggedIn= true
-
-  const { userId, isLoggedIn, products } = useSelector((state) => {
+const isLoggedIn= true
+const navigate=useNavigate() 
+  const { userId, /*isLoggedIn,*/ products } = useSelector((state) => {
     return {
       userId: state.auth.userId,
-      isLoggedIn: state.auth.isLoggedIn,
+      // isLoggedIn: state.auth.isLoggedIn,
       products: state.product.products,
     };
   });
   const token=localStorage.getItem("token")
-console.log(token)
+// console.log(token)
   const getProductsBySearch = () => {
     axios
       .get(`http://localhost:5000/product/search/${findMe}`)
       .then((result) => {
-        console.log(result.data.products)
         setMessage("Success");
         dispatch(setProducts(result.data.products));
+
       })
       .catch((err) => {
         setMessage(err.response.data.message);
@@ -67,7 +67,6 @@ console.log(token)
                 <button
                   className="search_Button"
                   onClick={() => {
-                    console.log(findMe)
                     getProductsBySearch();
                   }}
                 >
@@ -79,7 +78,10 @@ console.log(token)
               </div>
            
               <div>
-                {/* <button className="logout" onClick={dispatch(setLogout())}>Logout</button> */}
+                <button className="logout" onClick={()=>{
+                  dispatch(setLogout())
+                  navigate("/")}
+                }>Logout</button>
               </div>
             </div>
           </>

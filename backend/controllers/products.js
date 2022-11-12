@@ -137,7 +137,7 @@ const getProductsByCategory = (req, res) => {
 
 const getNameProduct = async  (req,res)=>{
   const name = req.params.name
-  const query = `SELECT * FROM products WHERE name  ~* '${name}' `;
+  const query = `SELECT * FROM products WHERE name  ~* '${name}'`;
   pool.query(query)
   .then((result)=>{
     if(result.rows.length ===0){
@@ -186,7 +186,7 @@ const getFiltrationProduct =(req,res)=>{
 const PaginationAllProduct = (req,res)=>{
   const id = req.params.id
   const values = [id]
-  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 9 ROWS ONLY`
+  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 12 ROWS ONLY`
   pool.query(query,values)
   .then((result)=>{
     if(result.rows.length==0){

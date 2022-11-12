@@ -21,10 +21,10 @@ productRouter.post("/",createNewProduct);
 productRouter.get("/",getAllProduct);
 productRouter.put("/:id", updateProductById);
 productRouter.delete("/:id", deleteProductById);
-productRouter.get("/:category", getProductsByCategory);
+productRouter.get("/category/:category", getProductsByCategory);
 productRouter.get("/page/:id", PaginationAllProduct);
 
 
-productRouter.get("/products/:name",getNameProduct);
+productRouter.get("/search/:name",getNameProduct);
 productRouter.get("/:from/:to",getFiltrationProduct);
 module.exports = productRouter;
