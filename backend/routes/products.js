@@ -6,7 +6,8 @@ const { createNewProduct,
      getProductsByCategory,
 getNameProduct,
 getFiltrationProduct,
-PaginationAllProduct} = require("../controllers/products");
+PaginationAllProduct,
+getProductsById} = require("../controllers/products");
 
 
 
@@ -23,6 +24,7 @@ productRouter.put("/:id", updateProductById);
 productRouter.delete("/:id", deleteProductById);
 productRouter.get("/:category", getProductsByCategory);
 productRouter.get("/page/:id", PaginationAllProduct);
+productRouter.get("/get/:id",getProductsById);
 
 
 productRouter.get("/products/:name",getNameProduct);

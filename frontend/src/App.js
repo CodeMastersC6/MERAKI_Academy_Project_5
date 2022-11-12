@@ -60,7 +60,7 @@ function App() {
   <Route path={"/contact"} element={<Contact />} />
   {/* <Route path={"/payment"} element={<Payment />} /> */}
 <Route path={"/home"} element={<Home />} />
-<Route path={"/cart"} element={<Cart></Cart>} />
+<Route path={"/cart"} element={<Cart/>} />
 <Route path={"/productInfo"} element={<ProductInfo />} />
 
 
@@ -75,7 +75,7 @@ function App() {
 
 {/* //====== end =========// line 64*/}
   </Routes>
-  <Cart></Cart>
+  {/* <Cart></Cart> */}
   <Footer></Footer>
   </div>
   )
