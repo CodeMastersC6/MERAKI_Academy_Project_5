@@ -22,19 +22,10 @@ console.log(productId)
   const [message, setMessage] = useState();
 
 
-      //const[count,setCount]=useState(1);
-// const { products } = useSelector((state) => {
-//     return {
-//       products: state.products.products,
-//     };
-//   });
-// const{product}=useSelector((state)=>{
-//     return{
-//         product:state.product.product
-//     }
-//   })
+      
 
 //create function  getAllProductById
+
 
 useEffect(()=>{
   axios.get(`http://localhost:5000/product/get/17`)
@@ -51,6 +42,7 @@ useEffect(()=>{
 },[])   
   
  
+
  
 
 

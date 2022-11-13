@@ -9,6 +9,8 @@ import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
+
 import { useGoogleLogin } from 'react-google-login'
 import { current } from "@reduxjs/toolkit";
 
@@ -34,7 +36,7 @@ const navigate=useNavigate()
     .then((result)=>{
         dispatch(setLogin(result.data.token))
         dispatch(setUserId(result.data.userId))
-
+       
         setStatus(false)
         
         // navigate("/home")
@@ -53,8 +55,12 @@ const navigate=useNavigate()
   const responseGoogle = (response) => {
     console.log(response);
    
-        console.log('Success',response.profileObj);
+        // console.log('Success',response.profileObj);
+        console.log('Success',response.tokenId);
     
+  }
+  const onFailure=(response)=>{
+console.log( 'onFailure response:',response);
   }
   
     return (
@@ -74,9 +80,10 @@ const navigate=useNavigate()
             <p className="siginWithGoogle"> <GoogleLogin
   clientId="994328639474-ub85dkgodp4vrm5nvfaemiklfko5jpt9.apps.googleusercontent.com"
   onSuccess={responseGoogle}
-  onFailure={responseGoogle}
+  onFailure={onFailure}
   cookiePolicy={'single_host_origin'}
   isSignedIn={true}
+  accessType='offline'
 onClick={''}/>  <span>Sign In With Google</span></p>
             {status&&<p className="message_response">{message}</p>}
             <button  onClick={login}>Sign in</button>

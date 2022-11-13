@@ -21,8 +21,9 @@ const getAllCarts = (req, res) => {
 };
 
 const getCartsByUser = (req, res) => {
+  console.log("test");
   const user_id = req.params.userId; /* from token */
-  const query =  `SELECT * FROM cart INNER JOIN products ON products.id=cart.product_id INNER JOIN users ON users.id=cart.user_id WHERE cart.user_id = $1 AND cart.is_deleted=0;`
+  const query =  `SELECT *,cart.id AS cid FROM cart INNER JOIN products ON products.id=cart.product_id INNER JOIN users ON users.id=cart.user_id WHERE cart.user_id = $1 AND cart.is_deleted=0;`
   const data = [user_id];
 
   pool
