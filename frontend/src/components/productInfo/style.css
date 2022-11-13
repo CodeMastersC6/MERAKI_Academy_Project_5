@@ -1,162 +1,80 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    
-    
-  }
+
 .productInfoMain{
-    display: flex;
-    justify-content:space-around;
+    display: grid;
+    justify-content: center;
+    row-gap: 30px;
+    position: relative;
+    bottom: 300px;
+    margin-left:120px ;
+    
     /* margin-top: 5%; */
 
 }
-.productInfoMap{
-    display: grid;
-   
-height: 120%;
-width: 70%;
-background-color: rgb(216, 216, 216);
-    /* justify-items:center; */
-    gap: 1%;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
-
-}
-.nameProduct{
-    font: 2.5em sans-serif;
-}
-.AvailabilityMain{
-    display: flex;
-    font: 1em sans-serif;
-
-}
-.Availability{
-    color: rgb(25, 162, 15);
-    font: 1em sans-serif;
-
-}
-.imgProductinfo{
-    justify-self: center;
+.productInfoMain button{
+    background-color: orange;
     width: 100%;
-    height: 80%;
+    height: 40px;
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+}
+.productInfoMain:hover{
+    cursor: pointer;
+
+}
+.but_part1{
+    display: grid;
+    grid-template-columns: repeat(2,150px);
+    column-gap: 20px;
+}
+
+.p_name_des{
+    font-size: 20px;
+    font-weight: bold;
+    /* text-align: center; */
+}
+.productInfoMain img{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+  
     
 }
-.priceProduct{
-    font: 2em sans-serif;
-}
-.priceDiscription{
-    font: 2em sans-serif;
-}
-.addToCart{
-    /* border-radius: 8%; */
-    border:0;
-    font-size: 120%;
-background-color: rgb(243, 150, 62);
-
-}
-.addToCart:hover{
-background-color: rgb(7, 7, 7);
-color: rgb(249, 249, 249);
-}
-.BuyNow{
-    /* border-radius: 8%; */
-    border:0;
-    font-size: 120%;
-background-color: rgb(243, 150, 62);
-
-}
-.BuyNow:hover{
-    background-color: rgb(7, 7, 7);
-color: rgb(249, 249, 249);
-    }
-    .staticProdutInfo{
-        display: grid;
-        /* justify-content: end; */
+.div_img{
+    display: inline;
+    justify-content: center;
+    margin-left: 60px;
+   position: relative;
+   top: 30px;
    
-       
-    }
+}
+.div_img:hover{
+    filter: grayscale(100%);
 
-    .DELIVERY{
-        background-color: rgb(216, 216, 216);
-        display: grid;
-        height: 60%;
-        width: 60%;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+.main_left{
+display: grid;
+justify-content: right;
+position: relative;
+bottom: 690px;
+row-gap: 40px;
+margin-right: 80px;
+}
+.main_left1{
+    display: grid;
+    justify-content: center;
+    grid-template-columns:repeat(1,200px) ;
+    row-gap: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    /* border-bottom: 2px solid; */
+    box-shadow: 5px 1px rgb(204, 201, 195);
 
-        /* margin-left: 100%; */
-    }
-    .DELIVERYINFO{
-        font: 1.6em sans-serif;
-        
-    }
-    .DELIVERYINFODISCRIPTION{
-        font: 1.2em sans-serif;
+}
+.p_icons_left{
+    text-align: center;
+    height: 20px;
+    position: relative;
+    right: 20px;
+}
 
-    }
-    .RETURNS{
-        background-color: rgb(216, 216, 216);
-        display: grid;
-        height: 60%;
-        width: 60%;
-    box-shadow: 2px 2px 5px rgb(8, 8, 8);
-        
-        /* margin-left: 100%; */
-    }
-    .RETURNSINFO{
-        font: 1.6em sans-serif;
-    }
-    .RETURNSINFODISCRIPTION{
-        font: 1.2em sans-serif;
-    }
-    .WARRANTY{
-        background-color: rgb(216, 216, 216);
-        display: grid;
-        height: 60%;
-        width: 60%;
-        /* margin-left: 100%; */
-    box-shadow: 2px 2px 5px rgb(8, 8, 8);
-
-    }
-    .WARRANTYINFO{
-        font: 1.6em sans-serif;
-    }
-    .WARRANTYINFODISCRIPTION{
-        font: 1.2em sans-serif;
-    }
-    .Quntity{
-        font: 1.5em sans-serif;
-       
-    }
-    .QuntityInc{
-        font-size: 100%;
-        height: 70%;
-        width: 7%;
-        border:0;
-    }
-    .QuntityInc:hover{
-        background-color: rgb(243, 150, 62);
-        color: rgb(0, 0, 0);
-       
-    }
-    .QuntityDec{
-        font-size: 100%;
-        height: 70%;
-        width: 7%;
-        border:0;
-    }
-    .QuntityDec:hover{
-        background-color: rgb(243, 150, 62);
-        color: rgb(0, 0, 0);
-       
-    }
-    .count{
-        font-size: 100%;
-        height: 70%;
-        width: 7%;
-        border:0;
-    }
-    /* .count:hover{
-        background-color: rgb(243, 150, 62);
-        color: rgb(0, 0, 0);
-       
-    } */
