@@ -13,6 +13,8 @@ import Piganation from "./components/Piganation";
 import ProductInfo from "./components/productInfo";
 import Register from "./components/Register";
 import Admin from "./components/Admin";
+import Products from "./components/Products";
+import NewProduct from "./components/NewProduct";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path={"/productInfo"} element={<ProductInfo/>}/>
         <Route path={"/register"} element={<Register/>}/>
         <Route path={"/admin"} element={<Admin/>}/>
+        <Route path={"/admin/products"} element={<Products/>}/>
+        <Route path={"/admin/products/new"} element={<NewProduct/>}/>
       </Routes>
       <Footer />
     </div>
