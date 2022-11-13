@@ -13,7 +13,7 @@ const Cart = () => {
   const [message, setMessage] = useState("");
   const [totPrice, setTotPrice] = useState(0);
   const [idCart, setIdCart] = useState("");
-   //const [cart, setCart] = useState([]);
+  
   const [quantity, setQuantity] = useState(0);
   
   
@@ -45,13 +45,7 @@ useEffect(()=>{
 },[])    
     
 
-  // const handleUpdate=(cart)=>{
-  //   setUpdateBox(!updateBox)
-
-  //   setIdCart(cart.id)
-  //   setQuantity(cart.quantity)
-  //   if (updateBox)updateCartById(cart.id)
-  // }
+  
   // function UpdateCart
   const updateCartById =async (id) => {
 
@@ -81,24 +75,15 @@ useEffect(()=>{
         // console.log(err);
       });
   };
-  //create function getCartsByUser
-  // const getCartsByUser = (user) => {
-  //   axios
-  //     .get(`http://localhost:5000/cart/${user}`)
-  //     .then((result) => {
-  //       setMessage("Success");
-  //       // setCart(result.data.result);
-  //     })
-  //     .catch((err) => {
-  //       setMessage(err.response.data.message);
-  //     });
-  // };
-
- 
-
-  
   return (
     <div className="cartMain">
+      {cart&&cart.map((elem,index)=>{
+        return(
+          <div className="Total">
+            {(elem.price)*(elem.quantity)+(elem.price)*(elem.quantity)}
+          </div>
+        )
+      })}
         <p className="MyCart">My Cart:</p>
       <div>
         {cart&&cart.map((elem, i) => {
@@ -106,16 +91,20 @@ useEffect(()=>{
           return (
             <div className="CartMap" key={i}>
               
-              <div className="CartA">
+              <div className="Cart">
               
                 <img className="imgCart" src={elem.image} />
                 <div className="namePrice">
                 <p className="nameCart">{elem.name}</p>
 
-                <p className="priceCatr">Price:{elem.price}JD</p>
-                <p className="QC"> Quntity: {elem.quantity}</p>
+               
+                <div className="SubtotalMain">
+                <p className="priceCatr">Price:'{elem.price}.00'JD.</p>
+                <p className="Subtotal">Subtotal'{(elem.price)*(elem.quantity)}.00'JD.</p>
                 </div>
-              
+                <p className="QC"> Quntity: '{elem.quantity}' pc.</p>
+                </div>
+              <div className="buttonCart">
                 <div className="QuntityCart">
                  
                   <button className="QUpdate"
@@ -136,14 +125,14 @@ useEffect(()=>{
                   />
             
                 </div>
-              </div>
+             
              
               <button className="ClearCart" onClick={() => {
                       deleteCartByID(elem.cid)}}>
-                Clear Cart
+                Clear 
               </button>
-              <div className="SubtotalMain">
-                <p className="Subtotal">Subtotal{(elem.price)*(elem.quantity)}JD</p>
+              </div>
+             
              
               </div>
               {/* <div className="note">
@@ -155,7 +144,7 @@ useEffect(()=>{
             
           );
         })}
-        <div className="buttonCart">
+        <div className="buttonCartA">
            <button className="ProceedToCheckout"onClick={(e) => {
                   Navigate("/payment");
                 }}>
