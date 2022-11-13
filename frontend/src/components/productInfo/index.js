@@ -17,7 +17,7 @@ const [info,setInfo]=useState([])
 console.log(productId)
  const Navigate=useNavigate();
   const dispatch=useDispatch();
-// const [product, setProduct] = useState("");
+
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState();
 
