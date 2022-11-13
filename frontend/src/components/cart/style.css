@@ -6,28 +6,31 @@
     
   }
   .cartMain{
-    display: flex;
+    display: grid;
     justify-content:space-evenly;
     margin-top: 5%;
-
- 
-
+   
 }
 .CartMap{
-    display: grid;
-    justify-self:center;
+    display: flex;
     
+  justify-content: space-between;
 
     background-color: rgb(220, 221, 221);
 border-radius: 2%;
 box-shadow: 3px 3px rgb(243, 150, 62);
 
 }
+.CartA{
+    display: flex;
+    gap: 1%;
+   
+}
 .MyCart{
     font-size: 2.5rem;
 }
 .nameCart{
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .imgCart{
@@ -36,7 +39,10 @@ box-shadow: 3px 3px rgb(243, 150, 62);
     width: 200px;
     height: 220px;
 }
-
+.namePrice{
+display: grid;
+font-size: 1.3rem;
+}
 .ContinueShopping{
    
     border:0;
@@ -51,10 +57,12 @@ background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
 }
 .ClearCart{
-   
+   height: 15%;
+   width: 20%;
     border:0;
     font-size: 120%;
 background-color: rgb(243, 150, 62);
+border-radius: 8%;
 
 }
 .ClearCart:hover{
@@ -82,40 +90,32 @@ color: rgb(249, 249, 249);
     font-size: 1.6rem;
 }
 .QuntityCart{
-    font: 1.5em sans-serif;
-   
-}
-.QuntityIncCart{
-    font-size: 100%;
-    /* height: 100%;
-    width: 20%; */
-    border:0;
-}
-.QuntityIncCart:hover{
-    background-color: rgb(243, 150, 62);
-    color: rgb(0, 0, 0);
-   
-}
-.QuntityDecCart{
-    font-size: 100%;
-    /* height: 100%;
-    width: 20%; */
-    border:0;
-}
-.QuntityDecCart:hover{
-    background-color: rgb(243, 150, 62);
-    color: rgb(0, 0, 0);
-   
-}
-.countCart{
-    font-size: 100%;
-    /* height: 100%;
-    width: 20%; */
-    border:0;
-}
-.a{
     display: flex;
-    justify-content: center;
+    height: 20%;
+    font: 1.5em sans-serif;
+border-radius: 8%;
+border: 0%;
+
+}
+.QUpdate{
+    border:0;
+    font-size: 70%;
+background-color: rgb(243, 150, 62);
+border-radius: 8%;
+}
+.QUpdate:hover{
+    background-color: rgb(7, 7, 7);
+    color: rgb(249, 249, 249);
+}
+.inputQ{
+    border:0;
+border-radius: 8%;
+box-shadow: 1px 1px #292828;
+
+}
+.inputQ:hover{
+    box-shadow: 2px 2px #292828;
+   
 }
 .buttonCart{
     display: flex;

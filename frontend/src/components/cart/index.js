@@ -12,24 +12,25 @@ const Cart = () => {
   
   const [message, setMessage] = useState("");
   const [totPrice, setTotPrice] = useState(0);
-  const [idCart, setIdCart] = useState(false);
+  const [idCart, setIdCart] = useState("");
    //const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
-  // const [note, setNote] = useState("");
-  // const [updateBox, setUpdateBox] = useState(false);
+  
   
 
-const { cart } = useSelector((state) => {
+const { cart ,userId} = useSelector((state) => {
   return {
     cart: state.cart.cart,
-    
+    userId:state.auth.userId,
   };
 });
-console.log(cart)
+console.log("userId:",userId)
+
+
   //create function getAllCart
 useEffect(()=>{
   axios
-  .get("http://localhost:5000/cart")
+  .get(`http://localhost:5000/cart/${userId}`)
   .then((result) => {
     setMessage("Success");
     // setCart(result.data.result);
@@ -54,7 +55,7 @@ useEffect(()=>{
   // function UpdateCart
   const updateCartById =async (id) => {
 
-  await axios.put(`http://localhost:5000/cart/${id}`,{
+  await axios.put(`http://localhost:5000/cart/update/${id}`,{
       quantity,
     })
     .then((result)=>{
@@ -64,24 +65,13 @@ useEffect(()=>{
     .catch((err)=>{
       console.log(err)
     })
-// try{
-//     console.log("idUpdate:", id);
-//     // const info = { quantity };
-//    await axios.put(`http://localhost:5000/cart/${id}`, { quantity })
-//       .then((result) => {
-//         console.log(result.data);
 
-//         dispatch(updateCart({ id, quantity }));
-//         // setIdCart("");
-//       })
-//     }catch(err){
-//         console.log(err);
-//       };
   };
-  //create function deleteCartByID
-  const deleteCartByID = (id) => {
-    console.log("id:", id);
-    axios.delete(`http://localhost:5000/cart/${id}`)
+      
+  // create function deleteCartByID
+  const deleteCartByID = async(id) => {
+   // console.log("id:", id);
+   await axios.delete(`http://localhost:5000/cart/delete/${id}`)
       .then((result) => {
         console.log(result.data);
         dispatch(deleteCart(id));
@@ -92,78 +82,68 @@ useEffect(()=>{
       });
   };
   //create function getCartsByUser
-  const getCartsByUser = (user) => {
-    axios
-      .get(`http://localhost:5000/cart/${user}`)
-      .then((result) => {
-        setMessage("Success");
-        // setCart(result.data.result);
-      })
-      .catch((err) => {
-        setMessage(err.response.data.message);
-      });
-  };
+  // const getCartsByUser = (user) => {
+  //   axios
+  //     .get(`http://localhost:5000/cart/${user}`)
+  //     .then((result) => {
+  //       setMessage("Success");
+  //       // setCart(result.data.result);
+  //     })
+  //     .catch((err) => {
+  //       setMessage(err.response.data.message);
+  //     });
+  // };
 
  
 
-  // Function to  count
-  // const QuntityInc = () => {
-  //   setCount(count + 1);
-  //   setQuantity(count)
-  // };
-  // const QuntityDec = () => {
-  //   setCount(count - 1);
-  //   setQuantity(count)
-  // };
+  
   return (
     <div className="cartMain">
-      
+        <p className="MyCart">My Cart:</p>
       <div>
         {cart&&cart.map((elem, i) => {
+        //console.log(elem);
           return (
             <div className="CartMap" key={i}>
-              <div className="a">
-                <p className="MyCart">My Cart:</p>
+              
+              <div className="CartA">
+              
                 <img className="imgCart" src={elem.image} />
+                <div className="namePrice">
                 <p className="nameCart">{elem.name}</p>
 
-                <p className="priceCatr">{elem.price} JD</p>
-                <p className="Discription">{elem.discription}</p>
-
+                <p className="priceCatr">Price:{elem.price}JD</p>
+                <p className="QC"> Quntity: {elem.quantity}</p>
+                </div>
+              
                 <div className="QuntityCart">
-                  Quntity: <p>{elem.quantity}</p>
-                  <button
+                 
+                  <button className="QUpdate"
                     onClick={() => {
-                      updateCartById(elem.id)
+                      console.log(elem.cid);
+                      updateCartById(elem.cid)
                       // setIdCart(elem.id)
                       
                      }}>
                     Quntity
                   </button>
-                  <input
+                  <input className="inputQ"
                     type="number"
-                    placeholder="Quntity"
+                    placeholder="Choose the quantity you want"
                     onChange={(e) => {
                       setQuantity(e.target.value);
                     }}
                   />
-                  {/* <button className="QuntityIncCart" onClick={UpdateCart(elem.id)}>
-                  +
-                </button>
-                <button className="countCart">
-                  <p>{elem.quantity}</p>
-                </button>
-                <button className="QuntityDecCart" onClick={UpdateCart(elem.id)}>
-                  -
-                </button> */}
+            
                 </div>
               </div>
              
-              <button className="ClearCart" onClick={deleteCartByID(elem.id)}>
+              <button className="ClearCart" onClick={() => {
+                      deleteCartByID(elem.cid)}}>
                 Clear Cart
               </button>
               <div className="SubtotalMain">
-                <p className="Subtotal">Subtotal {elem.price}JD</p>
+                <p className="Subtotal">Subtotal{(elem.price)*(elem.quantity)}JD</p>
              
               </div>
               {/* <div className="note">
@@ -176,9 +156,13 @@ useEffect(()=>{
           );
         })}
         <div className="buttonCart">
-           <button className="ProceedToCheckout" onClick={""}>
+           <button className="ProceedToCheckout"onClick={(e) => {
+                  Navigate("/payment");
+                }}>
                   Proceed to checkout
                 </button>
+               
+
          <button
                 className="ContinueShopping"
                 onClick={(e) => {

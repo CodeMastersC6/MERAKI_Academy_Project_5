@@ -21,28 +21,19 @@ console.log(productId)
   const [message, setMessage] = useState();
 
 
-      //const[count,setCount]=useState(1);
-// const { products } = useSelector((state) => {
-//     return {
-//       products: state.products.products,
-//     };
-//   });
-// const{product}=useSelector((state)=>{
-//     return{
-//         product:state.product.product
-//     }
-//   })
+      
 
 //create function  getAllProductById
 
 const getAllProductById =()=> {
-    axios.get(`http://localhost:5000/product/${productId}`)
+    axios.get(`http://localhost:5000/product/get/${productId}`)
     .then((result) => {
         setMessage("Success");
         dispatch(setProducts(result.data.result));
       })
       .catch((err) => {
-         setMessage(err.response.data.message);
+        //  setMessage(err.response.data.message);
+         console.log(err);
       });
   };
  
