@@ -6,47 +6,49 @@ import { setProducts } from "../../redux/reducer/product";
 import { setLogout, setUserId } from "../../redux/reducer/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import {AiTwotoneHeart} from 'react-icons/ai'
+import {FiLogOut} from 'react-icons/fi'
 //===============================================================
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("true");
   const [findMe, setFindMe] = useState("");
-const userName= localStorage.getItem("firsName")
-const isLoggedIn= true
-const navigate=useNavigate() 
-  const { userId, /*isLoggedIn,*/ products } = useSelector((state) => {
+  const userName = localStorage.getItem("firstName");
+  // const isLoggedIn = true;
+  const navigate = useNavigate();
+  const { userId, isLoggedIn, products } = useSelector((state) => {
     return {
       userId: state.auth.userId,
-      // isLoggedIn: state.auth.isLoggedIn,
+      isLoggedIn: state.auth.isLoggedIn,
       products: state.product.products,
     };
   });
-  const token=localStorage.getItem("token")
-// console.log(token)
+  console.log(isLoggedIn)
+  const token = localStorage.getItem("token");
+  // console.log(token)
   const getProductsBySearch = () => {
     axios
       .get(`http://localhost:5000/product/search/${findMe}`)
       .then((result) => {
         setMessage("Success");
         dispatch(setProducts(result.data.products));
-
       })
       .catch((err) => {
         setMessage(err.response.data.message);
       });
   };
 
-
   //===============================================================
 
   return (
     <>
       <div className="NavBar">
-        {isLoggedIn ? (
+        {isLoggedIn && token? (
           <>
             <div className="black_header">
-              <p>Welcome {userName}</p>{" "}
+              <p> <span>Welcome</span> {userName}</p>{" "}
             </div>
             <div className="Navbar_Link">
               <div className="link">
@@ -73,15 +75,18 @@ const navigate=useNavigate()
                   Search
                 </button>
               </div>
-              <div className="link">
-                  Cart
-              </div>
-           
+              <div className="Link">Cart <AiTwotoneHeart></AiTwotoneHeart></div>
+
               <div>
-                <button className="logout" onClick={()=>{
-                  dispatch(setLogout())
-                  navigate("/")}
-                }>Logout</button>
+                <button
+                  className="logout"
+                  onClick={() => {
+                    dispatch(setLogout());
+                    navigate("/");
+                  }}
+                >
+                  Logout<br></br><FiLogOut></FiLogOut>
+                </button>
               </div>
             </div>
           </>
