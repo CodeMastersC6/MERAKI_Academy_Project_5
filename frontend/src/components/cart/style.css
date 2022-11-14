@@ -1,28 +1,37 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    
-    
-  }
-  .cartMain{
-    display: flex;
-    justify-content:center;
-    /* margin-top: 5%; */
-  
 
+  .cartMain{
+    display: grid;
+    justify-content:center;
+    
+    
+    margin-top: 3%;
+   
 }
 .CartMap{
-    display: grid;
-    justify-self:center;
-    gap: 1%;
-    background-color: rgb(220, 221, 221);
+    display: block;
+   
+  justify-content: center;
+
+ /* width: 200%;  */
+    background-color: white;
+/* border-radius: 2%; */
+box-shadow: 5px 5px 5px 5px orange;
+
+
+
 }
+.Cart{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
 .MyCart{
-    font-size: 2.5rem;
+    font-size: 3rem;
+    text-align: center;
 }
 .nameCart{
-    font-size: 1.5rem;
+    font-size: 2.3rem;
 }
 
 .imgCart{
@@ -30,82 +39,134 @@
     width: 120%; */
     width: 200px;
     height: 220px;
-}
+    margin-left: 20px;
+    margin-right: 20px;
 
+}
+.namePrice{
+display: grid;
+font-size: 1.3rem;
+
+}
 .ContinueShopping{
-    /* border-radius: 8%; */
     border:0;
     font-size: 120%;
-background-color: rgb(243, 150, 62);
+background-color: orange;
+border-radius: 8%;
+box-shadow: 2px 2px #888888;
 
 }
 .ContinueShopping:hover{
 background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
+cursor: pointer;
 }
 .ClearCart{
-    /* border-radius: 8%; */
+   /* height: 60%; */
+   /* width: 20%; */
     border:0;
-    font-size: 120%;
-background-color: rgb(243, 150, 62);
+    font-size: 70%;
+background-color: orange;
+border-radius: 8%;
+width: 80px;
+
+/* margin-top: 20%; */
 
 }
 .ClearCart:hover{
 background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
+cursor: pointer;
 }
 .SubtotalMain{
-    display: grid;
-    justify-self: start;
+    display: flex;
+    gap: 85%;
+
     
 }
 .ProceedToCheckout{
-    /* border-radius: 8%; */
+   
     border:0;
     font-size: 120%;
-background-color: rgb(243, 150, 62);
-
+background-color: orange;
+border-radius: 8%;
+box-shadow: 2px 2px #888888;
 }
 .ProceedToCheckout:hover{
 background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
+cursor: pointer;
 }
 .Subtotal{
     font-size: 1.6rem;
 }
+
 .QuntityCart{
-    font: 1.5em sans-serif;
+    display: grid;
+    
+  grid-template-columns: repeat(3,140px);
+    font: 2em sans-serif;
+border-radius: 8%;
+border: 0%;
+
+}
+.QUpdate{
+    border:0;
+    font-size: 70%;
+background-color: orange;
+border-radius: 8%;
+margin-right: 10px;
+height: 40px;
+width: 80px;
+}
+.QUpdate:hover{
+    background-color: rgb(7, 7, 7);
+    color: rgb(249, 249, 249);
+    cursor: pointer;
+}
+.inputQ{
+    border:0;
+border-radius: 8%;
+box-shadow: 1px 1px #292828;
+width: 80px;
+
+}
+.inputQ:hover{
+    box-shadow: 2px 2px #292828;
    
 }
-.QuntityIncCart{
-    font-size: 100%;
-    /* height: 100%;
-    width: 20%; */
-    border:0;
-}
-.QuntityIncCart:hover{
-    background-color: rgb(243, 150, 62);
-    color: rgb(0, 0, 0);
-   
-}
-.QuntityDecCart{
-    font-size: 100%;
-    /* height: 100%;
-    width: 20%; */
-    border:0;
-}
-.QuntityDecCart:hover{
-    background-color: rgb(243, 150, 62);
-    color: rgb(0, 0, 0);
-   
-}
-.countCart{
-    font-size: 100%;
-    /* height: 100%;
-    width: 20%; */
-    border:0;
-}
-.a{
+.buttonCartA{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+height: 10%;
+margin-top: 10%;
+gap: 14%;
+}
+.buttonCart{
+    display: flex;
+    justify-items: space-evenly;
+height: 0%;
+gap: 10%;
+margin-top: 21.5%;
+margin-right: 4%;
+}
+.p_totol{
+    font-size: 40px;
+   float: right;
+   display: inline;
+   position: relative;
+   bottom: 80px;
+
+    right: 710px;  
+  
+}
+.p_totol1{
+    font-size: 40px;
+   float: right;
+   display: inline;
+   position: relative;
+   bottom: 90px; 
+   right: 800px; 
+   border-bottom: 2px solid;
+  
 }

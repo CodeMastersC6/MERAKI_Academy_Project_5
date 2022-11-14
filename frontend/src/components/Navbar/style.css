@@ -1,7 +1,7 @@
-/* .NavBar {
 
-} */
-
+.black_header span{
+  color: yellow;
+}
 .Navbar_Link{
   display: flex;
   justify-content: space-around;
@@ -12,16 +12,24 @@
 
 .Link {
   margin-right: 40px;
+  font-size: 20px;
 
 }
 
 .logout {
   background-color: white;
-  text-decoration: underline;
+  text-decoration: none;
+  border: none;
   color: purple;
   width: fit-content;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Segoe UI";
+}
+.Link:hover{
+  cursor: pointer;
+}
+.logout:hover{
+  cursor: pointer;
 }
 
 .black_header{
@@ -50,9 +58,17 @@ align-items: center;}
 
 .search_Button{
   height: 35px;
-  width: 40px;
-
+  width: 100px;
 background-color: black;
 color: white;
 border-radius: 50px;
+margin-left: 20px;
+}
+.search_Button:hover{
+  cursor: pointer;
+
+}
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
 }

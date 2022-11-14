@@ -8,6 +8,7 @@ import {AiFillRightCircle} from 'react-icons/ai'
 const Piganation = () => {
   const [page, setPage] = useState([]);
   const [count, setCount] = useState(0);
+  const[ nm,setNum]=useState(false)
   useEffect(() => {
     axios
       .get(`http://localhost:5000/product/page/${count}`)
@@ -19,6 +20,7 @@ const Piganation = () => {
         console.log(err);
       });
   }, [count]);
+ 
 
   return (
     <div className="div_page1">
@@ -41,14 +43,14 @@ const Piganation = () => {
       >
         <AiFillLeftCircle></AiFillLeftCircle>
       </button>
-      <button
+       {false && <button
         className="but_22"
         onClick={() => {
           setCount(count -9);
         }}
       >
         <AiFillRightCircle></AiFillRightCircle>
-      </button>
+      </button> }
       </div>
     </div>
   );

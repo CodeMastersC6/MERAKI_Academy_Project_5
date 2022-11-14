@@ -112,7 +112,26 @@ const createNewProduct = (req, res) => {
         });
       });
   };
-  
+  const getProductsById = (req, res) => {
+    const product_id = req.params.id;
+    const data = [product_id];
+    const query = `SELECT * FROM products  WHERE is_deleted=0 AND id=$1;`;
+    pool.query(query,data)
+      .then((result) => {
+        res.status(200).json({
+          success: true,
+          massage: ` products${product_id}`,
+          result: result.rows[0],
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "server error",
+          err: err,
+        });
+      });
+  };
 const getProductsByCategory = (req, res) => {
   const category = req.params.category;
   const data = [category];
@@ -217,4 +236,5 @@ const PaginationAllProduct = (req,res)=>{
     getNameProduct,
     getFiltrationProduct,
     PaginationAllProduct,
+    getProductsById
   };

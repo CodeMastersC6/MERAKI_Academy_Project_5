@@ -30,3 +30,56 @@
 
 
 }
+.image_login2{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    left: 1250px;
+    bottom: 300px;
+    overflow: hidden;
+
+}
+.image_login3{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    right: 350px;
+    bottom: 300px;
+    overflow: hidden;
+
+}
+.image_login2:hover{
+    transform: scale(1.1);
+    transition: 1s ease;
+    cursor: pointer;
+    box-shadow:
+    1px 1px orange,
+    2px 2px orange,
+    3px 3px orange,
+    4px 4px orange,
+    5px 5px orange,
+    6px 6px orange;
+    transform: translateX(-3px);
+    transition: .5s ease;
+    filter: brightness(100%)
+    
+}
+.image_login3:hover{
+    transform: scale(1.1);
+    transition: 1s ease;
+    cursor: pointer;
+    box-shadow:
+    1px 1px orange,
+    2px 2px orange,
+    3px 3px orange,
+    4px 4px orange,
+    5px 5px orange,
+    6px 6px orange;
+    transform: translateX(3px);
+    transition: .5s ease;
+    filter: brightness(100%)
+    
+}
+
