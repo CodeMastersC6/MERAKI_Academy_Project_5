@@ -1,0 +1,19 @@
+.chartMain{
+    display: grid;
+    /* justify-items: space-between; */
+    height: 50%;
+    width: 50%;
+  gap: 1%;
+
+}
+
+.charts{
+    height: 100%;
+    width: 100%;
+
+}
+.h1{
+    margin-left: 36%;
+    /* margin-top: 10%; */
+    font: 1.5rem sans-serif;
+}
