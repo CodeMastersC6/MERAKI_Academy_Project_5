@@ -34,16 +34,16 @@ const navigate=useNavigate()
     })
   
     .then((result)=>{
-        dispatch(setLogin(result.data.token))
-        dispatch(setUserId(result.data.userId))
+        // dispatch(setLogin(result.data.token))
+        // dispatch(setUserId(result.data.userId))
        
         setStatus(false)
         
         navigate("/home")
         console.log(result) 
          {localStorage.setItem("firstName",result.data.firstName)}
-
-      
+         {localStorage.setItem("token",result.data.token)}
+         {localStorage.setItem("userId",result.data.userId)}
 
     })
     .catch((err)=>{
@@ -85,7 +85,7 @@ console.log( 'onFailure response:',response);
   cookiePolicy={'single_host_origin'}
   isSignedIn={true}
   accessType='offline'
-onClick={''}  /><span>Sign In With Google</span></p>
+onClick={''}  /></p>
             {status&&<p className="message_response">{message}</p>}
             <button  onClick={login}>Sign in</button>
             

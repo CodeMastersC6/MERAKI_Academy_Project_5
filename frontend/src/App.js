@@ -17,6 +17,7 @@ import Products from "./components/Products";
 import NewProduct from "./components/NewProduct";
 
 function App() {
+
   return (
 
     <div className="App">
@@ -24,11 +25,11 @@ function App() {
       <Routes>
         <Route path={"/about"} element={<About/>}/>
         <Route path={"/cart"} element={<Cart/>}/>
-        <Route path={"/contact"} element={<Contact/>}/>
-        <Route path={"/home"} element={<Home/>}/>
+        <Route path={"/contact"} element={<Contact />}/>
+        <Route path={"/home"} element={<Home />}/>
         <Route path={"/"} element={<Login/>}/>
         <Route path={"/payment"} element={<Payment/>}/>
-        <Route path={"/piganation"} element={<Piganation/>}/>
+        <Route path={"/piganation"} element={<Piganation />}/>
         <Route path={"/productInfo"} element={<ProductInfo/>}/>
         <Route path={"/register"} element={<Register/>}/>
         <Route path={"/admin"} element={<Admin/>}/>
