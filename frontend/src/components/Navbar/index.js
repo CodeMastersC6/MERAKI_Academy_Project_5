@@ -18,14 +18,16 @@ const NavBar = () => {
   const userName = localStorage.getItem("firstName");
   // const isLoggedIn = true;
   const navigate = useNavigate();
-  const { userId, isLoggedIn, products } = useSelector((state) => {
+  const { userId, isLoggedIn, products,cart } = useSelector((state) => {
     return {
       userId: state.auth.userId,
       isLoggedIn: state.auth.isLoggedIn,
       products: state.product.products,
+      cart:state.cart.cart
     };
   });
   console.log(isLoggedIn)
+  console.log(cart.length)
   const token = localStorage.getItem("token");
   // console.log(token)
   const getProductsBySearch = () => {
@@ -75,7 +77,9 @@ const NavBar = () => {
                   Search
                 </button>
               </div>
-              <div className="Link">Cart <AiTwotoneHeart></AiTwotoneHeart></div>
+              <div className="Link" onClick={()=>{
+                navigate("/cart")
+              }}>Cart <AiTwotoneHeart></AiTwotoneHeart></div>
 
               <div>
                 <button

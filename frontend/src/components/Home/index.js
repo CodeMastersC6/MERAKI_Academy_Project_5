@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProductId, setProducts } from "../../redux/reducer/product";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+import{setCart} from "../../redux/reducer/cart"
 //===============================================================
 
 const Home = () => {
@@ -43,7 +44,23 @@ const Home = () => {
         console.log(err);
       });
   };
+  const UserIdStorage = localStorage.getItem("userId")
+const createNewCartByUser=(id)=>{
+  axios
+      .post(`http://localhost:5000/cart`,{
+        user_id:UserIdStorage,
+        product_id:id,
+        quantity:1
+      })
+     .then((result)=>{
+      console.log(result)
+      dispatch(setCart(result.data.result));
+     })
+     .catch((err)=>{
+      console.log(err)
 
+     })
+}
   const getAllProductBySearch = (str) => {
     axios
       .get(`http://localhost:5000/product/${min}/${max}`)
@@ -67,17 +84,19 @@ const Home = () => {
   }, [min, max]);
  
   //===============================================================
-
+const [hide,setHide]=useState(true)
   return (
     <>
       <div className="categorys">
         <div
           className="category"
           onClick={(e) => {
-            getAllProducts();
+           getAllProducts();
           }}
         >
-          <p className="category1">All</p>
+          <p className="category1" onClick={()=>{
+            setHide(true)
+          }}>All</p>
         </div>
         {category?.map((category, index) => (
           <div key={index} className="category">
@@ -87,7 +106,9 @@ const Home = () => {
                 getAllProductByCategory(e.target.innerHTML);
               }}
             >
-              <p>{category}</p>
+              <p onClick={()=>{
+                setHide(false)
+              }}>{category}</p>
             </div>
           </div>
         ))}
@@ -106,7 +127,9 @@ const Home = () => {
             placeholder="here"
             value={min}
             onChange={(e) => {
-              setMin(e.target.value);
+              setMin(e.target.value)
+              setHide(false)
+              ;
             }}
           ></input>
           <p className="input_max_min1">{"$ "+min}</p>
@@ -122,7 +145,9 @@ const Home = () => {
             placeholder="here"
             value={max}
             onChange={(e) => {
-              setMax(e.target.value);
+              setMax(e.target.value)
+              setHide(false)
+              ;
             }}
           ></input>
           <p className="input_max_min1">{"$ "+max}</p>
@@ -144,7 +169,10 @@ const Home = () => {
                 <div className="details_component">{product.name}</div>
                 <div className="details_component">{"$" + product.price}</div>
                 <div className="div_but">
-                  <button className="but_cart_view"> Cart</button>
+                  <button className="but_cart_view" onClick={()=>{
+                    console.log(product.id)
+                    createNewCartByUser(product.id)
+                  }}> Cart</button>
                   <button className="but_cart_view" onClick={()=>{
                      dispatch(setProductId(product.id));
                      navigate("/productInfo");
@@ -156,22 +184,22 @@ const Home = () => {
         </div>
       </div>
       <div className="div_move">
-        <button
+        {hide&&<button
           className="but_11"
           onClick={() => {
             setCount(count - 12);
           }}
         >
           <AiFillLeftCircle></AiFillLeftCircle>
-        </button>
-        <button
+        </button>}
+       {hide&& <button
           className="but_22"
           onClick={() => {
             setCount(count + 12);
           }}
         >
           <AiFillRightCircle></AiFillRightCircle>
-        </button>
+        </button>}
       </div>
     </>
   );
