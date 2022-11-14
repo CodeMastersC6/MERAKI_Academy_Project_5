@@ -19,6 +19,7 @@ reducers:{
         state.cart = state.cart.filter((carts)=>{
             return carts.cid !== action.payload;
         })
+        
     },
     updateCart:(state,action )=>{
         state.cart= state.cart.map((carts,idx)=>{
