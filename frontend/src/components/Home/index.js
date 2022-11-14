@@ -65,7 +65,10 @@ const Home = () => {
   useEffect(() => {
     getAllProductBySearch();
   }, [min, max]);
-
+  useEffect(()=>{
+    const currentURL = window.location
+    console.log(currentURL)
+  },[])
   //===============================================================
 
   return (
@@ -77,7 +80,7 @@ const Home = () => {
             getAllProducts();
           }}
         >
-          <p>All</p>
+          <p className="category1">All</p>
         </div>
         {category?.map((category, index) => (
           <div key={index} className="category">
@@ -139,9 +142,9 @@ const Home = () => {
               <div className="product_details">
                 <div className="details_component">{product.name}</div>
                 <div className="details_component">{product.price}</div>
-                <div>
-                  <button> Cart</button>
-                  <button>View</button>
+                <div className="div_but">
+                  <button className="but_cart_view"> Cart</button>
+                  <button className="but_cart_view">View</button>
                 </div>
               </div>
             </div>

@@ -39,7 +39,7 @@ const navigate=useNavigate()
        
         setStatus(false)
         
-        // navigate("/home")
+        navigate("/home")
         console.log(result) 
          {localStorage.setItem("firstName",result.data.firstName)}
 
@@ -84,7 +84,7 @@ console.log( 'onFailure response:',response);
   cookiePolicy={'single_host_origin'}
   isSignedIn={true}
   accessType='offline'
-onClick={''}/>  <span>Sign In With Google</span></p>
+onClick={''}  /><span>Sign In With Google</span></p>
             {status&&<p className="message_response">{message}</p>}
             <button  onClick={login}>Sign in</button>
         </div>
