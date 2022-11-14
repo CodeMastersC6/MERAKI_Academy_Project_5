@@ -7,7 +7,6 @@
     top: 100px;
     font-size: 20px;
 
-
 }
 .message_response{
     overflow: hidden;
@@ -44,6 +43,58 @@
 }
 .login_main button:hover{
     cursor: pointer;
+}
+.image_login{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    left: 1250px;
+    bottom: 250px;
+    overflow: hidden;
+
+}
+.image_login1{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    right: 350px;
+    bottom: 250px;
+    overflow: hidden;
+
+}
+.image_login:hover{
+    transform: scale(1.1);
+    transition: 1s ease;
+    cursor: pointer;
+    box-shadow:
+    1px 1px orange,
+    2px 2px orange,
+    3px 3px orange,
+    4px 4px orange,
+    5px 5px orange,
+    6px 6px orange;
+    transform: translateX(-3px);
+    transition: .5s ease;
+    filter: brightness(100%)
+    
+}
+.image_login1:hover{
+    transform: scale(1.1);
+    transition: 1s ease;
+    cursor: pointer;
+    box-shadow:
+    1px 1px orange,
+    2px 2px orange,
+    3px 3px orange,
+    4px 4px orange,
+    5px 5px orange,
+    6px 6px orange;
+    transform: translateX(3px);
+    transition: .5s ease;
+    filter: brightness(100%)
+    
 }
 
 

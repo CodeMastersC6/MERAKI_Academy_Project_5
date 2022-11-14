@@ -49,8 +49,15 @@ body {
     display: grid;
   }
   .Free_shopping{
-    color:yellow
+    color:yellow;
+    animation: color-change 1s infinite
   }
+  @keyframes color-change {
+    0% { color: orange; }
+    50% { color: white; }
+    100% { color: orange; }
+  }
+  
   .image_icons{
     width: 60px;
     height: 50px;
