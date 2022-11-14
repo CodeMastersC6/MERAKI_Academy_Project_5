@@ -26,34 +26,86 @@ import axios from "axios";
 // edit product
 // remove product
 
-const Admin = () => {
-  const [product, setProduct] = useState();
+const Users = () => {
+  const [updateClick, setUpdateClick] = useState(false);
+  const [newName, setNewName] = useState();
+  const [newDescription, setNewDescription] = useState();
+  const [newPrice, setNewprice] = useState();
+  const [newType, setNewType] = useState();
+  const [newMealItem, setNewMealItem] = useState();
+  const [elemId, setElemID] = useState();
+
+  let newMeal="";
+  let newtypeValue="";
+  let newPriceValue="";
+  let newDescriptionValue="";
+  let newNameValue="";
+  let newQuantity="";
+  let NewMealItem="";
+
+  const [productList, setProductList] = useState();
   const [user, setUser] = useState();
   const navigate = useNavigate();
   const getAllProducts = () => {
     axios
-      .get(`http://localhost:5000/product`)
-      .then((result) => {
-        setProduct(result.data.result.length);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const getAllUsers = () => {
-    axios
-      .get(`http://localhost:5000/users/`)
+      .get(`http://localhost:5000/users`)
       .then((result) => {
         console.log(result);
-        setUser(result.data.result.length);
+        setProductList(result.data.result);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  const deleteProduct = (str) => {
+    axios
+      .delete(`http://localhost:5000/users/${str}`)
+      .then((result) => {
+        if (result.data.success) {
+          let newProductList = productList.filter((element) => {
+            return element.id != str;
+          });
+          setProductList(newProductList);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const updateProduct = (value) => {
+    axios
+      .put(`http://localhost:5000/users/${value}`, {
+        name: newName,
+        description: newDescription,
+        price: newPrice,
+        category: newType,
+      })
+      .then((response) => {
+        if (response.data.success) {
+          let newProductList = productList.map((element,i) => {
+            console.log(newMealItem)
+            if (element.id === value) {
+            element.name=newName|| newMealItem.name 
+            element.description= newDescription|| newMealItem.description
+            element.price=newPrice || newMealItem.price
+            element.category=newType || newMealItem.category}
+          return element
+             
+          });
+          setProductList(newProductList);
+       
+        }
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getAllProducts();
-    getAllUsers();
   }, []);
 
   return (
@@ -93,23 +145,51 @@ const Admin = () => {
         </div>
       </div>
       <div className="Admin_Body">
-        <div className="cards">
-          <div className="card_One">Number of Users {user}</div>
-          <div className="card_One"> Number of Products{product}</div>
-          <div className="card_One"> Categories 6</div>
-          <div className="card_One"> Totla value of Payment</div>
-        </div>
-        <div className="Tables">
-          <div className="Table"></div>
-          <div className="Table">Table 2</div>
-        </div>
-        <div className="Tables">
-          <div className="Table">Table1</div>
-          <div className="Table">Table 2</div>
-        </div>
-      </div>
-    </div>
+        {productList &&
+          productList.map((element, i) => {
+            return (
+              <>
+                <div className="product_Details">
+                <div>
+                    <p>ID:{element.id}</p>
+                 </div>
+                  <div>
+                    <p>First Name:{element.firstname}</p>
+                 </div>
+
+                  <div>
+                    <p>Last Name:{element.lastname}</p>
+                  </div>
+                  <div>
+                    <p>Email:{element.email}</p>
+                     </div>
+                  <div>
+                  <div>
+                    <p>Mobile:{element.mobile}</p>
+                     </div>
+                  <div>
+                    <p>Location:{element.location}</p>
+                      </div>
+                  <div>
+                    <button
+                      onClick={() => {
+                        deleteProduct(element.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                   
+                  </div>
+                  </div>
+                  </div>
+
+   
+              </>
+            );
+          })}
+          </div>
+          </div>
   );
 };
 
-export default Admin;
+export default Users;

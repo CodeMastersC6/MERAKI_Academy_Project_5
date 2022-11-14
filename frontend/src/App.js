@@ -15,7 +15,11 @@ import Register from "./components/Register";
 import Admin from "./components/Admin";
 import Products from "./components/Products";
 import NewProduct from "./components/NewProduct";
+
+import Users from "./components/Users";
+
 import Main from "./components/Charts";
+
 
 function App() {
 
@@ -36,6 +40,9 @@ function App() {
         <Route path={"/admin"} element={<Admin/>}/>
         <Route path={"/admin/products"} element={<Products/>}/>
         <Route path={"/admin/products/new"} element={<NewProduct/>}/>
+
+        <Route path={"/admin/users"} element={<Users/>}/>
+
         <Route path={"/Main"} element={<Main/>}/>
         
 

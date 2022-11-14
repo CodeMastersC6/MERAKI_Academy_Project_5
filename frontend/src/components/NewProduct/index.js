@@ -9,14 +9,14 @@ const navigate=useNavigate()
   const [productType, setProductType] = useState();
   const [productPrice, setProductPrice] = useState(false);
   const [productDescription, setProductDescription] = useState();
-  const [newProductStatus, setNewProductStatus] = useState();
+  const [productStatus, setProductStatus] = useState();
   const [productImage, setProductImage] = useState();
   let newProductImage;
   let newProductName;
   let newProductType;
   let newProductPrice;
   let newProductDescription;
-  let newNewProductStatus;
+  let newProductStatus;
 
   const selectFunction = (value) => {
 
@@ -28,20 +28,21 @@ const navigate=useNavigate()
         "http://localhost:5000/product",
         {
           name: productName,
-          type: productType,
+          category: productType,
           price: productPrice,
           description: productDescription,
           image: productImage,
         }
       )
       .then((response) => {
-        newNewProductStatus = response.data.message;
-        setNewProductStatus(newNewProductStatus);
+        console.log(response.data.massage)
+        newProductStatus = response.data.message;
+        setProductStatus(newProductStatus);
       })
 
       .catch((err) => {
-        newNewProductStatus = err.response.data.message;
-        setNewProductStatus(newNewProductStatus);
+        newProductStatus = err.response.data.message;
+        setProductStatus(newProductStatus);
       });
   };
   const convertToBase64 = (file) => {
@@ -96,7 +97,7 @@ const navigate=useNavigate()
         </div>
       </div>
       <div className="Admin_Body">
-      <div className="Master">
+          <div className="Master">
       <div className="createProductContainer">
         <div className="createProductDiv">
           <div className="mainDiv">
@@ -114,7 +115,7 @@ const navigate=useNavigate()
         </div>
         <div className="createProductDiv">
           <div className="mainDiv">
-            <p>Description:</p>
+                       <p>Description:</p>
           </div>
           <div>
             <input
@@ -148,12 +149,17 @@ const navigate=useNavigate()
           <div>
             <select
               onChange={(e) => {
-                selectFunction(e.target.value);
+                newProductType=e.target.value
+                setProductType(newProductType);
+                console.log(newProductType)
               }}
             >
               <option>Meat</option>
               <option>Bread</option>
-              <option>Yougart</option>
+              <option>Yougart</option> 
+              <option>Fruits</option> 
+              <option>Vigtables</option>
+              <option>Juice</option>
             </select>
           </div> 
           <div className="mainDiv">
@@ -175,12 +181,12 @@ const navigate=useNavigate()
           className="createButton"
           onClick={() => {
             createNewProduct();
-          }}
+            navigate("/admin/products")          }}
         >
           Add Product
         </button>
       </div>
-      <p>{newProductStatus}</p>
+      <div><p>{productStatus}</p></div>
     </div>
       </div>
     </div>
