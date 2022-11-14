@@ -45,7 +45,7 @@ const NavBar = () => {
   return (
     <>
       <div className="NavBar">
-        {isLoggedIn && token? (
+        { token? (
           <>
             <div className="black_header">
               <p> <span>Welcome</span> {userName}</p>{" "}

@@ -16,18 +16,19 @@ reducers:{
         state.cart.push(action.payload);
     },
     deleteCart:(state,action)=>{
-        state.cart.filter((cart)=>{
-            return cart.id !=action.payload.id;
+        state.cart = state.cart.filter((carts)=>{
+            return carts.cid !== action.payload;
         })
     },
     updateCart:(state,action )=>{
-        state.cart.map((cart,idx)=>{
-          if(cart.id===action.payload.id){
+        state.cart= state.cart.map((carts,idx)=>{
+          if(carts.cid===action.payload.id){
              
-              cart.quantity=action.payload.quantity;
+              carts.quantity=action.payload.quantity;
 
           }
-          return cart;
+          return carts;
+
         })  
        
       },

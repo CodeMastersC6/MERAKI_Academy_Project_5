@@ -1,13 +1,9 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    
-    
-  }
+
   .cartMain{
     display: grid;
     justify-content:center;
+    
+    
     margin-top: 3%;
    
 }
@@ -17,9 +13,11 @@
   justify-content: center;
 
  /* width: 200%;  */
-    background-color: rgb(220, 221, 221);
+    background-color: white;
 /* border-radius: 2%; */
-box-shadow: 5px 5px 5px rgb(243, 150, 62);
+box-shadow: 5px 5px 5px 5px orange;
+
+
 
 }
 .Cart{
@@ -30,6 +28,7 @@ box-shadow: 5px 5px 5px rgb(243, 150, 62);
 
 .MyCart{
     font-size: 3rem;
+    text-align: center;
 }
 .nameCart{
     font-size: 2.3rem;
@@ -40,16 +39,19 @@ box-shadow: 5px 5px 5px rgb(243, 150, 62);
     width: 120%; */
     width: 200px;
     height: 220px;
+    margin-left: 20px;
+    margin-right: 20px;
+
 }
 .namePrice{
 display: grid;
 font-size: 1.3rem;
-gap: 8%;
+
 }
 .ContinueShopping{
     border:0;
     font-size: 120%;
-background-color: rgb(243, 150, 62);
+background-color: orange;
 border-radius: 8%;
 box-shadow: 2px 2px #888888;
 
@@ -57,46 +59,52 @@ box-shadow: 2px 2px #888888;
 .ContinueShopping:hover{
 background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
+cursor: pointer;
 }
 .ClearCart{
    /* height: 60%; */
    /* width: 20%; */
     border:0;
-    font-size: 120%;
-background-color: rgb(243, 150, 62);
+    font-size: 70%;
+background-color: orange;
 border-radius: 8%;
+width: 80px;
+
 /* margin-top: 20%; */
 
 }
 .ClearCart:hover{
 background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
+cursor: pointer;
 }
 .SubtotalMain{
     display: flex;
     gap: 85%;
+
     
 }
 .ProceedToCheckout{
    
     border:0;
     font-size: 120%;
-background-color: rgb(243, 150, 62);
+background-color: orange;
 border-radius: 8%;
 box-shadow: 2px 2px #888888;
 }
 .ProceedToCheckout:hover{
 background-color: rgb(7, 7, 7);
 color: rgb(249, 249, 249);
+cursor: pointer;
 }
 .Subtotal{
     font-size: 1.6rem;
 }
 
 .QuntityCart{
-    display: flex;
+    display: grid;
     
-  
+  grid-template-columns: repeat(3,140px);
     font: 2em sans-serif;
 border-radius: 8%;
 border: 0%;
@@ -105,17 +113,22 @@ border: 0%;
 .QUpdate{
     border:0;
     font-size: 70%;
-background-color: rgb(243, 150, 62);
+background-color: orange;
 border-radius: 8%;
+margin-right: 10px;
+height: 40px;
+width: 80px;
 }
 .QUpdate:hover{
     background-color: rgb(7, 7, 7);
     color: rgb(249, 249, 249);
+    cursor: pointer;
 }
 .inputQ{
     border:0;
 border-radius: 8%;
 box-shadow: 1px 1px #292828;
+width: 80px;
 
 }
 .inputQ:hover{
@@ -136,4 +149,24 @@ height: 0%;
 gap: 10%;
 margin-top: 21.5%;
 margin-right: 4%;
+}
+.p_totol{
+    font-size: 40px;
+   float: right;
+   display: inline;
+   position: relative;
+   bottom: 80px;
+
+    right: 710px;  
+  
+}
+.p_totol1{
+    font-size: 40px;
+   float: right;
+   display: inline;
+   position: relative;
+   bottom: 90px; 
+   right: 800px; 
+   border-bottom: 2px solid;
+  
 }
