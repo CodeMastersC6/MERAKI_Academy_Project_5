@@ -65,10 +65,7 @@ const Home = () => {
   useEffect(() => {
     getAllProductBySearch();
   }, [min, max]);
-  useEffect(()=>{
-    const currentURL = window.location
-    console.log(currentURL)
-  },[])
+ 
   //===============================================================
 
   return (
@@ -97,9 +94,10 @@ const Home = () => {
       </div>
       <div className="container">
         <div className="filterbar">
-          <p>Price Range</p>
-          <p>From</p>
+          <p className="p_price">Price Range</p>
+          <p className="p_price">From</p>
           <input
+            className="input_range"
             type="range"
             id="vol"
             name="vol"
@@ -111,8 +109,11 @@ const Home = () => {
               setMin(e.target.value);
             }}
           ></input>
-          <p>{min}</p>
+          <p className="input_max_min1">{"$ "+min}</p>
+          <p className="p_price">to</p>
+
           <input
+            className="input_range"
             type="range"
             id="vol"
             name="vol"
@@ -124,27 +125,30 @@ const Home = () => {
               setMax(e.target.value);
             }}
           ></input>
-          <p>{max}</p>
+          <p className="input_max_min1">{"$ "+max}</p>
         </div>
         <div className="products">
           {products?.map((product, index) => (
-            <div
-              key={index}
-              className="product"
-              onClick={() => {
-                dispatch(setProductId(product.id));
-                navigate("/productInfo");
-              }}
-            >
+            <div key={index} className="product" onClick={() => {}}>
               <div>
-                <img className="product_image" src={product.image} />
+                <img
+                  className="product_image"
+                  src={product.image}
+                  onClick={() => {
+                    dispatch(setProductId(product.id));
+                    navigate("/productInfo");
+                  }}
+                />
               </div>
               <div className="product_details">
                 <div className="details_component">{product.name}</div>
-                <div className="details_component">{product.price}</div>
+                <div className="details_component">{"$" + product.price}</div>
                 <div className="div_but">
                   <button className="but_cart_view"> Cart</button>
-                  <button className="but_cart_view">View</button>
+                  <button className="but_cart_view" onClick={()=>{
+                     dispatch(setProductId(product.id));
+                     navigate("/productInfo");
+                  }}>View</button>
                 </div>
               </div>
             </div>

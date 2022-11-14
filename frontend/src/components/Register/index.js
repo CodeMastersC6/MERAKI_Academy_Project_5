@@ -128,7 +128,8 @@ const Register = () => {
               <br />
             </form>
       </div>
-      {/* <Footer/> */}
+      <img className="image_login2" src="https://www.turlock.k12.ca.us/cms/lib/CA50000453/Centricity/Domain/1539/register.png"></img>
+            <img className="image_login3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3uGKpBGBp1ltykkNSROG7np3u1VNwc9Vxg&usqp=CAU"></img>
           </>
   );
 };

@@ -66,6 +66,7 @@ console.log( 'onFailure response:',response);
     return (
         <>
         <Navbar_b_token/>
+        
         <div className="login_main">
             <p>Login</p>
             <p>Please login below account detail</p>
@@ -87,8 +88,10 @@ console.log( 'onFailure response:',response);
 onClick={''}  /><span>Sign In With Google</span></p>
             {status&&<p className="message_response">{message}</p>}
             <button  onClick={login}>Sign in</button>
+            
         </div>
-        {/* <Footer/> */}
+        <img className="image_login" src="https://img.freepik.com/premium-vector/online-registration-sign-up-with-man-sitting-near-smartphone_268404-95.jpg?w=2000"></img>
+            <img className="image_login1" src="https://img.freepik.com/premium-psd/login-page-3d-icon-premium-psd_418302-3022.jpg?w=2000"></img>
         </>
     )
 }
