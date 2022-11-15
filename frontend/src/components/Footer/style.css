@@ -99,3 +99,62 @@
 
 
    }
+   @media only screen and (max-width: 400px) {
+    .facebook_icons{
+        position: relative;
+        /* top: 35px; */
+        display: grid;
+        grid-template-columns: repeat(6,40px);
+    }
+    .copyright{
+        position: relative;
+        right: 45px;
+    }
+    .footer {
+        background-color: rgb(27, 27, 27);
+    border-top:2px solid rgb(58, 54, 54);
+    height: 100px;
+    position: relative;
+    width: 100%;
+    bottom: 0; 
+     top: 300px;
+     left: 400px;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    display: grid;
+    grid-template-rows:repeat(3,50px) ;
+    background-color:orange;
+    overflow: hidden; 
+    }
+    .about_register{
+        display: grid;
+        grid-template-columns: repeat(3,430px);
+        justify-content: left;
+        justify-items: center;
+       
+        position: relative;
+        top: 200px;
+        right: 30px;
+       }
+       .about_register1{
+        width: 50%;
+        height: 50%;
+       }
+       .about_register2{
+        display: grid;
+        grid-template-columns: repeat(3,300px);
+        column-gap: 80px;
+        justify-content: right;
+        justify-items: center;
+        position: relative;
+        top: 280px;
+        left: 200px;
+        width: 900px;
+       
+       }
+       .about_register4{
+        width: 25px;
+        height: 25px;
+       }
+  }

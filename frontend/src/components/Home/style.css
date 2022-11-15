@@ -90,7 +90,7 @@ grid-template-rows: 1fr 1fr 2fr;
   cursor: pointer;
 
 }
-.active{
+.active1{
   opacity: 0.3;
   background-color: orange;
   width: 100%;

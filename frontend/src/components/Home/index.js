@@ -170,8 +170,10 @@ const [hide,setHide]=useState(true)
                 <div className="details_component">{"$" + product.price}</div>
                 <div className="div_but">
                   <button className="but_cart_view" onClick={(e)=>{
-                   console.log(e.target.className="active")
-                   e.target.className="active"
+                   if(e.target.className =="but_cart_view"){
+                    e.target.className="active1"
+                     
+                   }
                     
                     createNewCartByUser(product.id)
                   }}> Cart</button>
