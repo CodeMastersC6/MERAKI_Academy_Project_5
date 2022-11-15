@@ -88,6 +88,21 @@ grid-template-rows: 1fr 1fr 2fr;
 }
 .but_cart_view:hover{
   cursor: pointer;
+
+}
+.active{
+  opacity: 0.3;
+  background-color: orange;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.but_cart_view:visited{
+opacity: 0.1;
+color: red;
 }
 .div_but{
   display: grid;

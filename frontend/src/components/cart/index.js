@@ -10,6 +10,7 @@ import {
   setCart,
 } from "../../redux/reducer/cart";
 
+
 const Cart = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
@@ -80,11 +81,10 @@ const Cart = () => {
     <>
     
     <div className="cartMain">
-     
+   
       <p className="MyCart">My Cart</p>
       <div>
-        {cart &&
-          cart.map((elem, i) => {
+        {cart && cart.map((elem, i) => {
             sum+=elem.price*elem.quantity
             return (
               <div className="CartMap" key={i}>

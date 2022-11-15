@@ -57,7 +57,9 @@ const NavBar = () => {
                 <img
                   className="logo"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA9JLwYrxicQ2ZLA7XDINTzPasrI-5sx6onA&usqp=CAU"
-                />
+               onClick={()=>{
+                navigate("/home")
+               }} />
               </div>
 
               <div className="link">
