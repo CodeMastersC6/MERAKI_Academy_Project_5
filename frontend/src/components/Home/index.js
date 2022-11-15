@@ -5,7 +5,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProductId, setProducts } from "../../redux/reducer/product";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
-import{setCart} from "../../redux/reducer/cart"
+import{addCart} from "../../redux/reducer/cart"
 //===============================================================
 
 const Home = () => {
@@ -54,7 +54,7 @@ const createNewCartByUser=(id)=>{
       })
      .then((result)=>{
       console.log(result)
-      dispatch(setCart(result.data.result));
+      dispatch(addCart(result.data.result));
      })
      .catch((err)=>{
       console.log(err)
@@ -169,8 +169,10 @@ const [hide,setHide]=useState(true)
                 <div className="details_component">{product.name}</div>
                 <div className="details_component">{"$" + product.price}</div>
                 <div className="div_but">
-                  <button className="but_cart_view" onClick={()=>{
-                    console.log(product.id)
+                  <button className="but_cart_view" onClick={(e)=>{
+                   console.log(e.target.className="active")
+                   e.target.className="active"
+                    
                     createNewCartByUser(product.id)
                   }}> Cart</button>
                   <button className="but_cart_view" onClick={()=>{

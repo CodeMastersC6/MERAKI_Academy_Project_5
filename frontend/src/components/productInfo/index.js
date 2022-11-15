@@ -4,7 +4,7 @@ import "./style.css";
 import { useDispatch,useSelector } from "react-redux";
 import axios from "axios";
 import { BsCurrencyDollar } from "react-icons/bs";
-
+import{addCart} from "../../redux/reducer/cart"
 import {GrDeliver} from 'react-icons/gr'
 const ProductInfo=()=>{
 const [info,setInfo]=useState([])
@@ -20,9 +20,24 @@ console.log(productId)
 
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState();
+  const UserIdStorage = localStorage.getItem("userId")
 
-
-      
+  const createNewCartByUser=(id)=>{
+    axios
+        .post(`http://localhost:5000/cart`,{
+          user_id:UserIdStorage,
+          product_id:id,
+          quantity:1
+        })
+       .then((result)=>{
+        console.log(result)
+        dispatch(addCart(result.data.result));
+       })
+       .catch((err)=>{
+        console.log(err)
+  
+       })
+  } 
 
 //create function  getAllProductById
 
@@ -52,16 +67,20 @@ return(
       <img src={info.image}></img> 
       </div>
     <div className="productInfoMain">
-      
+    
     <p className="p_name_des">{"category Item : "+info.category}</p>
     <p className="p_name_des">{"Name Item :  "+info.name}</p>
     <p className="p_name_des">{info.description}</p>
     <p className="p_name_des">{"Price "+"$"+info.price}</p>
     <div className="but_part1">
       <button className="buttom_info" onClick={()=>{
-        Navigate(-1)
+        Navigate("/home")
+        console.log("home")
       }}>Back</button>
-      <button className="buttom_info">Add To Cart</button>
+      <button className="buttom_info" onClick={()=>{
+        console.log(info.id)
+        createNewCartByUser(info.id)
+      }}>Add To Cart</button>
     </div>
     
     </div>

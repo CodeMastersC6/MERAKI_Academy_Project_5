@@ -50,6 +50,7 @@ const navigate=useNavigate()
         console.log(err)
         setMessage(err.response.data.message)
         setStatus(true)
+        alert(err.response.data.message)
     })
   };
   const responseGoogle = (response) => {
@@ -85,8 +86,10 @@ console.log( 'onFailure response:',response);
   cookiePolicy={'single_host_origin'}
   isSignedIn={true}
   accessType='offline'
+
 onClick={''}  /></p> */}
             {status&&<p className="message_response">{message}</p>}
+
             <button  onClick={login}>Sign in</button>
             
         </div>

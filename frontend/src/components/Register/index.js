@@ -3,13 +3,14 @@ import "./style.css";
 import axios from "axios";
 import Navbar_b_token from "../Navbar_b_token/indes";
 import Footer from "../Footer";
+import { useNavigate } from "react-router-dom";
 
 
 // =================================================================
 
 const Register = () => {
 //   const { isLoggedIn } = useContext(AuthContext);
-
+const navigate = useNavigate()
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [Location, setLocation] = useState("");
@@ -41,12 +42,16 @@ const Register = () => {
         console.log(result)
         setMessage1(result.data.massage)
         setStatus(false)
+        alert(result.data.massage)
+        navigate("/")
+        
       })
       .catch((err)=>{
         setStatus(true)
         setMessage(err.response.data.massage)
         console.log(message)
         console.log(err)
+        alert(err.response.data.massage)
       })
       
   };
@@ -101,7 +106,7 @@ const Register = () => {
               <br />
               <label>mobile</label><br></br>
               <input className="input_register"
-                type="number"
+                type="text"
                 placeholder="mobile"
                 onChange={(e) => setMobile(e.target.value)}
               />
@@ -120,10 +125,7 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <br />
-              <p>
-             { status ? message:message1}
-
-              </p>
+              
               <button className="but_create" onClick={addNewUser}>Create</button>
               <br />
             </form>
