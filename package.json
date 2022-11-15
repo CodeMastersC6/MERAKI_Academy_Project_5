@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "react-vis": "^1.11.7"
+    "react-vis": "^1.11.7",
+    "victory": "^36.6.8",
+    "victory-core": "^36.6.8"
   }
 }
