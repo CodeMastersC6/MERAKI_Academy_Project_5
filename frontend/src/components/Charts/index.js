@@ -121,7 +121,7 @@ const myDataset = [
          
         //   padding={{ top: 0, bottom: 20, left: 40, right: 40 }}
           
-        >
+        />
             <VictoryStack
               colorScale={["green", "blue", "tomato"]}
             >
