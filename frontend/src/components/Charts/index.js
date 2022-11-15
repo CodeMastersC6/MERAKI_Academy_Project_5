@@ -4,7 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import "./style.css";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack ,VictoryGroup,VictoryArea,VictoryPortal,VictoryScatter} from 'victory';
-//import { ResponsivePie } from '@nivo/pie'
+
 import axios from "axios";
 
 const data = [
