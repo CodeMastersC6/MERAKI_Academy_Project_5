@@ -6,12 +6,7 @@ import "./style.css";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack ,VictoryGroup,VictoryArea,VictoryPortal,VictoryScatter} from 'victory';
 //import { ResponsivePie } from '@nivo/pie'
 import axios from "axios";
-//import { setProductId, setProducts } from "../../redux/reducer/product";
-// const { products } = useSelector((state) => {
-//   return {
-//     products: state.product.products,
-//   };
-// });
+
 const data = [
     { x: new Date( 11, 1), y: 1 },
     { x: new Date( 11, 2), y: 10 },
@@ -40,86 +35,86 @@ const myDataset = [
          { x: "Juice", y: 4 }
 
         
-//     ],
-//     [
-//         { x: "meat", y: 10 },
-//         { x: "bread", y: 35 },
-//         { x: "Yougart", y: 20 },
-//         { x: "Fruits", y: 10 },
-//         { x: "Vigtables", y: 10 },
-//         { x: "Juice", y: 80 }
-//     ],
+    ],
+    [
+        { x: "meat", y: 10 },
+        { x: "bread", y: 35 },
+        { x: "Yougart", y: 20 },
+        { x: "Fruits", y: 10 },
+        { x: "Vigtables", y: 10 },
+        { x: "Juice", y: 80 }
+    ],
    
-//   ];
+  ];
   
-// class Main extends React.Component {
+class Main extends React.Component {
     
-//     transformData(dataset) {
-//         const totals = dataset[0].map((data, i) => {
-//           return dataset.reduce((memo, curr) => {
-//             return memo + curr[i].y;
-//           }, 0);
-//         });
-//         return dataset.map((data) => {
-//           return data.map((datum, i) => {
-//             return { x: datum.x, y: (datum.y / totals[i]) * 100 };
-//           });
-//         });
-//       }
-//   render() {
+    transformData(dataset) {
+        const totals = dataset[0].map((data, i) => {
+          return dataset.reduce((memo, curr) => {
+            return memo + curr[i].y;
+          }, 0);
+        });
+        return dataset.map((data) => {
+          return data.map((datum, i) => {
+            return { x: datum.x, y: (datum.y / totals[i]) * 100 };
+          });
+        });
+      }
+  render() {
     
        
-//     const dataset = this.transformData(myDataset)
-//     return (
-//       <div className='chartMain'>
+    const dataset = this.transformData(myDataset)
+    return (
+      <div className='chartMain'>
         
        
         
-//         <VictoryChart className="main"
-//            domainPadding={50}
-//            padding={{ top: 30, bottom: 20, left: 40, right: 40 }}
-//         //    height={500}
-//         //     width={500}
+        <VictoryChart className="main"
+           domainPadding={50}
+           padding={{ top: 30, bottom: 20, left: 40, right: 40 }}
+        //    height={500}
+        //     width={500}
        
            
-//         animate={{ duration: 4000 }}
-//           theme={VictoryTheme}
-//         > 
+        animate={{ duration: 4000 }}
+          theme={VictoryTheme}
+        > 
         
-//           <VictoryAxis
-//             tickValues={["August", "September", "October ", "November"]}
+          <VictoryAxis
+            tickValues={["August", "September", "October ", "November"]}
            
-//           />
-//           <VictoryAxis
-//             dependentAxis
-//             tickFormat={(x) => (`JD${x / 1}`)}
+          />
+          <VictoryAxis
+            dependentAxis
+            tickFormat={(x) => (`JD${x / 1}`)}
             
-//           />
-//           <VictoryStack
-//             colorScale={"green"}
+          />
+          <VictoryStack
+            colorScale={"green"}
             
-//           >
+          >
            
            
-//             <VictoryBar
-//               data={data2022}
-//               x={"quarter"}
-//               y={"Sales"}
+            <VictoryBar
+              data={data2022}
+              x={"quarter"}
+              y={"Sales"}
              
 
-//             //    labels={["Aug", "Sep", "Oct", "Nov",]}
-//             />
-//           </VictoryStack>
-//         </VictoryChart>
+            //    labels={["Aug", "Sep", "Oct", "Nov",]}
+            />
+          </VictoryStack>
+        </VictoryChart>
        
-//         <h1  className='h1'>(Total sales in the first months.) ®</h1>
-//         <div className='charts'>
+        <h1  className='h1'>(Total sales in the first months.) ®</h1>
+        <div className='charts'>
        
 
         <VictoryChart height={400} width={400}
           domainPadding={{ x: 30, y: 20 }}
          
-        //   padding={{ top: 0, bottom: 20, left: 40, right: 40 }}
+          padding={{ top: 0, bottom: 20, left: 40, right: 40 }}
           
         >
             <VictoryStack
@@ -154,16 +149,16 @@ const myDataset = [
       
        
       
-//       />
+      />
       
-//     </VictoryChart>
-//     <h1  className='h1'>(Monthly enrollment rate.) ®</h1>
+    </VictoryChart>
+    <h1  className='h1'>(Monthly enrollment rate.) ®</h1>
 
-//       </div>
-//     );
-//   }
-// }
+      </div>
+    );
+  }
+}
 
 
-// export default Main;
+export default Main;
 
