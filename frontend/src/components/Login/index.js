@@ -8,10 +8,10 @@ import Navbar_b_token from "../Navbar_b_token/indes";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
-import { GoogleLogin } from 'react-google-login';
-import { GoogleLogout } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogout } from 'react-google-login';
 
-import { useGoogleLogin } from 'react-google-login'
+// import { useGoogleLogin } from 'react-google-login'
 import { current } from "@reduxjs/toolkit";
 
 const Login = ()=>{
@@ -83,15 +83,17 @@ console.log( 'onFailure response:',response);
             <input placeholder="password" type={"password"} onChange={(e)=>{
                 setPassword(e.target.value)
             }}></input>
-            <p className="siginWithGoogle"> <GoogleLogin
+            {/* <p className="siginWithGoogle"> <GoogleLogin
   clientId="994328639474-ub85dkgodp4vrm5nvfaemiklfko5jpt9.apps.googleusercontent.com"
   onSuccess={responseGoogle}
   onFailure={onFailure}
   cookiePolicy={'single_host_origin'}
   isSignedIn={true}
   accessType='offline'
-onClick={''}  /></p>
-            
+
+onClick={''}  /></p> */}
+            {status&&<p className="message_response">{message}</p>}
+
             <button  onClick={login}>Sign in</button>
             
         </div>

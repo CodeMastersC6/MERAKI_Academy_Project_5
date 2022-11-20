@@ -1,3 +1,4 @@
+
 import React, { useContext, useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import "./style.css";
@@ -6,6 +7,7 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack ,Vict
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProductId, setProducts } from "../../redux/reducer/product";
+
 
 const data = [
     { x: new Date( 11, 1), y: 1 },
@@ -109,11 +111,15 @@ class Main extends React.Component {
         <h1  className='h1'>(Total sales in the first months.) ®</h1>
         <div className='charts'>
        
+
+
         <VictoryChart height={400} width={400}
           domainPadding={{ x: 30, y: 20 }}
-        //   padding={{ top: 0, bottom: 20, left: 40, right: 40 }}
+         
+          padding={{ top: 0, bottom: 20, left: 40, right: 40 }}
           
-        >
+        />
+
             <VictoryStack
               colorScale={["green", "blue", "tomato"]}
             >
@@ -135,10 +141,15 @@ class Main extends React.Component {
       height={400} 
       scale={{ x: data }}
       tickValues={["August", "September", "October ", "November"]}
+
+      animate={{ duration: 5000 }}
+          theme={VictoryTheme.material}
+
     >
       <VictoryArea 
         data={data} 
         style={{data: { fill: 'lightblue', stroke: 'teal' }}} 
+
        
       
        
