@@ -30,7 +30,13 @@ const Contact = ()=>{
                 <input placeholder="Enter your email address*"></input>
                 <label>Message</label>
                 <textarea placeholder="Your message here"></textarea>
-                <button className="submit_button">Submit</button>
+                <button className="submit_button"onClick={(e)=>{
+                    if(e.target.className=="submit_button"){
+                        console.log(e)
+                        e.target.className ="active_1"
+                       
+                    }
+                }}>Submit</button>
             </div>
             <div className="Contact_right">
                 <h1>Get in Touch</h1>
