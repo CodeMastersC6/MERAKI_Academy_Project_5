@@ -8,6 +8,30 @@
 }
 
 .product_Details{
-display: flex;
-justify-content: space-evenly;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr  ;
+border-bottom: 1px solid black;
+justify-content: center;
+align-items: center;
+justify-items: center;
+
+}
+
+
+.product_Details_Head{
+    height: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr  ;
+    border-bottom: 4px solid black;
+    border-top: 4px solid black;
+    font-weight: bolder;
+    justify-content: center;
+align-items: center;
+justify-items: center;
+    
+    }
+
+.product_body{
+    display: grid;
+    grid-template-columns: 1fr  ;
 }

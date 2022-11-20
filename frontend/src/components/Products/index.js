@@ -144,7 +144,8 @@ const Products = () => {
           Users
         </div>
       </div>
-      <div className="Admin_Body">
+      <div className="product_body">
+        <div className="product_Details_Head"><div>Image</div><div>Name</div><div>Discription</div><div>Category</div><div>Price</div><div>Edit</div><div>Delete</div></div>
         {productList &&
           productList.map((element, i) => {
             return (
@@ -155,7 +156,7 @@ const Products = () => {
                  
                   </div>
                   <div>
-                    <p>Name:{element.name}</p>
+                    <p>{element.name}</p>
                     {element.id === elemId ? (
                       updateClick && (
                         <input
@@ -171,7 +172,7 @@ const Products = () => {
                   </div>
 
                   <div>
-                    <p>Description:{element.description}</p>
+                    <p>{element.description}</p>
                     {element.id === elemId ? (
                       updateClick && (
                         <input
@@ -186,7 +187,7 @@ const Products = () => {
                     )}
                   </div>
                   <div>
-                    <p>Category:{element.category}</p>
+                    <p>{element.category}</p>
                     {element.id === elemId ? (
                       updateClick && (
                       
@@ -211,7 +212,7 @@ const Products = () => {
                     )}
                   </div>
                   <div>
-                    <p>Price:{element.price}</p>
+                    <p>{element.price}</p>
                     {element.id === elemId ? (
                       updateClick && (
                         <input
@@ -233,6 +234,8 @@ const Products = () => {
                     >
                       Delete
                     </button>
+                    </div>
+                    <div>
                     {!updateClick ? (
                       <button
                         onClick={() => {
