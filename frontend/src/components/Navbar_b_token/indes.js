@@ -2,6 +2,7 @@
 import "./style.css"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+  const logo = require('./Groceries.png')
 
 const Navbar_b_token = ()=>{
 const navigate=useNavigate()
@@ -19,7 +20,7 @@ useEffect(()=>{
                </div>
  
 
-  <img className="image_icons" src="https://cdn-icons-png.flaticon.com/512/135/135763.png"></img>
+  <img className="image_icons" src={logo}></img>
   <p className="p_logo">docana</p>
   
   

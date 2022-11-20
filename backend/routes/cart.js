@@ -14,7 +14,6 @@ const authorization = require("../middlewares/authorization");
 
 cartRouter.get("/", getAllCarts), // 
 cartRouter.get("/:userId", getCartsByUser);
-
 cartRouter.post("/",createNewCart); //need authentication,authorization("CREATE_CART") once its done 
 cartRouter.put("/update/:id", updateCartById);
 

@@ -3,7 +3,9 @@ const {Pool} = require('pg');
 
 // Please note to create DB_URL in your .env file to connect the DB with your SQL backend
 
-const connectionString = process.env.DB_URL;
+// const connectionString = process.env.DB_URL;
+const connectionString=process.env.DB_URL
+
 
 const pool = new Pool({
     connectionString,

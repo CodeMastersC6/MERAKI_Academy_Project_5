@@ -43,7 +43,7 @@ console.log(productId)
 
 
 useEffect(()=>{
-  axios.get(`http://localhost:5000/product/get/17`)
+  axios.get(`http://localhost:5000/product/get/${productId}`)
   .then((result) => {
       setMessage("Success");
       setInfo(result.data.result)

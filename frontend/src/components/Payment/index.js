@@ -1,5 +1,10 @@
 import "./style.css"
+import { useState } from "react"
+import { CardElement,useElements,useStripe } from "@stripe/react-stripe-js"
+import StripeContainer from "../StripeContainer/StripeContainer"
 const Payment = ()=>{
+   
+
     return (
         <div className="main_main_main">
             <div className="main_payment">
@@ -12,11 +17,10 @@ const Payment = ()=>{
                     <h4>Cash on Delivery (COD)</h4>
                 </div>
                 <div className="details_payment">
-                    <input placeholder="Card Number"></input>
-                    <input placeholder="Name On Card"></input>
+                    {/* <input placeholder="Card Number"></input>
+                    <input placeholder="Name On Card"></input> */}
                     <div className="payment_div_detials">
-                    <input  placeholder="Expiration data (MM / YY)"></input>
-                    <input  placeholder="Security code"></input>  
+                      
                     </div>
                  <h1>Billing address</h1>
                  <h4>Select the address that matches your card or payment method.</h4>
@@ -26,7 +30,8 @@ const Payment = ()=>{
                     <input className="input_width1" type={"checkbox"} ></input>
                     <h4>Use a different billing address</h4>
                 </div>
-                <button className="payment_go">pay Now</button>
+                <StripeContainer></StripeContainer>
+
                 </div>
             </div>
             <div className="left_details_card">
