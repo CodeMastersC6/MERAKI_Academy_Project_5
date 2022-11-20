@@ -39,8 +39,12 @@ const navigate=useNavigate()
         // dispatch(setUserId(result.data.userId))
        
         setStatus(false)
-        
-        navigate("/home")
+        {if(result.data.userId==17){
+            navigate("/admin")
+        }else{
+            navigate("/home")
+        }
+    }
         console.log(result) 
       
 

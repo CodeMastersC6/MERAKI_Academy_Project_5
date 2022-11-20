@@ -5,12 +5,11 @@ import Navbar_b_token from "../Navbar_b_token/indes";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 
-
 // =================================================================
 
 const Register = () => {
-//   const { isLoggedIn } = useContext(AuthContext);
-const navigate = useNavigate()
+  //   const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [Location, setLocation] = useState("");
@@ -18,121 +17,124 @@ const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const role_id = 1;
-  //create state message to show err in request on client side
-  const [message, setMessage] = useState("");
-  ////create state message to show result in request on client side
-  const [message1, setMessage1] = useState("");
-  //create state "status" to show message or message1
-  const [status, setStatus] = useState(false);
+  
 
   // =================================================================
 
-  const addNewUser =  () => {
-    
-       axios.post("http://localhost:5000/register", {
+  const addNewUser = (e) => {
+    e.preventDefault()
+    axios
+      .post("http://localhost:5000/register", {
         firstName,
         lastName,
-        Location,
+        Location: "amman",
         mobile,
         email,
         password,
         role_id,
       })
-      .then((result)=>{
-        console.log(result)
-        setMessage1(result.data.massage)
-        setStatus(false)
-        alert(result.data.massage)
-        navigate("/")
-        
+      .then((result) => {
+        console.log(result);
+        alert(result.data.massage);
+        navigate("/");
       })
-      .catch((err)=>{
-        setStatus(true)
-        setMessage(err.response.data.massage)
-        console.log(message)
-        console.log(err)
-        alert(err.response.data.massage)
-      })
-      
+      .catch((err) => {
+        console.log(err);
+        alert(err.response.data.massage);
+      });
   };
 
   // =================================================================
 
   return (
     <>
-    <Navbar_b_token/>
+      <Navbar_b_token />
       <div className="Form">
-      <p className="Title">Create Account</p>
-      <p>Please register below account detail</p>
-            <form >
-              <br />
-              <label>first Name</label><br></br>
-              <input className="input_register"
-                type="text"
-                placeholder="First Name"
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              <br />
-              <label>last Name</label><br></br>
-              <input className="input_register"
-                type="text"
-                placeholder="Last Name"
-                onChange={(e) => setLastName(e.target.value)}
-              />
-              <br />
-              <label>your Location</label><br></br>
-              {/* <input className="input_register"
-                type="test"
-                placeholder="locaion"
-                onChange={(e) => setLocation(e.target.value)}
-              /> */}
-              <select id="city" className="id1" name="city">
-    <option value="">Select City</option>
-    <option value="Maan">Maan</option>
-    <option value="alkarak">alkarak</option>
-    <option value="Al salt">Al salt</option>
-    <option value="Amman">Amman</option>
-    <option value="Madaba">Madaba</option>
-    <option value="Jarash">Jarash</option>
-    <option value="Ajloun">Ajloun</option>
-    <option value="Al mafraq">Al mafraq</option>
-    <option value="Alzarqa">Alzarqa</option>
-    <option value="Irbid">Irbid</option>
-    <option value="Al Aqaba">Al Aqaba</option>
-    <option value="Altafila">Altafila</option>
+        <p className="Title">Create Account</p>
+        <p>Please register below account detail</p>
+        <form>
+          <br />
+          <label>first Name</label>
+          <br></br>
+          <input
+            className="input_register"
+            type="text"
+            placeholder="First Name"
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <br />
+          <label>last Name</label>
+          <br></br>
+          <input
+            className="input_register"
+            type="text"
+            placeholder="Last Name"
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <br />
+          <label>your Location</label>
+          <br></br>
 
+          <select className="id1" name="city">
+            <option value="">Select City</option>
+            <option value="Maan">Maan</option>
+            <option value="alkarak">alkarak</option>
+            <option value="Al salt">Al salt</option>
+            <option value="Amman">Amman</option>
+            <option value="Madaba">Madaba</option>
+            <option value="Jarash">Jarash</option>
+            <option value="Ajloun">Ajloun</option>
+            <option value="Al mafraq">Al mafraq</option>
+            <option value="Alzarqa">Alzarqa</option>
+            <option value="Irbid">Irbid</option>
+            <option value="Al Aqaba">Al Aqaba</option>
+            <option value="Altafila">Altafila</option>
+          </select>
+          <br />
+          <label>mobile</label>
+          <br></br>
+          <input
+            className="input_register"
+            placeholder="mobile"
+            onChange={(e) => setMobile(e.target.value)}
+          />
+          <br />
+          <label>email</label>
+          <br></br>
+          <input
+            className="input_register"
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <label>password</label>
+          <br></br>
+          <input
+            className="input_register"
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
 
-</select>
-              <br />
-              <label>mobile</label><br></br>
-              <input className="input_register"
-                type="text"
-                placeholder="mobile"
-                onChange={(e) => setMobile(e.target.value)}
-              />
-              <br />
-              <label>email</label><br></br>
-              <input className="input_register"
-                type="email"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <br />
-              <label>password</label><br></br>
-              <input className="input_register"
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <br />
-              
-              <button className="but_create" onClick={addNewUser}>Create</button>
-              <br />
-            </form>
+          <button className="but_create" onClick={(e)=>{
+            addNewUser(e)
+          }}>
+            Create
+          </button>
+          <br />
+        </form>
       </div>
-      <img className="image_login2" src="https://www.turlock.k12.ca.us/cms/lib/CA50000453/Centricity/Domain/1539/register.png"></img>
-            <img className="image_login3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3uGKpBGBp1ltykkNSROG7np3u1VNwc9Vxg&usqp=CAU"></img>
-          </>
+      <img
+        className="image_login2"
+        src="https://www.turlock.k12.ca.us/cms/lib/CA50000453/Centricity/Domain/1539/register.png"
+      ></img>
+      <img
+        className="image_login3"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3uGKpBGBp1ltykkNSROG7np3u1VNwc9Vxg&usqp=CAU"
+      ></img>
+    </>
   );
 };
 

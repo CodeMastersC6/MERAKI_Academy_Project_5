@@ -96,5 +96,36 @@
     filter: brightness(100%)
     
 }
+@media only screen and (max-width: 400px) {
+    body{
+        width: 400px;
+    }
+    .image_login {
+       
+        width: 200px;
+        position: relative;
+        left: 950px;
+        /* top: 200px; */
 
+    }
+    .image_login1{
+        width: 200px;
+        position: relative;
+        right: 180px;
+        /* top: 200px; */
+        /* bottom: 200px; */
+    }
+    .login_main{
+        display: grid;
+    justify-content: right;
+    justify-items: start;
+    row-gap: 10px;
+    position: relative;
+    top: 100px;
+    font-size: 30px;
+    position: relative;
+    left: 370px;
+    
+    }
+  }
 

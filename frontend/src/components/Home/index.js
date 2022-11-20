@@ -9,6 +9,7 @@ import{addCart} from "../../redux/reducer/cart"
 //===============================================================
 
 const Home = () => {
+  
   const { products } = useSelector((state) => {
     return {
       products: state.product.products,
@@ -94,7 +95,8 @@ const [hide,setHide]=useState(true)
            getAllProducts();
           }}
         >
-          <p className="category1" onClick={()=>{
+          <p className="category1" onClick={(e)=>{
+            console.log(e.target.className)
             setHide(true)
           }}>All</p>
         </div>
@@ -104,6 +106,7 @@ const [hide,setHide]=useState(true)
               className="category"
               onClick={(e) => {
                 getAllProductByCategory(e.target.innerHTML);
+               
               }}
             >
               <p onClick={()=>{
@@ -170,8 +173,10 @@ const [hide,setHide]=useState(true)
                 <div className="details_component">{"$" + product.price}</div>
                 <div className="div_but">
                   <button className="but_cart_view" onClick={(e)=>{
-                   console.log(e.target.className="active")
-                   e.target.className="active"
+                   if(e.target.className =="but_cart_view"){
+                    e.target.className="active1"
+                     
+                   }
                     
                     createNewCartByUser(product.id)
                   }}> Cart</button>
