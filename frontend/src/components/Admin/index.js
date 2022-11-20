@@ -94,10 +94,27 @@ const Admin = () => {
       </div>
       <div className="Admin_Body">
         <div className="cards">
-          <div className="card_One">Number of Users {user}</div>
-          <div className="card_One"> Number of Products{product}</div>
-          <div className="card_One"> Categories 6</div>
-          <div className="card_One"> Totla value of Payment</div>
+          <div className="card_One">
+          <div className="card_title_One"><p>Number of Active Users</p></div> 
+          <div className="card_content_One">{user}</div>
+          </div>
+          <div className="card_Two">
+          <div className="card_title_Two"><p>Number of Products</p></div> 
+          <div className="card_content_Two">{product}</div>
+          </div>
+          
+          <div className="card_Three">
+          <div className="card_title_Three"><p>Number of Categories</p></div> 
+          <div className="card_content_Three">6</div>
+          </div>
+          
+          <div className="card_Four">
+          <div className="card_title_Four"><p>Totla value of Payment</p></div> 
+          <div className="card_content_Four">116</div>
+          </div>
+          
+          
+     
         </div>
         <div className="Tables">
           <Main/>
