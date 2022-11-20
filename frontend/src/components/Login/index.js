@@ -8,7 +8,8 @@ import Navbar_b_token from "../Navbar_b_token/indes";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
-// import { GoogleLogin } from 'react-google-login';
+ import { GoogleLogin } from 'react-google-login';
+ import jwtDecode from "jwt-decode";
 // import { GoogleLogout } from 'react-google-login';
 
 // import { useGoogleLogin } from 'react-google-login'
@@ -23,7 +24,7 @@ const navigate=useNavigate()
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState(false);
-  
+  const [tokenGoogle,setTokenGoogle]=useState({})
 
   //===============================================================
 
@@ -45,8 +46,12 @@ const navigate=useNavigate()
         }
     }
         console.log(result) 
+      
+
          {localStorage.setItem("firstName",result.data.firstName)}
          {localStorage.setItem("token",result.data.token)}
+    
+
          {localStorage.setItem("userId",result.data.userId)}
 
     })
@@ -58,14 +63,20 @@ const navigate=useNavigate()
     })
   };
   const responseGoogle = (response) => {
-    console.log(response);
-   
-        // console.log('Success',response.profileObj);
-        console.log('Success',response.tokenId);
+    const result =response.profileObj;
+    const token=response.tokenId;
+    console.log(token,result);
+    try{
+        dispatch({type:"auth",data:{result,token}})
+       navigate("/home")
+    }catch(error){
+        console.log(error);
+    }
+//console.log(response);
     
   }
-  const onFailure=(response)=>{
-console.log( 'onFailure response:',response);
+  const onFailure=(err)=>{
+console.log( 'onFailure response:',err);
   }
   
     return (
@@ -83,15 +94,15 @@ console.log( 'onFailure response:',response);
             <input placeholder="password" type={"password"} onChange={(e)=>{
                 setPassword(e.target.value)
             }}></input>
-            {/* <p className="siginWithGoogle"> <GoogleLogin
+           <GoogleLogin onClick={()=>{navigate('/home')}}
   clientId="994328639474-ub85dkgodp4vrm5nvfaemiklfko5jpt9.apps.googleusercontent.com"
   onSuccess={responseGoogle}
   onFailure={onFailure}
   cookiePolicy={'single_host_origin'}
-  isSignedIn={true}
+  isSignedIn={false}
   accessType='offline'
-
-onClick={''}  /></p> */}
+  
+  />
             {status&&<p className="message_response">{message}</p>}
 
             <button  onClick={login}>Sign in</button>

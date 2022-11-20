@@ -14,6 +14,7 @@ const authSlice = createSlice({
         state.token = action.payload
         localStorage.setItem("token",state.token)
         state.isLoggedIn = true
+        
     },
     setUserId :(state,action)=>{
         state.userId = action.payload
