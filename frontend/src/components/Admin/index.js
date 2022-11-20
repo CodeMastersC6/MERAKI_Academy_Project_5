@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import Main from "../Charts";
 // get all products
 // add products
 // edit product
@@ -100,6 +100,7 @@ const Admin = () => {
           <div className="card_One"> Totla value of Payment</div>
         </div>
         <div className="Tables">
+          <Main/>
           <div className="Table"></div>
           <div className="Table">Table 2</div>
         </div>

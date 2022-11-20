@@ -2,6 +2,7 @@ const {pool} = require("../models/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+  
 const login = (req, res) => {
   const password = req.body.password;
   const email = req.body.email;
