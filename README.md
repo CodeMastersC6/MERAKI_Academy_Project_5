@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://files.slack.com/files-pri/T03Q52TGNHX-F04BU8XTVHP/groceries__2_.png" 
+ <img width=210px height=210px src="https://trello.com/1/cards/637a88084fe3ab0029f2f0e7/attachments/637a88134ce41500ac577a14/previews/637a88144ce41500ac577a4d/download/Groceries_%282%29.png" 
  alt="Project logo"></a>
 </p>
 
@@ -27,8 +27,8 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Are you looking for a quick and easy way to shop for your needs? **(Dokaneh)**  is the largest and fastest app to do it for you. 
-It helps you to  **(buy what you need)** .
+-Are you looking for a quick and easy way to shop ? **(Dokaneh)**  is the <br>-Largest and fastest app to do it for you. <br>
+It helps you to  **(buy what you need)** in a simple way .<br>
  **(Dokaneh)**  provides a simple design to ensure the best experience and the fastest shopping.
 
  
@@ -86,6 +86,8 @@ Now app ready to use
 - [ElephantSql](https://customer.elephantsql.com/login) - Database
 - [Express JS](https://expressjs.com/) - Server Framework
 - [React JS](https://https://reactjs.org/) - Web Framework
+- [Redux  JS](https://redux.js.org/introduction/getting-started) - Web Framework
+
 - [Node JS](https://nodejs.org/en/) - Server Environment
 
 ## User Story <a name = "#user_story"></a>
@@ -100,9 +102,19 @@ Your trello board link
 ## ❤️ To Communicate <a name = "To_Communicate"></a>
 To communicate with team members 
     <br> 
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/> <br>
  **[Abdullah Albustanji](https://www.linkedin.com/in/abdullahalbustanji/)** --
 **[Anas alhawi](https://www.linkedin.com/in/anashawi/)** --
 **[Mohammad Asfour](https://www.linkedin.com/in/mohammad-asfour-/)** .
+ <br>
+
+ <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+
+ 
+ **[Abdullah Albustanji](abdulla.albustanji@gmail.com)** --
+**[Anas alhawi](anas.moh.alhawi@gmail.com)** --
+**[Mohammad Asfour](mohammad.asfo@gmail.com)** .
+
 ## ⚠️ Guided By <a name = "guided_by"></a>
 
 This project is guided by ©️ **code-masters**
