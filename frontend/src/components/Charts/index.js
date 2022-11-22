@@ -133,7 +133,11 @@ class Main extends React.Component {
             <VictoryAxis
               tickFormat={["meat", "bread", "Yougart", "Fruits", "Vigtables","Juice",]}
             />
+<<<<<<< HEAD
         
+=======
+        <VictoryChart/>
+>>>>>>> 853ed5cc6b8bffa5cac22bfac1012a3ce331175d
         <h1  className='h1'>(The rate of production in each category.) ®</h1>
       </div>
       <VictoryChart 

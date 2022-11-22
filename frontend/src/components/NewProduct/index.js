@@ -1,10 +1,10 @@
 import "./style.css";
-import React, { useState,  } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const NewProduct = () => {
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const [productName, setProductName] = useState(0);
   const [productType, setProductType] = useState();
   const [productPrice, setProductPrice] = useState(false);
@@ -18,24 +18,19 @@ const navigate=useNavigate()
   let newProductDescription;
   let newProductStatus;
 
-  const selectFunction = (value) => {
-
-  };
+  const selectFunction = (value) => {};
 
   const createNewProduct = () => {
     axios
-      .post(
-        "http://localhost:5000/product",
-        {
-          name: productName,
-          category: productType,
-          price: productPrice,
-          description: productDescription,
-          image: productImage,
-        }
-      )
+      .post("http://localhost:5000/product", {
+        name: productName,
+        category: productType,
+        price: productPrice,
+        description: productDescription,
+        image: productImage,
+      })
       .then((response) => {
-        console.log(response.data.massage)
+        console.log(response.data.massage);
         newProductStatus = response.data.message;
         setProductStatus(newProductStatus);
       })
@@ -97,14 +92,9 @@ const navigate=useNavigate()
         </div>
       </div>
       <div className="Admin_Body">
-          <div className="Master">
-      <div className="createProductContainer">
-        <div className="createProductDiv">
-          <div className="mainDiv">
-            <p>Product Name:</p>
-          </div>
-          <div>
-            <input
+        <div className="createProductContainer">
+          <div className="createProductDiv">
+            <input className="new_item_input"
               placeholder="Product Name ? "
               onChange={(e) => {
                 newProductName = e.target.value;
@@ -112,13 +102,9 @@ const navigate=useNavigate()
               }}
             ></input>
           </div>
-        </div>
-        <div className="createProductDiv">
-          <div className="mainDiv">
-                       <p>Description:</p>
-          </div>
-          <div>
-            <input
+
+          <div className="createProductDiv">
+            <input className="new_item_input"
               placeholder="Product Descritption"
               onChange={(e) => {
                 newProductDescription = e.target.value;
@@ -126,13 +112,9 @@ const navigate=useNavigate()
               }}
             ></input>
           </div>
-        </div>
-        <div className="createProductDiv">
-          <div className="mainDiv">
-            <p>Price:</p>
-          </div>
-          <div>
-            <input
+
+          <div className="createProductDiv">
+            <input className="new_item_input"
               placeholder="Price"
               type={"number"}
               onChange={(e) => {
@@ -141,56 +123,51 @@ const navigate=useNavigate()
               }}
             ></input>
           </div>
-        </div>
-        <div className="createProductDiv">
-          <div className="mainDiv">
-            <p>Product Category:</p>
-          </div>
-          <div>
-            <select
+
+          <div className="createProductDiv">
+            <select className="new_item_input"
               onChange={(e) => {
-                newProductType=e.target.value
+                newProductType = e.target.value;
                 setProductType(newProductType);
-                console.log(newProductType)
+                console.log(newProductType);
               }}
             >
               <option>Meat</option>
               <option>Bread</option>
-              <option>Yougart</option> 
-              <option>Fruits</option> 
+              <option>Yougart</option>
+              <option>Fruits</option>
               <option>Vigtables</option>
               <option>Juice</option>
             </select>
-          </div> 
-          <div className="mainDiv">
-            <p>Product Image:</p>
           </div>
-          <div>
-        <input
-          type="file"
-          onChange={(e) => {
-            convertToBase64(e.target.files[0]);
-          }}
-        ></input>
+
+          <div className="createProductDiv_2">
+            <p>Product Image </p><input 
+              type="file"
+              onChange={(e) => {
+                convertToBase64(e.target.files[0]);
+              }}
+            ></input>
+          </div>
+
+          <div className="createProductDiv_3">
+            <button
+              className="createButton"
+              onClick={() => {
+                createNewProduct();
+                navigate("/admin/products");
+              }}
+            >
+              Add Product
+            </button>
+          </div>
         </div>
       </div>
-      </div>
-     
+
       <div>
-        <button
-          className="createButton"
-          onClick={() => {
-            createNewProduct();
-            navigate("/admin/products")          }}
-        >
-          Add Product
-        </button>
-      </div>
-      <div><p>{productStatus}</p></div>
-    </div>
+        <p>{productStatus}</p>
       </div>
     </div>
-    
   );
 };
 export default NewProduct;
