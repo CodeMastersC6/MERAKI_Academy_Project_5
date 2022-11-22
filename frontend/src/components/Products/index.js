@@ -145,7 +145,7 @@ const Products = () => {
         </div>
       </div>
       <div className="product_body">
-        <div className="product_Details_Head"><div>Image</div><div>Name</div><div>Discription</div><div>Category</div><div>Price</div><div>Edit</div><div>Delete</div></div>
+        <div className="product_Details_Head"><div>Image</div><div>Name</div><div>Discription</div><div>Category</div><div>Price</div><div>Delete</div><div>Update</div></div>
         {productList &&
           productList.map((element, i) => {
             return (
