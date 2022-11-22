@@ -83,17 +83,7 @@ class Main extends React.Component {
             <VictoryAxis
               tickValues={["August", "September", "October ", "November"]}
             />
-<<<<<<< HEAD
 
-        <h1  className='h1'>(The rate of production in each category.) ®</h1>
-      </div>
-      <VictoryChart 
-      width={400} 
-      height={400} 
-      scale={{ x: data }}
-      tickValues={["August", "September", "October ", "November"]}
-=======
->>>>>>> 28d08d10e4e5aa10ea1e16ae0eccf3187bd221cc
 
             <VictoryAxis dependentAxis tickFormat={(x) => `JD${x / 1}`} />
             <VictoryStack colorScale={"green"}>

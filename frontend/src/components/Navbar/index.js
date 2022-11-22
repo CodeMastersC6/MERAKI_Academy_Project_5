@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 import {AiTwotoneHeart} from 'react-icons/ai'
 import {FiLogOut} from 'react-icons/fi'
+const logo = require('./Groceries.png')
 //===============================================================
 
 const NavBar = () => {
@@ -55,9 +56,7 @@ const NavBar = () => {
             <div className="Navbar_Link">
               <div className="link">
                 <img
-                  className="logo"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA9JLwYrxicQ2ZLA7XDINTzPasrI-5sx6onA&usqp=CAU"
-               onClick={()=>{
+                 className="image_icons" src={logo} onClick={()=>{
                 navigate("/home")
                }} />
               </div>
