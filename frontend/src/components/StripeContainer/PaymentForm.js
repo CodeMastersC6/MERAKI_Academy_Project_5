@@ -27,6 +27,7 @@ const CARD_OPTIONS = {
 }
 
 export default function PaymentForm() {
+    const total1 = localStorage.getItem("total")
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
@@ -45,7 +46,7 @@ export default function PaymentForm() {
         try {
             const {id} = paymentMethod
             const response = await axios.post("http://localhost:5000/payment", {
-                amount: 2000,
+                amount: total1,
                 id
             })
 

@@ -46,6 +46,7 @@ const Home = () => {
       });
   };
   const UserIdStorage = localStorage.getItem("userId")
+  console.log(UserIdStorage)
 const createNewCartByUser=(id)=>{
   axios
       .post(`http://localhost:5000/cart`,{

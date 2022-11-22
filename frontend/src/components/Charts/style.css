@@ -1,19 +1,7 @@
 .chartMain{
-    display: grid;
-   
-    height: 50%;
-    width: 50%;
-  /* gap: 1%; */
+
+    display: flex;
 
 }
 
-.charts{
-    height: 100%;
-    width: 100%;
 
-}
-.h1{
-    margin-left: 36%;
-   
-    font: 1.5rem sans-serif;
-}

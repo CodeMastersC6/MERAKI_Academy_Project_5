@@ -20,7 +20,7 @@ const productRouter = express.Router();
 
 productRouter.post("/",createNewProduct);
 productRouter.get("/",getAllProduct);
-productRouter.put("//:id", updateProductById);
+productRouter.put("/:id", updateProductById);
 productRouter.delete("/:id", deleteProductById);
 productRouter.get("/category/:category", getProductsByCategory);
 productRouter.get("/page/:id", PaginationAllProduct);
