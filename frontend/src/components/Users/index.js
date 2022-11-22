@@ -144,31 +144,34 @@ const Users = () => {
           Users
         </div>
       </div>
-      <div className="Admin_Body">
+      <div className="product_body">
+      <div className="product_Details_Head"><div>ID</div><div>First Name</div><div>Last Name</div><div>Email</div><div>Mobile</div><div>Location</div><div>Delete</div></div>
+
         {productList &&
           productList.map((element, i) => {
             return (
               <>
                 <div className="product_Details">
+                  
                 <div>
-                    <p>ID:{element.id}</p>
+                    <p>{element.id}</p>
                  </div>
                   <div>
-                    <p>First Name:{element.firstname}</p>
+                    <p>{element.firstname}</p>
                  </div>
 
                   <div>
-                    <p>Last Name:{element.lastname}</p>
+                    <p>{element.lastname}</p>
                   </div>
                   <div>
-                    <p>Email:{element.email}</p>
+                    <p>{element.email}</p>
+                     </div>
+                 
+                  <div>
+                    <p>{element.mobile}</p>
                      </div>
                   <div>
-                  <div>
-                    <p>Mobile:{element.mobile}</p>
-                     </div>
-                  <div>
-                    <p>Location:{element.location}</p>
+                    <p>{element.location}</p>
                       </div>
                   <div>
                     <button
@@ -180,7 +183,7 @@ const Users = () => {
                     </button>
                    
                   </div>
-                  </div>
+                
                   </div>
 
    
