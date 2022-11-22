@@ -118,13 +118,8 @@ const Admin = () => {
         </div>
         <div className="Tables">
           <Main/>
-          <div className="Table"></div>
-          <div className="Table">Table 2</div>
         </div>
-        <div className="Tables">
-          <div className="Table">Table1</div>
-          <div className="Table">Table 2</div>
-        </div>
+        
       </div>
     </div>
   );
