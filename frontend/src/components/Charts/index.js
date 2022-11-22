@@ -84,6 +84,7 @@ class Main extends React.Component {
               tickValues={["August", "September", "October ", "November"]}
             />
 
+
             <VictoryAxis dependentAxis tickFormat={(x) => `JD${x / 1}`} />
             <VictoryStack colorScale={"green"}>
               <VictoryBar data={data2022} x={"quarter"} y={"Sales"} />
