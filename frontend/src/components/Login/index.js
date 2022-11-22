@@ -96,7 +96,12 @@ onClick={''}  /></p>
             
         </div>
         <img className="image_login" src="https://img.freepik.com/premium-vector/online-registration-sign-up-with-man-sitting-near-smartphone_268404-95.jpg?w=2000"></img>
-            <img className="image_login1" src="https://img.freepik.com/premium-psd/login-page-3d-icon-premium-psd_418302-3022.jpg?w=2000"></img>
+        <div className="image_login3">
+      <h1>Why should you log in?</h1>
+      <p>You cannot start the browsing and purchasing process by first going through the login process for the ability to browse and purchase products and start the payment process.</p>
+      <p>There is something about the saree that makes a woman look dignified, glorifying and every bit stylish. Mikshaa was set up in the year 2017 with a motive to offer its designer collection at competitive price and merchantable quality to its whole seller and worldwide online customer.</p>
+      <p>In the event that you log in as a user, it will take you directly to the home page, but if it is an admin, it will take you directly to the admin page</p>
+      </div>
         </>
     )
 }
