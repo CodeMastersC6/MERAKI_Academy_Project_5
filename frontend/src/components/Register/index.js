@@ -130,10 +130,13 @@ const Register = () => {
         className="image_login2"
         src="https://www.turlock.k12.ca.us/cms/lib/CA50000453/Centricity/Domain/1539/register.png"
       ></img>
-      <img
-        className="image_login3"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3uGKpBGBp1ltykkNSROG7np3u1VNwc9Vxg&usqp=CAU"
-      ></img>
+      <div className="image_login3">
+      <h1>Why use Dokaneh website?</h1>
+      <p>Dokaneh allows us to shop online with ease, with the availability of all household and personal supplies, and the availability of all payment methods with home delivery service.</p>
+      <p>There is something about the saree that makes a woman look dignified, glorifying and every bit stylish. Mikshaa was set up in the year 2017 with a motive to offer its designer collection at competitive price and merchantable quality to its whole seller and worldwide online customer.</p>
+      <img className="image_last" src="https://oyelabs.com/wp-content/uploads/2020/06/Best-Grocery-Delivery-Apps-1.jpg"></img>
+      </div>
+      
     </>
   );
 };

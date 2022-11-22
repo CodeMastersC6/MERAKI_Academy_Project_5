@@ -29,12 +29,13 @@ const Cart = () => {
   });
   console.log("userId:", userId);
  const UserId1= localStorage.getItem("userId")
+ console.log(UserId1)
   //create function getAllCart
   useEffect(() => {
     axios
       .get(`http://localhost:5000/cart/${UserId1}`)
       .then((result) => {
-        setMessage("Success");
+        // setMessage("Success");
         // setCart(result.data.result);
         dispatch(setCart(result.data.result));
 
@@ -146,6 +147,7 @@ const Cart = () => {
             className="ProceedToCheckout"
             onClick={(e) => {
               Navigate("/payment");
+              localStorage.setItem("total",sum)
             }}
           >
             Proceed to checkout

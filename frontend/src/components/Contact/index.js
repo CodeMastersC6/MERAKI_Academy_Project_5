@@ -6,7 +6,7 @@ import {AiOutlineMail} from 'react-icons/ai'
 import Footer from "../Footer"
 import Navbar_b_token from "../Navbar_b_token/indes"
 const Contact = ()=>{
-   
+   const [send,setSend]=useState(false)
    
     return(
         <div>
@@ -24,19 +24,22 @@ const Contact = ()=>{
             <div className="contact_left">
                 
                 <h1>Drop us message</h1>
-                <label>Name</label>
+                <label className="label_1">Name</label>
                 <input placeholder="Enter your name"></input>
-                <label>Email</label>
+                <label className="label_1">Email</label>
                 <input placeholder="Enter your email address*"></input>
-                <label>Message</label>
+                <label className="label_1">Message</label>
                 <textarea placeholder="Your message here"></textarea>
                 <button className="submit_button"onClick={(e)=>{
                     if(e.target.className=="submit_button"){
                         console.log(e)
                         e.target.className ="active_1"
+                        setSend(true)
                        
                     }
                 }}>Submit</button>
+                               { send&&<p className="sended">has been sended</p>}
+
             </div>
             <div className="Contact_right">
                 <h1>Get in Touch</h1>

@@ -21,7 +21,7 @@ useEffect(()=>{
  
 
   <img className="image_icons" src={logo}></img>
-  <p className="p_logo">docana</p>
+  <p className="p_logo">Dokaneh</p>
   
   
       
