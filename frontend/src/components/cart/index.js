@@ -10,14 +10,14 @@ import {
   setCart,
 } from "../../redux/reducer/cart";
 
-
+import { AiOutlineDelete
+} from 'react-icons/ai';
 const Cart = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [message, setMessage] = useState("");
-  const [totPrice, setTotPrice] = useState(0);
-  const [idCart, setIdCart] = useState("");
+ 
 
   const [quantity, setQuantity] = useState(0);
 
@@ -81,91 +81,133 @@ const Cart = () => {
   return (
     <>
     
-    <div className="cartMain">
-   
-      <p className="MyCart">My Cart</p>
-      <div>
+    <section class="section-pagetop-bg">
+       <div class="container">
+           <h2 class="title-page">Shopping cart</h2>
+       </div> 
+       </section>
+       
+       <section class="section-content-padding-y">
+       <div class="container">
+       
+       <div class="row">
+           <main class="col-md-9">
+       <div class="card">
+       
+       <table class="table table-borderless">
+       <thead class="text-muted">
+       <tr class="small text-uppercase">
+        <div className="div_info">
+       <th scope="col" className="h">Product</th>
+       <th scope="col" width="60" className="h">Quantity</th>
+       <th scope="col" width="60" className="h">Price</th>
+       </div>
+       <th scope="col" class="text-right" width="200"> </th>
+       </tr>
+       </thead>
+       <tbody>
+       <tr>
         {cart && cart.map((elem, i) => {
-            sum+=elem.price*elem.quantity
+                      sum+=elem.price*elem.quantity
+
             return (
-              <div className="CartMap" key={i}>
-                <div className="Cart">
-                  <img className="imgCart" src={elem.image} />
-                  <div className="namePrice">
-                    <p className="nameCart">{elem.name}</p>
-
-                    <div className="SubtotalMain">
-                      <p className="priceCatr">Price:'{elem.price}.00'JD</p>
-                      <p className="Subtotal">
-                        Subtotal'{elem.price * elem.quantity}.00'JD
-                      </p>
-                    </div>
-                    <p className="QC"> Quntity: '{elem.quantity}' pc</p>
-                  </div>
-                  <div className="buttonCart">
-                    <div className="QuntityCart">
-                      <button
-                        className="QUpdate"
-                        onClick={() => {
-                          console.log(elem.cid);
-                          updateCartById(elem.cid);
-                          // setIdCart(elem.id)
-                        }}
-                      >
-                        Quntity
-                      </button>
-                      <input
-                        className="inputQ"
-                        type="number"
-                        placeholder="Choose the quantity you want"
-                        onChange={(e) => {
-                          setQuantity(e.target.value);
-                        }}
-                      />
-                      <button
-                      className="ClearCart"
-                      onClick={() => {
-                        console.log(elem.cid)
-                        deleteCartByID(elem.cid);
-                      }}
-                    >
-                      Clear
-                    </button>
-                    </div>
-                    
-                  </div>
-                </div>
-                {/* <div className="note">
-                <p>Special Instructions For Seller</p>
-                <textarea>Note</textarea>
-              </div> */}
+              
+              <div className="grid_cart">
+              <td>
+              <figure class="itemside">
+              <div class="aside">
               </div>
-            );
-          })}
-        <div className="buttonCartA">
-          <button
-            className="ProceedToCheckout"
-            onClick={(e) => {
-              Navigate("/payment");
-              localStorage.setItem("total",sum)
-            }}
-          >
-            Proceed to checkout
-          </button>
+              <figcaption class="info">
+                  <img className="image_cart" src={elem.image} ></img>
+                  <p class="small text-muted">{elem.name}</p>
+              </figcaption>
+          </figure>
+      </td>
+      <td> 
+          <select class="form-control" onChange={(e)=>{
+            setQuantity(e.target.value);
+            console.log(e.target.value)
+            
+          }}>
+              <option>1</option>
+              <option>2</option>	
+              <option>3</option>	
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select> 
+          <br></br>
+          <button className="but_123" onClick={()=>{
+            updateCartById(elem.cid);
 
-          <button
-            className="ContinueShopping"
-            onClick={(e) => {
-              Navigate("/home");
-            }}
-          >
-            Continue Shopping
-          </button>
-        </div>
+          }}>Edit</button>
+      </td>
+      <td> 
+          <div class="price-wrap"> 
+              <var class="price">{elem.price*elem.quantity+"JD"}</var> 
+          </div> 
+      </td>
+      <td class="text-right"> 
+          <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> 
+          </a> 
+          
+          <p className="p_remove" onClick={()=>{
+             deleteCartByID(elem.cid);
+          }}><AiOutlineDelete></AiOutlineDelete></p>
+      </td>
       </div>
-    </div>
-    <span className="p_totol1">Total</span>
-    <p className="p_totol">{sum +" $" }</p>
+  );
+})}
+</tr>
+  </tbody>
+  </table>
+           
+              
+       
+       <div class="card-body1">
+           <button className="but_procces" onClick={()=>{
+            Navigate("/payment");
+            localStorage.setItem("total",sum)
+           }}>Procces To Checkout  </button> 
+          
+          <button class="but_procces" onClick={()=>{
+             Navigate("/home");
+
+          }}><span>Continue To shopping </span></button>
+           
+       </div>	
+       </div> 
+       
+       <div class="alert alert-success mt-3">
+           <p class="icontext">
+            Free Delivery within 1-2 weeks</p>
+       </div>
+       
+           </main>
+           <aside class="col-md-3">
+               <div class="card mb-3">
+                   <div class="card-body">
+                  
+                   </div> 
+               </div>  
+               <div class="card">
+                   <div class="card-body">
+                           <dl class="dlist-align">
+                           <dt>Total price:</dt>
+                           <u class="text-right">{sum+" JD"}</u>
+                           </dl>
+                           
+                           <hr />
+                          
+                           
+                   </div> 
+               </div>  
+           </aside> 
+       </div>
+       
+       </div> 
+       </section>
+      
 
     </>
   );

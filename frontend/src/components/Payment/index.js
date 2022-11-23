@@ -65,12 +65,13 @@ const dispatch = useDispatch()
                         <div className="container_cart">
                             <img src={elem.image} className="image_info"></img>
                             <p>{elem.name}</p>
-                            <p>{"$"+elem.price}</p>
+                            <p>{"$"+elem.price*elem.quantity}</p>
+                            <p>{elem.quantity+" pc"}</p>
                             </div>
                             </div>
                     )
                 })}
-                <h1>Info Card</h1>
+                <h1>Discount Code</h1>
              <div className="details_card_one1">
                 <input placeholder="Discount code"></input>
                 <button className="payment_go1" onClick={()=>{
