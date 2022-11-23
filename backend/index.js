@@ -36,7 +36,7 @@ app.post("/payment", cors(), async (req, res) => {
 		})
 	}
 })
-const RoleRouter = require("./Routes/role") 
+const RoleRouter = require("./routes/role") 
 app.use("/roles",RoleRouter)
 const RegisterRouter = require("./Routes/register")
 app.use("/register",RegisterRouter)
