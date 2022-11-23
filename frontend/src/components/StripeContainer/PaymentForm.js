@@ -1,6 +1,6 @@
 import { CardElement, useElements, useStripe ,PaymentElement} from "@stripe/react-stripe-js"
 import axios from "axios"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
 import { CiCircleCheck } from "react-icons/ci";
 import emailjs from '@emailjs/browser';
@@ -28,6 +28,7 @@ const CARD_OPTIONS = {
 
 export default function PaymentForm() {
     const total1 = localStorage.getItem("total")
+    const firstName = localStorage.getItem("firstName")
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
@@ -79,11 +80,11 @@ const form = useRef();
         <div className="div_hidden">
         <form ref={form} >
       <label>Name</label>
-      <input type="text" name="user_name" />
+      <input type="text" name="user_name" value={firstName}/>
       <label>Email</label>
       <input type="email" name="user_email" value="anas.moh.alhawi@gmail.com" />
       <label>Message</label>
-      <textarea name="message" value={`success payment ${total}`}/>
+      <textarea name="message" value={`success payment ${total1}`}/>
       <input type="submit" value="Send" />
     </form>
         </div>
@@ -100,7 +101,7 @@ const form = useRef();
         </form>
         :
        <div>
-           <h2>We Send Your Email Payment Details <CiCircleCheck></CiCircleCheck></h2>
+           <h2>Payment Success ,We Send Your Email Payment Details <CiCircleCheck></CiCircleCheck></h2>
        </div> 
         }
             
