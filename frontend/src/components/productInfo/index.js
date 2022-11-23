@@ -77,9 +77,13 @@ return(
         Navigate("/home")
         console.log("home")
       }}>Back</button>
-      <button className="buttom_info" onClick={()=>{
+      <button className="buttom_info" onClick={(e)=>{
         console.log(info.id)
         createNewCartByUser(info.id)
+        if(e.target.className =="buttom_info"){
+          e.target.className="active1"
+           
+         }
       }}>Add To Cart</button>
     </div>
     
