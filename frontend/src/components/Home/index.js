@@ -86,7 +86,7 @@ const createNewCartByUser=(id)=>{
   }, [min, max]);
  
   //===============================================================
-const [hide,setHide]=useState(false)
+const [hide,setHide]=useState(true)
   return (
     <>
       <div className="categorys">
