@@ -121,18 +121,18 @@ body {
     .topnav{
       display: grid;
       position: relative;
-      width: 214%;
+      width: 180%;
     }
     .image_icons{
         position: relative;
-        left: 360px;
+        left: 290px;
         top: 30px;
         
 
     }
     .p_logo{
       position: relative;
-      left: 360px;
+      left: 290px;
       top: 20px;
     }
     .topnav a {
