@@ -38,10 +38,10 @@ app.post("/payment", cors(), async (req, res) => {
 })
 const RoleRouter = require("./routes/role") 
 app.use("/roles",RoleRouter)
-const RegisterRouter = require("./Routes/register")
+const RegisterRouter = require("./routes/register")
 app.use("/register",RegisterRouter)
 
-const RouterLogin = require("./Routes/login")
+const RouterLogin = require("./routes/login")
 app.use("/login",RouterLogin)
 
 

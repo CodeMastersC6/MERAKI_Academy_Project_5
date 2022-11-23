@@ -1,4 +1,4 @@
-const {pool} =require("../Models/db")
+const {pool} =require("../models/db")
 //create variable "bcrybt" for hash password
 const bcrypt = require("bcrypt")
 const saltRounds = parseInt(process.env.SALT||10);
